@@ -1,0 +1,148 @@
+\chapter{State of the art}
+\minitoc
+\newpage
+
+\setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
+% ----------------------- Introduction ----------------------- %
+\section{Introduction}
+This chapter will present and study various concepts such as browser automation, web scraping, version control and DevOps with an emphasis on key DevOps terminologies.
+We will talk about the most used tools in the market as well as which ones we settled on after making a comparison.
+
+\setcounter{secnumdepth}{2} % Resume counting the sections for the toc with a depth of 2 (Sections and sub-sections)
+% ----------------------------------- SECTIONS (v) ----------------------------------- %
+% ----------------------- DevOps ----------------------- %
+\section{DevOps}
+
+\subsection{Definition}
+\lipsum[2][1]
+
+\subsection{Lifecycle}
+\lipsum[2][1]
+
+\subsection{Container management}
+\lipsum[2][1]
+
+\subsubsection*{What is a container ?}
+\lipsum[2][1]
+
+\subsubsection*{What is container management ?}
+\lipsum[2][1]
+
+\subsection{CI/CD pipelines}
+\lipsum[2][1]
+
+% ----------------------- Comparative Analysis ----------------------- %
+\section{Comparative Analysis}
+In order to get started with our project, we need a wide range of tools that deal with the following areas; version control, orchestration between containers, browser automation as well as scheduled automation. For that, we did a comparative study on some of the tools the market provides.
+
+\subsection{Version Control: Git vs SVN}
+The most used tools for version control are Git and SVN. Here is a table comparing both tools.
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5}%
+    \caption{Comparative study between Git and SVN}
+    \centering
+    \medskip
+    \begin{tabularx}{1\textwidth} {
+            | >{\hsize=.5\hsize\linewidth=\hsize\centering\arraybackslash}X
+            | >{\hsize=1.25\hsize\linewidth=\hsize\justifying\arraybackslash}X
+            | >{\hsize=1.25\hsize\linewidth=\hsize\justifying\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} & \textbf {Description}                                                                                                                                   & \textbf {Advantages}                                                                                                                                                                     \\
+        \hline
+        \textbf{Git}       & \noindent Git is a distributed version control system which means that when cloning a repository, you get a copy of the entire history of that project. & \noindent Git has what's called a staging area. This means that even if you made over a 100 changes, they can be broken down to 10 commits each with their own comments and description. \\
+        \hline
+        \textbf{SVN}       & \noindent SVN or Subversion is a centralized version control system. Meaning that there is always a single version of the repository that you checkout. & \noindent SVN has one central repository – which makes it easier for managers to have more of a top down approach to control, security, permissions, mirrors, and dumps.                 \\
+        \hline
+    \end{tabularx}
+\end{table}
+In the end, both are great options. However, we will be using Git since the company already has a self-hosted GitLab instance that naturally uses Git.
+
+\subsection{Container management: Docker vs Podman}
+Although Docker is widely popular, Podman is also taking its share from the market. Especially on Red Hat systems.
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5}%
+    \caption{Comparative study between Docker and Podman}
+    \centering
+    \medskip
+    \begin{tabularx}{1\textwidth} {
+            | >{\hsize=.7\hsize\linewidth=\hsize\centering\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf {Aspect} & \textbf {Docker}                                                                                                                                                                                                                    & \textbf {Podman}                                                                                                                                                                      \\
+        \hline
+        \textbf {Definition}                & \multicolumn{2}{|>{\hsize=2.35\hsize}X|} {Docker and Podman are both  container management technologies used to build container images and store said images in a registry to then run them as containers in a target environment.}                                                                                                                                                                                         \\
+        \hline
+        \textbf {Technology}                & \noindent Docker uses the containerd daemon which does the pulling of images then hands over the creation process to a low-level runtime named runc.                                                                                & \noindent Podman uses a daemon-less approach using a technology named conmon which does the heavy lifting. It also delegates the container creation to a low-level container runtime. \\
+        \hline
+        \textbf {Specificity}               & \noindent Docker Desktop is a great feature for Docker which provides an easy way to build and distribute containers amongst developers.                                                                                            & \noindent The smallest unit in Podman is the pod. A pod is the organizational unit for containers and is directly compatible with Kubernetes.                                         \\
+        \hline
+    \end{tabularx}
+\end{table}
+We can see the similarities between the two and in theory, it shouldn't really matter which one we choose since both Docker and Podman are inter-changeable.
+
+\subsection{Deployment: Docker Swarm vs Kubernetes}
+The old deployment uses Docker Compose but that will not cut it anymore since it is not very optimized for production, especially on systems that need to scale later on as is the case here.
+Our research leads us to choosing between either Docker Swarm or Kubernetes.
+
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5}%
+    \caption{Comparative study between Docker Swarm and Kubernetes}
+    \centering
+    \medskip
+    \begin{tabularx}{1\textwidth} {
+            | >{\hsize=.7\hsize\linewidth=\hsize\centering\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf {Aspect} & \textbf{Docker Swarm}                                                                                                                                                                                                                                                              & \textbf{Kubernetes}                                                      \\
+        \hline
+        \textbf {Overview}                  & \multicolumn{2}{|>{\hsize=2.35\hsize}X|} {Docker Swarm is a lightweight, easy-to-use orchestration tool with limited offerings compared to Kubernetes. In contrast, Kubernetes is complex but powerful and it provides self-healing and auto-scaling capabilities out of the box.}                                                                            \\
+        \hline
+        \textbf {Advantages}                & \begin{itemize}[leftmargin=*, topsep=0pt, itemsep=1pt, parsep=2pt]
+            \item Straightforward to install
+            \item Takes less time to learn
+            \item Works with the Docker CLI
+        \end{itemize}                                                                                                                                                                                                                                                          & \begin{itemize}[leftmargin=*, topsep=0pt, itemsep=1pt, parsep=2pt]
+            \item Can sustain and manage large architectures and complex workloads
+            \item Has a self-healing capacity that supports automatic scaling.
+            \item Supports every operating system.
+            \item Has a large open-source community with Google's backup.
+            \item The most popular distributed system orchestrator in the world.
+        \end{itemize}                                                \\
+        \hline
+        \textbf {Disadvantages}             & \noindent It has been abandoned by Docker Inc. and is no longer maintained.                                                                                                                                                                                                        & \noindent It has a steep learning curve and requires separate CLI tools. \\
+        \hline
+    \end{tabularx}
+\end{table}
+Therefore, we will be deploying our application stack to Kubernetes since the potential is huge compared to the deprecated Docker Swarm.
+
+\subsection{Deployment management: Kubectl vs Helm}
+Since we're using Kubernetes, we have the option to deploy our microservices either with Kubectl or with Helm.
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5}%
+    \caption{Comparative study between Kubectl and Helm}
+    \centering
+    \medskip
+    \begin{tabularx}{1\textwidth} {
+            | >{\hsize=.7\hsize\linewidth=\hsize\centering\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X
+            | >{\hsize=1.15\hsize\linewidth=\hsize\justifying\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf {Aspect} & \textbf{Kubectl}                                                                                                                                                                                                                     & \textbf{Helm}                                                                                                                                                                                                                                           \\
+        \hline
+        \textbf {Overview}                  & \noindent Kubectl is the official Kubernetes command-line tool that allows running commands against Kubernetes clusters.                                                                                                             & \noindent Helm -in a nutshell- is the package manager for Kubernetes.                                                                                                                                                                                   \\
+        \hline
+        \textbf {In depth}                  & \noindent Kubectl can be used to deploy applications, inspect and manage cluster resources and also view logs. It also provides many other advanced functionality such as node tainting or setting up strategies for load balancing. & \noindent Helm helps in defining, installing and upgrading the most complex Kubernetes applications. Helm templates also provide a very clean way to avoid code duplication between similar resources in applications, such as services or deployments. \\
+        \hline
+    \end{tabularx}
+\end{table}
+Thoroughly studying our use case, we agreed to create a uniform Helm package to ship our microservices.
+We also deemed it necessary to have some common configuration that we simply apply with Kubectl such as Ingress rules or letsencrypt certificates for convenience purposes and due to the lack of time.
+% ----------------------------------- SECTIONS (^) ----------------------------------- %
+
+\setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
+% ----------------------- Conclusion ----------------------- %
+\section{Conclusion}
+In this chapter, we discussed the main concepts relevant to our project such as web scraping, automation and DevOps.
+Then we talked about some of the tools in the market and discussed some of our choices.
