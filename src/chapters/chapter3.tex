@@ -1,86 +1,99 @@
-\chapter{Analysis and specification of requirements}
-\minitoc
-\newpage
+\chapter{Analysis and Specification of Requirements}
 
-\setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
-% ----------------------- Introduction ----------------------- %
 \section{Introduction}
-In this chapter, we are going to analyze the various specifications and requirements of the whole project from development to production.
+In this chapter, we are going to analyze the various specifications and requirements of the whole ILG project from development to production.
 We will also describe the product's main features and the conception that should be met for the end result.
 
-\setcounter{secnumdepth}{2} % Resume counting the sections for the toc with a depth of 2 (Sections and sub-sections)
-% ----------------------------------- SECTIONS (v) ----------------------------------- %
-% ----------------------- Functional Requirements ----------------------- %
-\section{Functional requirements}
-Since our project is fairly voluminous, we identify what we consider the necessities for our app as follows:
+
+\section{Functional Requirements}
+Functional requirements define the specific behaviors and functionalities that the system must possess to meet user needs. This section focuses on the key functional requirements for our project, particularly the reward system and other essential functionalities.
+
+\subsection{Reward System}
+The reward system is a crucial component of the application, designed to incentivize and engage users. The key functionalities of the reward system include:
+
 \begin{itemize}
-    \item Doing something practical.
-    \item Doing another thing.
-    \item Creating some items.
-    \item Creating individual docker files for all microservices based on what they require.
+    \item \textbf{Points Accumulation:} Users earn points based on their activities and achievements within the application. The system must track and update points in real-time.
+    \item \textbf{Points Redemption:} Users can redeem their accumulated points for various rewards. The system handles the redemption process, ensuring points are correctly deducted and rewards are delivered.
+    \item \textbf{Reward Catalog:} A dynamic catalog of available rewards must be maintained, allowing users to browse and select rewards. The catalog should reflect current availability.
+    \item \textbf{User Notifications:} The system should notify users about their points balance, reward availability, and updates related to the reward system.
 \end{itemize}
 
-\subsection{Application dashboard}
+\subsection{Other Functional Requirements}
+In addition to the reward system, the application must support various other functionalities to ensure a comprehensive user experience:
 
-\subsubsection*{\underline{Use case}}
-\begin{figure}[H]
-    \centering
-    \makebox[\textwidth]{\includegraphics[width=\linewidth]{src/assets/diagrams/usecase.png}}
-    \caption{Use case diagram for the frontend dashboard}
-    \label{fig:use-case-diagram}
-\end{figure}
+\begin{itemize}
+    \item \textbf{Dynamic Equipment List:} Implement a dynamic list of equipment that updates in real-time based on user selections and other criteria.
+    \item \textbf{Bug Fixes:} Identify and fix several bugs in the existing functionalities to ensure a smooth user experience.
+    \item \textbf{Enhanced Packet View:} Enhance the packet view by adding new functionalities and improving existing features.
+    \item \textbf{Project Status Overhaul:} Overhaul the project status feature, including data migration to support the new structure.
+    \item \textbf{Role System Overhaul:} Overhaul the role system to provide more granular control and better user management.
+\end{itemize}
 
-\subsubsection{\underline{Use case textual description}}
-Here is an example of the textual description of one of the use cases scenarios:
-\begin{table}[H]
-    \renewcommand{\arraystretch}{1.5}%
-    \caption{Create Campaign's use case textual description}
-    \centering
-    \medskip
-    \begin{tabularx}{1\textwidth} {
-            | >{\hsize=0.5\hsize\linewidth=\hsize\centering\arraybackslash}X
-            | >{\hsize=1.5\hsize\linewidth=\hsize\justifying\arraybackslash}X |}
-        \hline
-        \textbf {Use Case}         & \noindent Create Campaign                                                                                                              \\
-        \hline
-        \textbf {Actor}            & \noindent User.                                                                                                                        \\
-        \hline
-        \textbf {Pre-condition}    & \noindent Authenticated User.                                                                                                          \\
-        \hline
-        \textbf {Post-condition}   & \noindent Campaign Created.                                                                                                            \\
-        \hline
-        \textbf {Basic path}       & \noindent    \begin{enumerate}
-            \item Navigate to campaign page.
-            \item Click on the "create campaign" button.
-            \item Fill in the needed information of the campaign in the popped modal form.
-            \item Validate the form then submit.
-        \end{enumerate}                                                                                                 \\
-        \hline
-        \textbf {Exceptional path} & \noindent On step 3, if the campaign sales navigator link is not valid, show "invalid campaign link" to the user and restart the step. \\
-        \hline
-    \end{tabularx}
-\end{table}
+\subsection{Backlog for Reward System and Other Functionalities}
+To ensure comprehensive development and implementation, the following items are included in the backlog:
 
-% ----------------------- Conception ----------------------- %
-\section{Conception}
-In this section, we will dive deep into the conception and the logic behind the parts of the application:
+\begin{itemize}
+    \item Add token and XP columns for the admin user overview.
+    \item Create a reward system boilerplate.
+    \item Set up RabbitMQ in NestJS and Spring applications and implement user rewards endpoints.
+    \item Allow admins to manually adjust XP/tokens.
+    \item Add token/XP to subcompany users (workers).
+    \item Gain XP when tokens are gained.
+    \item Create achievements as developers.
+    \item Add an achievement page to the subcompany user profile.
+    \item Gain tokens when a working packet is closed.
+    \item Add a checkbox in the user overview to ban a user from gaining tokens.
+    \item Create a configuration database in MongoDB (fetch RabbitMQ topics and translations from a new collection in the `config-service` database).
+    \item Admins see all XP/tokens transactions.
+    \item Achievement: Profile 100%.
+    \item Enhance the logging system with structured formats for the reward system.
+    \item Enhance the UI user profile and user achievements.
+    \item Add filtering for user achievements.
+    \item Display tokens and XP in the main navigation and show rank instead of XP in the user overview table, with a graph/tooltip to show additional info.
+    \item Create a shop page (Coming Soon).
+    \item Achievement: First work package completed.
+    \item List all possible achievements for subcompany users.
+    \item Create a FAQ page (how to earn tokens).
+    \item Allow admins to manage achievements.
+    \item Seed achievements if there are no achievements in the database.
+    \item Ensure achievement updates do not override the achievement slug.
+    \item Allow admin image uploads for achievements.
+    \item Track token and XP rewards.
+\end{itemize}
+
+\section{Technical Requirements}
+Technical requirements specify the underlying technical aspects and constraints necessary for the system to function correctly. This section outlines the technical requirements that support the functional requirements.
+
+\subsection{Data Management}
+Proper data management is essential for the application's integrity and reliability. The system must provide the following technical functionalities:
+
+\begin{itemize}
+    \item \textbf{Database Integration:} The application should interact with multiple databases, such as 'reward-service-db' and 'config-service-db,' to store and retrieve data efficiently.
+    \item \textbf{Data Synchronization:} Ensure data consistency and synchronization across different services and databases. Handle operations that span multiple microservices.
+    \item \textbf{Data Security:} Implement robust security measures to protect sensitive user data, including encryption, access control, and regular security audits.
+    \item \textbf{Backup and Recovery:} Support regular data backups and provide mechanisms for data recovery in case of failures or data loss.
+\end{itemize}
+
+\subsection{System Integration}
+Seamless integration with various external and internal systems is crucial for the application's operation. Key technical integration functionalities include:
+
+\begin{itemize}
+    \item \textbf{RabbitMQ Configuration:} Retrieve and manage RabbitMQ configurations from the config service for different microservices. Ensure reliable message queuing and processing.
+    \item \textbf{Health Checks:} Implement health checks for various microservices to monitor their status and ensure they are operating correctly.
+    \item \textbf{Deployment Pipeline:} Set up a deployment pipeline for staging and production environments, including automated testing, deployment, and monitoring of the reward system.
+\end{itemize}
 
 % --------------- Non functional Requirements --------------- %
 \section{Non-functional requirements}
 Non functional requirements describe any specification that does not add direct business value but is nonetheless crucial for the good operation of a developed software.
-For our app, what we should focus on is:
+For Aermax, what we should focus on is:
 \begin{itemize}
-    \item \textbf{Reliability and Availability:} The software should be available 24 hours a day and 7 days a week.
-    \item \textbf{Security:} Clients should be able to safely login to the dashboard with a strong authentication system.
-    \item \textbf{Maintainability and Recoverability:} We should respond to LinkedIn changes all the time as fast as possible.
-    \item \textbf{Scalability:} This is the main reason we're migrating to a new architecture in the first place.
-    \item \textbf{Documentation:} We should always document each and every step we make extensively so that new developers can onboard on the project in a fast and efficient way, which further emphasizes reliability.
+	\item \textbf{Reliability and Availability:} The software should be available 24 hours a day and 7 days a week.
+	\item \textbf{Security:} Clients should be able to safely login to the dashboard with a strong authentication system.
+	\item \textbf{Scalability:} This is the main reason we're using new microservices.
+	\item \textbf{Documentation:} We should always document each and every step we make extensively so that new developers can onboard on the project in a fast and efficient way, which further emphasizes reliability.
 \end{itemize}
-% ----------------------------------- SECTIONS (^) ----------------------------------- %
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
-% ----------------------- Conclusion ----------------------- %
 \section{Conclusion}
-In this chapter, we discussed our main objectives that we should meet during the course of our internship.
-We also discuss the various layers and services of the application.
-In what follows, we will discuss the realization part with heavy focus on DevOps and the actual implementation of the new architecture.
+Defining and implementing these functional and technical requirements is crucial for the development and success of our application. By focusing on key areas such as the reward system, dynamic equipment list, bug fixes, enhanced packet view, project status overhaul, and role system overhaul, we aim to create a robust, reliable, and user-friendly application that meets the needs of our users and stakeholders.
