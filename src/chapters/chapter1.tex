@@ -198,11 +198,7 @@ After studying the existing, we can determine its limitations:
 \end{itemize}
 
 \subsection{Proposed solution}
-The solution to these problems is refactoring the whole application to separate sub-applications or microservices where the automation and scraping processes can be scaled independently of the other parts of the application.
-This way, it will be easier to maintain and scale the different services as well as respond faster to bugs and know exactly what caused them in the first place.
-We of course have have to create and organize the deployment pipelines from start to finish in addition to creating the any hardware or software resources that we need for the deployment in the cloud.
-We also suggest going further by adding recent monitoring solutions for all of our infrastructure in order to increase the availability and the reliability of the application and ultimately improve the experience of the clients using ILG.
-
+To address the identified issues, we propose the following solutions. First, we will focus on enhancing existing features to ensure they work as expected. This includes a thorough review and testing of the functionalities to identify and fix any bugs. Additionally, we will prioritize the development of new features to meet the client's requirements. Comprehensive refactoring of the codebase will be undertaken to eliminate bad practices and improve performance. We also suggest improving the UI/UX design to enhance user experience and satisfaction. By implementing these solutions, we aim to significantly improve the application's overall performance, reliability, and user satisfaction.
 \newpage
 
 % ----------------------- Development Methodology ----------------------- %
@@ -223,15 +219,45 @@ To explain more in details, Kanban is based on a continuous workflow structure t
 Work items —represented by cards— are organized on the board where they flow from one stage of the workflow or column to the next.
 Common workflow stages are To Do, In Progress, In Review, and Done.
 
+\subsection{Scrumban methodology}
+Scrumban is a hybrid Agile methodology that combines elements of Scrum and Kanban. Here are key points about Scrumban:
 
-\subsection{The choice for ILG}
-Since this project is very susceptible to changes from outside (LinkedIn), Kanban offers the most flexibility in comparison to Scrum so that’s why we went with it instead.
+\begin{itemize}
+    \item Hybrid Methodology: Scrumban blends the flexibility of Kanban with the structure of Scrum to optimize workflow.
+    \item Continuous Improvement: Like Kanban, Scrumban emphasizes continuous improvement through visualizing workflow and limiting Work in Progress (WIP).
+    \item Iterative Approach: Scrumban maintains Scrum's iterative approach, allowing for regular review and adaptation of processes.
+    \item Adaptive Planning: Scrumban enables adaptive planning, allowing teams to adjust priorities and resources based on changing requirements.
+    \item Lean Principles: Scrumban incorporates Lean principles, such as eliminating waste and maximizing value delivery, to streamline processes.
+\end{itemize}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{src/assets/chapters/Scrumban.png}
+    \caption{The Scrumban board}
+    \label{fig:Scrumban_image}
+\end{figure}
 
+\subsection{The choice for AERMAX}
+Scrumban has been chosen as the preferred development methodology for the following reasons:
+\begin{itemize}
+    \item \textbf{Flexibility:} Flexibility is a key characteristic of Scrumban, as it combines the structure of Scrum with the adaptability of Kanban. This allows teams to respond quickly to changes in priorities or requirements, while still having a framework to guide their work.
+    \item \textbf{Continuous Improvement:} Continuous improvement is strongly encouraged in Scrumban, as teams are allowed to evolve their processes over time. Regular reflection and adjustment promote more efficient workflows, leading to a more productive development process.
+    \item \textbf{Reduced Waste:} Scrumban helps reduce waste in the development process by emphasizing just-in-time delivery and limiting work in progress. Teams focus on completing tasks before starting new ones, which leads to a smoother flow and faster delivery.
+    \item \textbf{Improved Visibility:} With Scrumban's visual boards, teams have improved visibility into their work. Everyone can see what tasks are in progress, what's completed, and what's next, fostering transparency and collaboration.
+    \item \textbf{Optimized Flow:} Scrumban optimizes flow by balancing the flexibility of Kanban with the structured approach of Scrum. This enables teams to deliver value more consistently and predictably, leading to happier customers and stakeholders.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=14cm]{src/assets/chapters/aermax-board.png}}
+    \caption{Aermax Board}
+    \label{fig:armax-board}
+\end{figure}
+ 
 \subsection{Unified Modeling Language}
 The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering that is intended to provide a standard way to visualize the design of a system. In our case, we used UML to design the top level view of the systems therefore we only used the Use Case and Sequence diagrams.
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 % ----------------------- Conclusion ----------------------- %
 \section{Conclusion}
-In this chapter, we presented not only the host organization but also the general context of the project and why it's needed.
+In conclusion, this chapter began with an introduction to the host organization, followed by a detailed assessment of the identified problems and their associated challenges. We then proceeded to evaluate the competitive landscape to understand the key issues we aim to address. Lastly, we described our team’s adoption of an agile methodology, emphasizing its role in enhancing flexibility and collaboration. The upcoming chapter will delve into Sprint 0, marking the commencement of the project. This phase involves establishing objectives and laying out the roadmap for subsequent sprints.
