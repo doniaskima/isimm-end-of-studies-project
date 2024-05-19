@@ -124,6 +124,51 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
     Feature & Dynamic Equipment List & The ticket describes an issue with a dynamic equipment list system where equipment items are grouped and managed. & High & Donia Skima & Done \\
     \hline
     \end{longtable}
+    \subsection{Dynamic Equipment List}
+    \subsubsection{Previous Implementation}
+    The Dynamic Equipment List feature was previously implemented as a static list. This static list required manual updates and did not reflect real-time changes to the equipment database. The key characteristics of the static implementation included:
+    \begin{itemize}
+        \item Manual updates to the equipment list.
+        \item Limited flexibility and responsiveness to changes.
+        \item High maintenance overhead due to frequent updates.
+    \end{itemize}
     
-
+    \subsubsection{Issues with Static Implementation}
+    The static implementation had several drawbacks:
+    \begin{itemize}
+        \item \textbf{Scalability:} As the number of equipment items grew, maintaining the static list became increasingly cumbersome.
+        \item \textbf{Real-time Updates:} Any changes to the equipment database were not immediately reflected in the list, leading to potential inconsistencies.
+        \item \textbf{User Experience:} Users could not rely on the list for up-to-date information, which impacted their ability to make informed decisions.
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{src/assets/chapters/StaticDynamicEquipementList.png}
+        \caption{Previous Static Equipment List}
+        \label{fig:static_equipment_list}
+    \end{figure}
+    
+    \subsubsection{Planned Dynamic Implementation}
+    To address these issues, we are transitioning to a dynamic equipment list. The dynamic implementation will automatically update the list based on changes in the equipment database, ensuring real-time accuracy and reducing maintenance overhead. Key features of the dynamic implementation include:
+    \begin{itemize}
+        \item \textbf{Real-time Updates:} The list will automatically reflect changes made to the equipment database.
+        \item \textbf{Improved Scalability:} The system can handle an increased number of equipment items without additional maintenance.
+        \item \textbf{Enhanced User Experience:} Users will have access to up-to-date information, improving their ability to make decisions.
+        \item \textbf{Reduced Maintenance:} Eliminates the need for manual updates, reducing the time and effort required to maintain the list.
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{src/assets/chapters/DynamicEquipementAdmin.PNG}
+        \caption{Planned Dynamic Equipment List - Admin View}
+        \label{fig:dynamic_equipment_list_admin}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{src/assets/chapters/DynamicEquipementSubcompany.PNG}
+        \caption{Planned Dynamic Equipment List - Subcompany View}
+        \label{fig:dynamic_equipment_list_subcompany}
+    \end{figure}
+    
 This table reflects our commitment to transparency and organization. Each task was clearly defined, assigned, and tracked throughout Sprint 1.
