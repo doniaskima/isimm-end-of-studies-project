@@ -13,31 +13,48 @@ During the Sprint Planning meeting, the effort for each task in the first and se
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/reward-system-backloog.png}
-    \caption{Aermax Project Sprint Backlog and Issue Board Snapshot}
+    \includegraphics[width=1\textwidth]{src/assets/chapters/reward-system-backloog.png}
+    \caption{Reward System Sprint Backlog and Issue Board Snapshot}
     \label{fig:sprint_backlog_and_issue_board}
 \end{figure}
 
 \begin{table}[H]
-\centering
-\caption{Backlog of Sprint 2}
-\label{tab:backlog_sprint_2}
-\begin{tabular}{|c|p{4cm}|p{6cm}|c|}
-\hline
-\textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation (hours)} \\ \hline
-2 & Secure Reward System Integration with Keycloak Authentication & Reward Access Security & 9 \\ \hline
-2 & Token and XP Management & Add tokens/XP adjustment dialogs & 8 \\ \hline
-2 & Token and XP Management & Add token and XP columns for the admin user overview & 10 \\ \hline
-2 & Token and XP Management & Add token/xp to subcompany users (workers) & 2 \\ \hline
-2 & Token and XP Management & Admins manually adjust xp/tokens & 4 \\ \hline
-2 & Token and XP Management & Gain XP if you gain tokens & 5 \\ \hline
-2 & Achievements and Rewards Management & Create achievement as developers & 6 \\ \hline
-2 & Achievements and Rewards Management & Achievement: Profile 100\% & 6 \\ \hline
-2 & Achievements and Rewards Management & Add achievement page to the subcompany user profile & 5 \\ \hline
-2 & Achievements and Rewards Management & Add checkbox in user overview to ban a user from gaining tokens & 3 \\ \hline
-2 & Achievements and Rewards Management & Gain tokens when a working packet is closed & 13 \\ \hline
-\end{tabular}
-\end{table}
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \caption{Sprint Planning}
+    \label{tab:sprint_planning}
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.3\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.2\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.2\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=0.3\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Time} \\
+        \hline
+        2 & Secure Reward System Integration with Keycloak Authentication & Reward Access Security & 9h \\
+        \hline
+        2 & Token and XP Management & Add tokens/XP adjustment dialogs & 8h \\
+        \hline
+        2 & Token and XP Management & Add token and XP columns for the admin user overview & 10h \\
+        \hline
+        2 & Token and XP Management & Add token/xp to subcompany users (workers) & 2h \\
+        \hline
+        2 & Token and XP Management & Admins manually adjust xp/tokens & 4h \\
+        \hline
+        2 & Token and XP Management & Gain XP if you gain tokens & 5h \\
+        \hline
+        2 & Achievements and Rewards Management & Create achievement as developers & 6h \\
+        \hline
+        2 & Achievements and Rewards Management & Achievement: Profile 100\% & 6h \\
+        \hline
+        2 & Achievements and Rewards Management & Add achievement page to the subcompany user profile & 5h \\
+        \hline
+        2 & Achievements and Rewards Management & Add checkbox in user overview to ban a user from gaining tokens & 3h \\
+        \hline
+        2 & Achievements and Rewards Management & Gain tokens when a working packet is closed & 13h \\
+        \hline
+    \end{tabularx}
+    \end{table}
 
 
 \section{Specification}
@@ -50,45 +67,49 @@ In this section, a detailed breakdown of selected user stories is presented in a
     \item \textbf{Acceptance Criteria:} Lists the specific conditions that must be fulfilled for the user story to be regarded as complete and ready for integration.
 \end{itemize}
 
-\begin{longtable}{|m{3cm}|m{12cm}|}
-\caption{User Stories Specification} \label{tab:user_stories_specification} \\
-\hline
-\textbf{Epic} & \textbf{User Story} \\
-\hline
-\endfirsthead
-\multicolumn{2}{c}{{\tablename\ \thetable{} -- continued from previous page}} \\
-\hline
-\textbf{Epic} & \textbf{User Story} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
 
-Secure Reward System Integration with Keycloak Authentication &
-\textbf{Preconditions:} \newline A reward system is already in place but lacks secure user authentication. Keycloak is chosen as the authentication solution, ready for setup. \newline
-\textbf{Business Rules:} \newline Access to the reward system is strictly limited to verified users. Users must log in through Keycloak, ensuring their identity is securely confirmed. Each user's access rights are determined based on their role. \newline
-\textbf{Technical Specifications:} \newline Implement a secure login system using Keycloak. Customize login settings to fit our specific needs, including how users are verified and the level of access they have. Use special security checks to continuously verify that user interactions are safe and authorized. \newline
-\textbf{Acceptance Criteria:} \newline Users cannot access the reward system without logging in through Keycloak. After logging in, the system identifies the user's role and grants access accordingly. The reward system logs and monitors each user's actions. The integration passes all security tests. \\
-\hline
-
-Token and XP Management &
-\textbf{Preconditions:} \newline A functional admin dashboard exists. Users and subcompany (worker) accounts are distinguishable within the system. \newline
-\textbf{Business Rules:} \newline Only authorized administrators can view and adjust tokens and XP. Token and XP adjustments must be logged for transparency and auditing. The relationship between token acquisition and XP gains is predefined. \newline
-\textbf{Technical Specifications:} \newline Enhance the admin dashboard with features to add and adjust tokens/XP through user-friendly dialogs. Update the admin user overview to include token and XP columns. Allow tokens and XP to be allocated to subcompany users. Enable admins to manually adjust tokens and XP. \newline
-\textbf{Acceptance Criteria:} \newline Admins can manage tokens and XP effectively. Adjustments to tokens and XP are accurately logged. Subcompany users receive tokens and XP as allocated by admins. The automatic XP gain feature activates upon token acquisition. \\
-\hline
-
-Achievements and Rewards Management &
-\textbf{Preconditions:} \newline A system for tracking user activities and achievements is in place. Subcompany and user profiles are established within the system. \newline
-\textbf{Business Rules:} \newline Developers can create and define achievements. Achievements must be visible and accessible to users. Administrators can restrict users from earning tokens. Token rewards are aligned with specific user actions. \newline
-\textbf{Technical Specifications:} \newline Implement functionality for developers to create achievements. Develop an achievements page accessible from the subcompany user profile. Introduce user restrictions for token earning. Establish a mechanism that awards tokens to users upon completing tasks. \newline
-\textbf{Acceptance Criteria:} \newline Developers can create new achievements without issues. Achievements are properly tracked and awarded. Administrators can apply restrictions to users' ability to earn tokens. Users receive tokens upon completing work packets. \\
-\hline
+\subsection{User Stories Specification}
+\begin{longtable}{|>{\raggedright\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{10cm}|}
+    \caption{User Stories Specification} \label{tab:user_stories_specification} \\
+    \hline
+    \rowcolor{primary} \textbf{Epic} & \textbf{User Story} \\
+    \hline
+    \endfirsthead
+    \multicolumn{2}{c}{{\tablename\ \thetable{} -- continued from previous page}} \\
+    \hline
+    \rowcolor{primary} \textbf{Epic} & \textbf{User Story} \\
+    \hline
+    \endhead
+    \hline
+    \multicolumn{2}{r}{{Continued on next page}} \\
+    \endfoot
+    \hline
+    \endlastfoot
+    
+    Secure Reward System Integration with Keycloak Authentication &
+    \textbf{Preconditions:} \newline A reward system is already in place but lacks secure user authentication. Keycloak is chosen as the authentication solution, ready for setup. \newline
+    \textbf{Business Rules:} \newline Access to the reward system is strictly limited to verified users. Users must log in through Keycloak, ensuring their identity is securely confirmed. Each user's access rights are determined based on their role. \newline
+    \textbf{Technical Specifications:} \newline Implement a secure login system using Keycloak. Customize login settings to fit our specific needs, including how users are verified and the level of access they have. Use special security checks to continuously verify that user interactions are safe and authorized. \newline
+    \textbf{Acceptance Criteria:} \newline Users cannot access the reward system without logging in through Keycloak. After logging in, the system identifies the user's role and grants access accordingly. The reward system logs and monitors each user's actions. The integration passes all security tests. \\
+    \hline
+    
+    Token and XP Management &
+    \textbf{Preconditions:} \newline A functional admin dashboard exists. Users and subcompany (worker) accounts are distinguishable within the system. \newline
+    \textbf{Business Rules:} \newline Only authorized administrators can view and adjust tokens and XP. Token and XP adjustments must be logged for transparency and auditing. The relationship between token acquisition and XP gains is predefined. \newline
+    \textbf{Technical Specifications:} \newline Enhance the admin dashboard with features to add and adjust tokens/XP through user-friendly dialogs. Update the admin user overview to include token and XP columns. Allow tokens and XP to be allocated to subcompany users. Enable admins to manually adjust tokens and XP. \newline
+    \textbf{Acceptance Criteria:} \newline Admins can manage tokens and XP effectively. Adjustments to tokens and XP are accurately logged. Subcompany users receive tokens and XP as allocated by admins. The automatic XP gain feature activates upon token acquisition. \\
+    \hline
+    
+    Achievements and Rewards Management &
+    \textbf{Preconditions:} \newline A system for tracking user activities and achievements is in place. Subcompany and user profiles are established within the system. \newline
+    \textbf{Business Rules:} \newline Developers can create and define achievements. Achievements must be visible and accessible to users. Administrators can restrict users from earning tokens. Token rewards are aligned with specific user actions. \newline
+    \textbf{Technical Specifications:} \newline Implement functionality for developers to create achievements. Develop an achievements page accessible from the subcompany user profile. Introduce user restrictions for token earning. Establish a mechanism that awards tokens to users upon completing tasks. \newline
+    \textbf{Acceptance Criteria:} \newline Developers can create new achievements without issues. Achievements are properly tracked and awarded. Administrators can apply restrictions to users' ability to earn tokens. Users receive tokens upon completing work packets. \\
+    \hline
 
 \end{longtable}
+
+
 
 \section{Initial Planning and Conceptualization Phase}
 
@@ -142,18 +163,31 @@ The static modeling phase has been pivotal in defining the core structure of our
 \subsubsection{Domain Model}
 We have structured our reward system around three primary classes: RewardLog, UserRewards, and Achievement. These classes are designed to seamlessly interact within our system to facilitate efficient reward management and user engagement through achievements.
 
+
+
 \subsection{Classes Description}
-\begin{tabular}{|l|p{10cm}|}
-\hline
-\textbf{Class Name} & \textbf{Description} \\
-\hline
-RewardLog & Models individual reward transactions, capturing details like user ID, reward type (XP, token), and the source of the reward (e.g., completing a task or manual adjustment). \\
-\hline
-UserRewards & Models the cumulative rewards and achievements for a user, providing a comprehensive overview of their progress and tokens. \\
-\hline
-Achievement & Details the achievements that users can earn, including the criteria for earning them and the rewards associated with them. \\
-\hline
-\end{tabular}
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \centering
+    \medskip
+    \begin{tabularx}{1\textwidth} {
+            | >{\hsize=0.4\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.6\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Class Name} & \textbf{Description} \\
+        \hline
+        RewardLog & Models individual reward transactions, capturing details like user ID, reward type (XP, token), and the source of the reward (e.g., completing a task or manual adjustment). \\
+        \hline
+        UserRewards & Models the cumulative rewards and achievements for a user, providing a comprehensive overview of their progress and tokens. \\
+        \hline
+        Achievement & Details the achievements that users can earn, including the criteria for earning them and the rewards associated with them. \\
+        \hline
+        Rank & Represents the various ranks users can achieve. Each rank includes a label (e.g., 'Ground Floor'), the levels required to reach the rank, and a description that highlights the significance of the rank. This class helps track user progression and assigns appropriate ranks based on their XP levels. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+
 
 For these classes, we have defined the following associations:
 \begin{itemize}
@@ -176,72 +210,102 @@ Building on the foundation laid by the first version of our logical data model, 
     \label{fig:reward_system_architecture_overview}
 \end{figure}
 \subsection{Data Dictionary}
+\subsection{Data Dictionary for RewardLog}
 
 \subsection{Data Dictionary for RewardLog}
-\begin{tabular}{|l|p{9cm}|l|l|}
-\hline
-\textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
-\hline
-userId & User's unique identifier & string & Required \\
-\hline
-type & Type of reward (e.g., xp, token) & enum & Required \\
-\hline
-amount & Amount of reward given & number & Required \\
-\hline
-source & Source of reward (e.g., close\_packet, manual\_adjustment, achievement) & enum & Required \\
-\hline
-packetId & Identifier for the reward packet, if applicable & string & Optional \\
-\hline
-adminId & Administrator's identifier managing the reward & string & Optional \\
-\hline
-achievementId & Reference to associated achievement & ObjectId & Optional \\
-\hline
-\end{tabular}
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \centering
+    \caption{Data Dictionary for RewardLog}
+    \medskip
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.8\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.7\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=0.6\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=0.9\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
+        \hline
+        userId & User's unique identifier & string & Required \\
+        \hline
+        type & Type of reward (e.g., xp, token) & enum & Required \\
+        \hline
+        amount & Amount of reward given & number & Required \\
+        \hline
+        source & Source of reward (e.g., close\_packet, manual\_adjustment, achievement) & enum & Required \\
+        \hline
+        packetId & Identifier for the reward packet, if applicable & string & Optional \\
+        \hline
+        adminId & Administrator's identifier managing the reward & string & Optional \\
+        \hline
+        achievementId & Reference to associated achievement & ObjectId & Optional \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \subsection{Data Dictionary for UserRewards}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
-\hline
-userId & User's unique identifier & string & Required \\
-\hline
-xp & Total experience points & number & Default: 0 \\
-\hline
-tokens & Total tokens & number & Default: 0 \\
-\hline
-reason & Reason for reward adjustment & string & Optional \\
-\hline
-achievements & Array of achievements (subdocument) & subdocument & Optional \\
-\hline
-isBanned & Whether the user is banned from receiving rewards & boolean & Default: false \\
-\hline
-\end{tabular}
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \centering
+    \caption{Data Dictionary for UserRewards}
+    \medskip
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.8\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.5\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=0.6\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.1\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
+        \hline
+        userId & User's unique identifier & string & Required \\
+        \hline
+        xp & Total experience points & number & Default: 0 \\
+        \hline
+        tokens & Total tokens & number & Default: 0 \\
+        \hline
+        reason & Reason for reward adjustment & string & Optional \\
+        \hline
+        achievements & Array of achievements (subdocument) & subdocument & Optional \\
+        \hline
+        isBanned & Whether the user is banned from receiving rewards & boolean & Default: false \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \subsection{Data Dictionary for Achievement}
-\begin{tabular}{|l|l|l|l|}
-\hline
-\textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
-\hline
-name & Name of the achievement & string & Required, Unique \\
-\hline
-reward & Reward amount for achieving this milestone & number & Default: 0 \\
-\hline
-step & Incremental steps required to achieve the milestone & number & Default: 1 \\
-\hline
-maximum & Maximum progress needed to complete the achievement & number & Default: 1 \\
-\hline
-title & Title of the achievement & string & Required \\
-\hline
-description & Description of the achievement & string & Required \\
-\hline
-imageUrl & URL of the image associated with the achievement & string & Required \\
-\hline
-createdBy & Identifier of the user who created the achievement & string & Required \\
-\hline
-updatedBy & Identifier of the user who last updated the achievement & string & Required \\
-\hline
-\end{tabular}
-
+\begin{table}[H]
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \centering
+    \caption{Data Dictionary for Achievement}
+    \medskip
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.8\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.5\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=0.6\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.1\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Field} & \textbf{Description} & \textbf{Type} & \textbf{Constraints} \\
+        \hline
+        name & Name of the achievement & string & Required, Unique \\
+        \hline
+        reward & Reward amount for achieving this milestone & number & Default: 0 \\
+        \hline
+        step & Incremental steps required to achieve the milestone & number & Default: 1 \\
+        \hline
+        maximum & Maximum progress needed to complete the achievement & number & Default: 1 \\
+        \hline
+        title & Title of the achievement & string & Required \\
+        \hline
+        description & Description of the achievement & string & Required \\
+        \hline
+        imageUrl & URL of the image associated with the achievement & string & Required \\
+        \hline
+        createdBy & Identifier of the user who created the achievement & string & Required \\
+        \hline
+        updatedBy & Identifier of the user who last updated the achievement & string & Required \\
+        \hline
+    \end{tabularx}
+\end{table}
 \section{Dynamic Modeling}
 In this section, we explore the dynamic aspects of our reward system, focusing on the interactions and communication behaviors between components and actors within our system. 
 
@@ -315,29 +379,32 @@ The decision to choose RabbitMQ as our message broker was based on specific need
 
 \paragraph*{Comparison of Message Brokers}
 Below is a comparison of message brokers supported by NestJS, highlighting their main features and common use cases:
-
 \begin{table}[H]
-\centering
-\caption{Comparison of Message Brokers}
-\label{tab:message_brokers_comparison}
-\begin{tabular}{|l|p{6cm}|p{5cm}|}
-\hline
-\textbf{Message Broker} & \textbf{Main Features} & \textbf{Use Case} \\
-\hline
-Kafka & High throughput, scalability, fault tolerance, and durable storage & Event streaming, log aggregation \\
-\hline
-MQTT & Lightweight, low bandwidth requirement, designed for IoT devices & IoT, real-time messaging \\
-\hline
-RabbitMQ & Flexible routing, reliable messaging, multiple protocol support & Complex routing, service decoupling \\
-\hline
-Redis & In-memory data structure, high performance, supports pub/sub & Caching, real-time analytics \\
-\hline
-NATS & At-most-once delivery, lightweight, supports queuing & Microservices communication, IoT \\
-\hline
-gRPC & High-performance RPC, supports bi-directional streaming & Inter-service communication, APIs \\
-\hline
-\end{tabular}
-\end{table}
+    \centering
+    \caption{Comparison of Message Brokers}
+    \label{tab:message_brokers_comparison}
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.7\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.2\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.1\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Message Broker} & \textbf{Main Features} & \textbf{Use Case} \\
+        \hline
+        Kafka & High throughput, scalability, fault tolerance, and durable storage & Event streaming, log aggregation \\
+        \hline
+        MQTT & Lightweight, low bandwidth requirement, designed for IoT devices & IoT, real-time messaging \\
+        \hline
+        RabbitMQ & Flexible routing, reliable messaging, multiple protocol support & Complex routing, service decoupling \\
+        \hline
+        Redis & In-memory data structure, high performance, supports pub/sub & Caching, real-time analytics \\
+        \hline
+        NATS & At-most-once delivery, lightweight, supports queuing & Microservices communication, IoT \\
+        \hline
+        gRPC & High-performance RPC, supports bi-directional streaming & Inter-service communication, APIs \\
+        \hline
+    \end{tabularx}
+    \end{table}
 
 Our selection of RabbitMQ aligns with our system's need for a robust, reliable, and flexible communication backbone.
 
