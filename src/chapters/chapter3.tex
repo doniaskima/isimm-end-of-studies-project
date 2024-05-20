@@ -203,3 +203,174 @@ The sequence diagram below illustrates the interactions between components when 
     \caption{Sequence Diagram for Subcompany Viewing Equipment List}
     \label{fig:sequence_diagram_subcompany}
 \end{figure}
+\subsubsection{Realization After Implementation}
+After the implementation of the dynamic equipment list, the system demonstrated significant improvements in various areas. Below are some key enhancements and their impact:
+
+\paragraph{Admin Interface}
+The images below show the admin interface after the implementation of the dynamic equipment list, highlighting the ease of managing equipment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/images/admin1.png}
+    \caption{Admin Interface - Managing Equipment Groups}
+    \label{fig:admin_interface_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/images/admin2.png}
+    \caption{Admin Interface - Editing Equipment Details}
+    \label{fig:admin_interface_2}
+\end{figure}
+
+\paragraph{Subcompany Interface}
+The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/images/Interface1.png}
+    \caption{Subcompany Interface - Viewing Assigned Equipment}
+    \label{fig:subcompany_interface_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/images/Interface2.png}
+    \caption{Subcompany Interface - Filtering Equipment List}
+    \label{fig:subcompany_interface_2}
+\end{figure}
+
+
+\subsection{Overhaul of the Project Status}
+
+The Aermax platform has undergone a strategic overhaul of the project status functionality to streamline project lifecycle management and improve visibility for all stakeholders. This enhancement was designed to introduce a more dynamic, intuitive, and color-coded status system that aligns with the operational needs and facilitates better decision-making processes.
+
+\subsubsection{Before the Overhaul:}
+\begin{itemize}
+    \item The status indicators were limited, lacking the granularity required for nuanced project management.
+    \item There was no clear distinction between the various stages of a project, from contemplation to completion.
+    \item Subcontractors had limited visibility, which sometimes led to inefficiencies and a lack of coordination.
+\end{itemize}
+
+\subsubsection{After the Overhaul:}
+\begin{itemize}
+    \item We've implemented a comprehensive status system, which includes new states such as 'In Progress', 'Closed', 'Re-activated', and 'Cancelled', each represented by distinct color codes.
+    \item The status 'In Progress' (green) is particularly significant as it is the only type of project visible to subcontractors, ensuring they have access to relevant, actionable projects.
+    \item 'Closed/Finished' projects are denoted with a dark blue color, signifying completion, while 'Re-activated' projects can revert from 'Closed' status when a customer requires additional work or services.
+    \item Projects that are no longer active are labeled as 'Cancelled' and are represented in red, providing immediate visual cues for the current state of a project.
+    \item A migration process has been instituted to update all existing projects to conform to the new status system, which includes modifying the projectStatus enum to the updated states.
+\end{itemize}
+
+
+
+\subsubsection*{Technical Enhancements:}
+\begin{itemize}
+    \item The AggregatedPhase class now includes an attribute that reflects the phase status based on the progress of the included working packets.
+    \item The rules for phase status determination are as follows:
+        \begin{itemize}
+            \item 'Open' by default or when all included packets are open.
+            \item 'Completed' if all packets within the phase are completed.
+            \item 'Cancelled' if all packets are canceled.
+            \item 'In Progress' if there is any packet currently active.
+        \end{itemize}
+    \item The calendar interface has been upgraded to hide/show project phases and working packets based on their completion or cancellation status, allowing for a cleaner and more focused view.
+    \item Events in the calendar have been color-coded to correlate with the status of the project phase or working packet, enhancing the visual experience and making it easier for users to digest the project's progress at a glance.
+\end{itemize}
+
+\subsubsection*{Visual Enhancement:}
+This figure illustrates the enhanced project filter interface, showcasing intuitive filtering options for project number, project status, and state, complete with color-coded status indicators.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/enhanced-project-filter-interface.png}
+    \caption{ Enhanced Project Filter Interface}
+    \label{fig:enhanced_project_filter_interface}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/calendar1.png}
+    \caption{Calendar View with Color-Coded Project Phases}
+    \label{fig:calendar_view_color_coded}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/calendar2.png}
+    \caption{Detailed Calendar View of Working Packets with Status Indicators}
+    \label{fig:detailed_calendar_view}
+\end{figure}
+
+
+
+\subsection{Overhaul of the Role System}
+Before the Sprint 1 overhaul, the Aermax platform's role system was less delineated, with certain roles having either too broad or too narrow a range of permissions. This occasionally led to confusion, inefficiencies, and security concerns. For instance, Team Leaders had the same project creation rights as Administrators, and Workers had visibility into project overviews that were not relevant to their tasks.
+
+After the Sprint 1 overhaul, we introduced a more refined role system, ensuring that permissions are tightly aligned with the responsibilities intrinsic to each role. The system was restructured to provide a balance between usability and security, reducing the cognitive load on users by limiting their interfaces to the features and information they need for their specific roles.
+
+\subsubsection{Detailed Role Permissions Before \& After}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{3cm}|}
+\caption{A before-and-after comparison of the detailed role permissions on the Aermax platform.} \label{tab:role_permissions_comparison} \\
+\hline
+\textbf{Role} & \textbf{View Packets Before} & \textbf{View Packets After} & \textbf{Create Projects Before} & \textbf{Create Projects After} & \textbf{Overview Feature Before} & \textbf{Overview Feature After} & \textbf{Additional Notes (After)} \\ \hline
+\endfirsthead
+
+\multicolumn{8}{c}%
+{{\bfseries Table \thetable\ Continued from previous page}} \\
+\hline
+\textbf{Role} & \textbf{View Packets Before} & \textbf{View Packets After} & \textbf{Create Projects Before} & \textbf{Create Projects After} & \textbf{Overview Feature Before} & \textbf{Overview Feature After} & \textbf{Additional Notes (After)} \\ \hline
+\endhead
+
+\hline
+\multicolumn{8}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+Administrator & All & All & Yes & Yes & Yes & Yes & Full system access \\ \hline
+Employee & All & All & Yes & Yes & Yes & Yes & Administrative access \\ \hline
+Project Manager & All & Specific & Yes & Yes (Start/Stop) & Yes & Yes & Administrative access; manage tasks, discussions, files \\ \hline
+Worker & All & Own Only & Yes & No & Yes & No & Confined to personal scope of work \\ \hline
+Team Leader & All & Phase Specific & Yes & No & Yes & No & Can view own packets and others within their phase; no project creation \\ \hline
+
+\end{longtable}
+
+
+% The following text can continue after the table in your LaTeX document.
+\textbf{Scenario Demonstrations After Overhaul:}
+\begin{itemize}
+    \item \textbf{Administrator Scenario:} An Administrator maintains complete control, capable of managing all aspects of the project lifecycle.
+    \item \textbf{Employee Scenario:} Employees continue to have similar administrative rights, including full packet visibility and project management capabilities.
+    \item \textbf{Project Manager Scenario:} Project Managers are now provided with tailored access, capable of managing specific project packets and workflows.
+    \item \textbf{Worker Scenario:} Workers are limited to their own packets, focusing their dashboard on personal tasks without additional project creation or overview privileges.
+    \item \textbf{Team Leader Scenario:} Team Leaders have targeted oversight, managing only the packets within their project phase, without the distraction of other project overviews or creation capabilities.
+\end{itemize}
+
+This targeted approach in the role system refines the user experience on the Aermax platform, ensuring each role has the access needed to perform effectively, securely, and efficiently.
+
+\subsection*{II.4.4 Enhance Working Packets UI \& UX}
+In our continuous efforts to elevate the user experience on the Aermax platform, a significant upgrade was made to the Working Packets UI \& UX, particularly focusing on the administrative interface. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{src/assets/chapters/ui_ux-enhancement.png}
+    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
+    \label{fig:ui_ux_enhancements}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/newTable1.png}
+    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
+    \label{fig:ui_ux_enhancements}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/newTable2.png}
+    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
+    \label{fig:ui_ux_enhancements}
+\end{figure}
