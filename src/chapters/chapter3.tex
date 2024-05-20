@@ -277,7 +277,7 @@ The Aermax platform has undergone a strategic overhaul of the project status fun
     \item Events in the calendar have been color-coded to correlate with the status of the project phase or working packet, enhancing the visual experience and making it easier for users to digest the project's progress at a glance.
 \end{itemize}
 
-\subsubsection*{Visual Enhancement:}
+\subsubsection{Visual Enhancement:}
 This figure illustrates the enhanced project filter interface, showcasing intuitive filtering options for project number, project status, and state, complete with color-coded status indicators.
 
 \begin{figure}[H]
@@ -349,7 +349,7 @@ Team Leader & All & Phase Specific & Yes & No & Yes & No & Can view own packets 
 
 This targeted approach in the role system refines the user experience on the Aermax platform, ensuring each role has the access needed to perform effectively, securely, and efficiently.
 
-\subsection*{II.4.4 Enhance Working Packets UI \& UX}
+\subsection{Enhance Working Packets UI \& UX}
 In our continuous efforts to elevate the user experience on the Aermax platform, a significant upgrade was made to the Working Packets UI \& UX, particularly focusing on the administrative interface. 
 
 \begin{figure}[H]
@@ -374,3 +374,99 @@ In our continuous efforts to elevate the user experience on the Aermax platform,
     \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
     \label{fig:ui_ux_enhancements}
 \end{figure}
+
+\subsection{Self Registration}
+
+We have implemented a self-registration feature that streamlines the process of user registration, allowing new users to create accounts autonomously.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/keycloak-diagram.png}
+    \caption{Authentication Flow Using Keycloak: A visual guide to the user authentication process with Keycloak.}
+    \label{fig:authentication_flow_keycloak}
+\end{figure}
+
+Figure \ref{fig:authentication_flow_keycloak} illustrates the authentication flow using Keycloak. The figure will show the step-by-step authentication flow, demonstrating how users interact with Keycloak during the login process. It provides a visual explanation of the authentication steps from the user initiating a login request to receiving a token from Keycloak.
+
+As part of this overhaul, we encountered the challenge of duplicate user entries due to previous system design limitations. By leveraging Keycloak’s versatile user federation and identity provider features, we were able to consolidate user accounts and eliminate redundancies, thereby solving the issue of duplicate entries. 
+
+Keycloakify complemented this integration by allowing us to customize the authentication pages to align with our platform's aesthetics and usability standards.
+
+\subsubsection{Feature Implementation Table:}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Feature} & \textbf{Technology Implemented} & \textbf{Description} \\
+\hline
+Login/Signup & Keycloak, Keycloakify & Integrated with Keycloak to secure and streamline user access, enhanced by Keycloakify for customized UI/UX. \\
+\hline
+Password Management & Keycloak & Developed a secure and user-friendly password management system, providing users with ease of control over their credentials. \\
+\hline
+\end{tabularx}
+\caption{Summary of Keycloak feature implementations.}
+\label{tab:keycloak_features}
+\end{table}
+
+\subsection{Backend Enhancements and Data Integrity}
+\textbf{Eliminating Duplicate Users and Improving Data Handling}
+Our backend team undertook the critical task of enhancing the database and data processing layers of our system. The focus was on refining our data model to eliminate the occurrence of duplicate user entries—a problem that stemmed from a legacy design.
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/core-conccept.png}
+    \caption{Core Concepts of Keycloak's Architecture}
+    \label{fig:core_concepts_keycloak}
+\end{figure}
+
+This image will give an overview of Keycloak’s core concepts, such as realms, roles, and identity providers. It visually communicates the architecture that supports the functionality we harnessed to solve our data integrity challenges.
+
+
+\subsection{UI/UX Design Improvements}
+\addcontentsline{toc}{subsection}{UI/UX Design Improvements}
+With user experience at the forefront of our digital solution, the Aermax platform underwent a significant UI/UX redesign to enhance cleanliness, intuitiveness, and functionality. Using Figma, our design team was able to collaborate on and iterate high-fidelity mockups and prototypes, which provided a visual roadmap for the platform's evolution.
+
+\textbf{Objective:} To revamp the Aermax platform's design for a more streamlined, user-friendly interface that aligns with modern standards and enhances user engagement.
+
+\textbf{Outcome:} The design overhaul has resulted in a cleaner and more intuitive interface that simplifies user interactions and reduces cognitive load. With a focus on ease of use, the new design has improved the overall user experience, leading to increased user satisfaction and platform adoption.
+
+\textbf{Visual Demonstration:} The following images compare the original and the new Figma-enhanced UI/UX designs, showcasing the transformation and the design team's dedication to creating a user-centred interface.
+
+ 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/OverviewPage.png}
+    \caption{Original Aermax platform Overview page UI design.}
+    \label{fig:overview_page_design}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ProjectPage.png}
+    \caption{Original Aermax platform Project page UI design.}
+    \label{fig:project_page_design}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui-ux-dashboard.png}
+    \caption{Enhanced Aermax platform Overview page UI design in dark mode.}
+    \label{fig:enhanced_overview_dark}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui--ux-dashboard.png}
+    \caption{Enhanced Aermax platform Overview page UI design in light mode.}
+    \label{fig:enhanced_overview_light}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui-ux--peoject.png}
+    \caption{Enhanced Aermax platform Project page UI design.}
+    \label{fig:enhanced_project_page}
+\end{figure}
+
