@@ -1,15 +1,45 @@
-\chapter{Analysis and Specification of Requirements}
+\chapter{Project Initialization}
 \minitoc
 \newpage
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
+
 % ----------------------- Introduction ----------------------- %
 
 \section{Introduction}
 In this chapter, we are going to analyze the various specifications and requirements of the whole Aermax project from development to production.
-We will also describe the product's main features .
+We will also describe the product's main features.
 
+\section{Overview of the Project}
+The Aermax project is a comprehensive initiative aimed at developing a robust and scalable system through the integration of existing and newly developed microservices. This section provides an in-depth look at the architecture and key stakeholders involved in the project.
 
+\subsection{Aermax Architecture}
+
+The architecture diagram of Aermax shows the integration of existing and newly developed microservices within a unified virtual network environment.
+\begin{itemize}
+    \item \textbf{Existing Microservices}:
+    \begin{itemize}
+        \item \textbf{Operation Service}: Manages operations and interacts with the Operation Database .
+        \item \textbf{User Service}: Handles user-related functionalities and interfaces with the User Database.
+        \item \textbf{Keycloak Service}: Provides authentication and authorization services, connected to the Keycloak Database.
+    \end{itemize}
+    Our contributions to these existing microservices include adding new features, enhancements, and bug fixes.
+    \item \textbf{New Microservices}:
+    \begin{itemize}
+        \item \textbf{Reward Service}: Manages reward-related processes and connects to the Reward Database. This service was developed from scratch.
+        \item \textbf{Config Service}: A centralized microservice that interacts with all other microservices to provide configuration settings for the reward system. This service was also developed from scratch.
+    \end{itemize}
+\end{itemize}
+
+This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=15.5cm]{src/assets/chapters/AermaxArchitecture.png}
+    \captionof{figure}{Aermax Architecture}
+\end{minipage}
+
+ 
 \section{Functional Requirements}
 Functional requirements define the specific behaviors and functionalities that the system must possess to meet user needs. This section focuses on the key functional requirements for our project, particularly the reward system and other essential functionalities.
 
@@ -88,20 +118,21 @@ Seamless integration with various external and internal systems is crucial for t
     \item \textbf{Deployment Pipeline:} Set up a deployment pipeline for staging and production environments, including automated testing, deployment, and monitoring of the reward system.
 \end{itemize}
 
-% --------------- Non functional Requirements --------------- %
-\section{Non-functional requirements}
-Non functional requirements describe any specification that does not add direct business value but is nonetheless crucial for the good operation of a developed software.
+% --------------- Non-functional Requirements --------------- %
+
+\section{Non-functional Requirements}
+Non-functional requirements describe any specification that does not add direct business value but is nonetheless crucial for the good operation of developed software.
 For Aermax, what we should focus on is:
 \begin{itemize}
 	\item \textbf{Reliability and Availability:} The software should be available 24 hours a day and 7 days a week.
-	\item \textbf{Security:} Clients should be able to safely login to the dashboard with a strong authentication system.
+	\item \textbf{Security:} Clients should be able to safely log in to the dashboard with a strong authentication system.
 	\item \textbf{Scalability:} This is the main reason we're using new microservices.
 	\item \textbf{Documentation:} We should always document each and every step we make extensively so that new developers can onboard on the project in a fast and efficient way, which further emphasizes reliability.
 \end{itemize}
 
 \section{Technologies}
 A project can always look simple from the outside, however if we dive deeply into how most software is made, we can see that it's not that simple of a process.
-Therefore, this part will list all of the technologies that we've used and also some of the major technical difficulties we've come in contact with during the realization of our project.
+Therefore, this part will list all of the technologies that we've used and also some of the major technical difficulties we've encountered during the realization of our project.
 
 \medskip
 
@@ -118,7 +149,9 @@ Therefore, this part will list all of the technologies that we've used and also 
               \includegraphics[width=3cm]{src/assets/logos/latex_200x200.png}
               \captionof{figure}{Logo of The LaTeX Project}
           \end{minipage}
-    \item \textbf{Spring Boot:} \newline A powerful framework for building Java-based enterprise applications. \newline \newline
+    \item \textbf{Spring Boot:} \newline A powerful framework for building Java-based enterprise applications
+
+. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/Springboot.png}
@@ -162,11 +195,8 @@ Therefore, this part will list all of the technologies that we've used and also 
           \end{minipage}
 \end{itemize}
 
-
-\section{The application’s Microservices}
-
-\textbf{Table 9: All the application’s Microservices}
-
+\section{The Application’s Microservices}
+\textbf{Table 9: All the Application’s Microservices}
 \begin{longtable}{|p{3cm}|p{7cm}|p{2cm}|}
     \hline
     \textbf{Name} & \textbf{Description} & \textbf{Scalable} \\
@@ -188,16 +218,7 @@ Therefore, this part will list all of the technologies that we've used and also 
     \hline
     topic-service & Manages SOAP-based communications and topics. & Yes \\
     \hline
-    \end{longtable}
-    
+\end{longtable}
 
-
-\setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 \section{Conclusion}
 Defining and implementing these functional and technical requirements is crucial for developing a robust, reliable, and user-friendly Aermax application that meets the needs of our users and stakeholders, ensuring scalability, security, and comprehensive functionality.
-
-
-
-
-
-
