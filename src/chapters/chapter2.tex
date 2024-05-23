@@ -39,9 +39,46 @@ This architecture supports modularity, scalability, and efficient management, en
     \captionof{figure}{Aermax Architecture}
 \end{minipage}
 
- 
+\subsection{Stakeholders}
+The Aermax project involves various stakeholders who play crucial roles in its operation and success. The key stakeholders and their roles are summarized in the table below (Table \ref{tab:stakeholders_roles}). The grey-highlighted rows represent external stakeholders, while the non-highlighted rows represent internal stakeholders.
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Padding
+    \caption{Stakeholders and their Roles}
+    \label{tab:stakeholders_roles}
+    \begin{tabularx}{\textwidth} {
+            | >{\hsize=0.4\hsize\linewidth=\hsize\raggedright\arraybackslash}X
+            | >{\hsize=1.6\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
+        \hline
+        \rowcolor{primary} \textbf{Role} & \textbf{Description} \\
+        \hline
+        Admin & Responsible for managing the overall system, including user management, system configuration, and monitoring. \\
+        \hline
+        \rowcolor{gray!20} Subcontractor & Industrial climbers who perform specific tasks or services outside the direct supervision of the project manager. \\
+        \hline
+        Employee & Internal staff members who work on various aspects of the project under the guidance of the project manager. \\
+        \hline
+        Project Manager & Oversees the project's progress, manages timelines, and ensures that all aspects of the project are aligned with strategic goals. \\
+        \hline
+        \rowcolor{gray!20} Leader & Provides vision and direction for the project, making high-level decisions and ensuring that the project aligns with organizational objectives. \\
+        \hline
+    \end{tabularx}
+\end{table}
 \section{Functional Requirements}
 Functional requirements define the specific behaviors and functionalities that the system must possess to meet user needs. This section focuses on the key functional requirements for our project, particularly the reward system and other essential functionalities.
+
+\subsection{Feature Enhancement}
+
+This section details the latest upgrades and additions made to our system. These enhancements aim to improve functionality, usability, and overall user satisfaction. Key features introduced are:
+
+\begin{itemize}
+    \item \textbf{Dynamic Equipment List:} Implement a dynamic list of equipment that updates in real-time based on user selections and other criteria.
+    \item \textbf{Bug Fixes:} Identify and fix several bugs in the existing functionalities to ensure a smooth user experience.
+    \item \textbf{Enhanced Packet View:} Enhance the packet view by adding new functionalities and improving existing features.
+    \item \textbf{Project Status Overhaul:} Overhaul the project status feature, including data migration to support the new structure.
+    \item \textbf{Role System Overhaul:} Overhaul the role system to provide more granular control and better user management.
+\end{itemize}
 
 \subsection{Reward System}
 The reward system is a crucial component of the application, designed to incentivize and engage users. The key functionalities of the reward system include:
@@ -53,48 +90,7 @@ The reward system is a crucial component of the application, designed to incenti
     \item \textbf{User Notifications:} The system should notify users about their points balance, reward availability, and updates related to the reward system.
 \end{itemize}
 
-\subsection{Other Functional Requirements}
-In addition to the reward system, the application must support various other functionalities to ensure a comprehensive user experience:
 
-\begin{itemize}
-    \item \textbf{Dynamic Equipment List:} Implement a dynamic list of equipment that updates in real-time based on user selections and other criteria.
-    \item \textbf{Bug Fixes:} Identify and fix several bugs in the existing functionalities to ensure a smooth user experience.
-    \item \textbf{Enhanced Packet View:} Enhance the packet view by adding new functionalities and improving existing features.
-    \item \textbf{Project Status Overhaul:} Overhaul the project status feature, including data migration to support the new structure.
-    \item \textbf{Role System Overhaul:} Overhaul the role system to provide more granular control and better user management.
-\end{itemize}
-
-\subsection{Backlog for Reward System and Other Functionalities}
-To ensure comprehensive development and implementation, the following items are included in the backlog:
-
-\begin{itemize}
-    \item Add token and XP columns for the admin user overview.
-    \item Create a reward system boilerplate.
-    \item Set up RabbitMQ in NestJS and Spring applications and implement user rewards endpoints.
-    \item Allow admins to manually adjust XP/tokens.
-    \item Add token/XP to subcompany users (workers).
-    \item Gain XP when tokens are gained.
-    \item Create achievements as developers.
-    \item Add an achievement page to the subcompany user profile.
-    \item Gain tokens when a working packet is closed.
-    \item Add a checkbox in the user overview to ban a user from gaining tokens.
-    \item Create a configuration database in MongoDB (fetch RabbitMQ topics and translations from a new collection in the `config-service` database).
-    \item Admins see all XP/tokens transactions.
-    \item Achievement: Profile 100%.
-    \item Enhance the logging system with structured formats for the reward system.
-    \item Enhance the UI user profile and user achievements.
-    \item Add filtering for user achievements.
-    \item Display tokens and XP in the main navigation and show rank instead of XP in the user overview table, with a graph/tooltip to show additional info.
-    \item Create a shop page (Coming Soon).
-    \item Achievement: First work package completed.
-    \item List all possible achievements for subcompany users.
-    \item Create a FAQ page (how to earn tokens).
-    \item Allow admins to manage achievements.
-    \item Seed achievements if there are no achievements in the database.
-    \item Ensure achievement updates do not override the achievement slug.
-    \item Allow admin image uploads for achievements.
-    \item Track token and XP rewards.
-\end{itemize}
 
 \section{Technical Requirements}
 Technical requirements specify the underlying technical aspects and constraints necessary for the system to function correctly. This section outlines the technical requirements that support the functional requirements.
