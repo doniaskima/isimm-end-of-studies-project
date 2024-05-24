@@ -32,5 +32,34 @@
 \usepackage{fancyhdr}
 \usepackage[nohints]{minitoc}
 
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{\small\leftmark}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+
+\usepackage{csquotes}
+\usepackage{graphicx} % Include figure files
+\usepackage{svg}
+\usepackage{emptypage}
+
+\usepackage{pdflscape} % change page orientation
+
+\usepackage{titlesec}
+\usepackage{hyperref}  % contents hyperlinks setup
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
+\usepackage{multirow}
+\renewcommand\arraystretch{1.5}
+
+\usepackage{enumitem}
+
 % DEVONLY:
 \usepackage{lipsum} % Lorem ipsum
