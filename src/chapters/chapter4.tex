@@ -17,13 +17,13 @@ During the Sprint Planning meeting, the effort for each task in the first and se
 % \end{figure}
 
 \begin{longtable}{ | m{0.09\textwidth} | m{0.18\textwidth} | m{0.39\textwidth} | c | }
-    \caption{Backlog of Sprint 2} \\
+    \caption{Backlog of Sprint} \\
     \hline
-    \rowcolor{primary} \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation (hours)} \\
+    \rowcolor{primary} \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation} \\
     \hline
     \endfirsthead
     \hline
-    \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation (hours)} \\
+    \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation} \\
     \hline
     \endhead
     \hline
@@ -54,59 +54,228 @@ During the Sprint Planning meeting, the effort for each task in the first and se
 \end{longtable}
 
 
-
 \section{Specification}
 
-In this section, a detailed breakdown of selected user stories is presented in a structured table layout to facilitate clear documentation and reference. Each user story is accompanied by four essential components:
+In this section, a comprehensive analysis of selected user stories is provided, organized in a structured table for easy documentation and reference. Each user story includes four critical elements:
 \begin{itemize}
-    \item \textbf{Preconditions:} Outlines the necessary conditions or prerequisites required prior to the initiation of the user story.
-    \item \textbf{Business Rules:} Defines the critical constraints, policies, and conditions that dictate the software's operation in response to user inputs.
-    \item \textbf{Technical Specifications:} Details the technical requirements, technologies, and architectural considerations essential for actualizing the user story.
-    \item \textbf{Acceptance Criteria:} Lists the specific conditions that must be fulfilled for the user story to be regarded as complete and ready for integration.
+    \item \textbf{Prerequisites:} Describes the conditions or setup required before the user story can be initiated.
+    \item \textbf{Operational Guidelines:} Specifies the key rules, policies, and conditions that guide the system's response to user actions.
+    \item \textbf{Implementation Details:} Covers the technical requirements, tools, and architectural considerations needed to implement the user story.
+    \item \textbf{Completion Criteria:} Defines the specific conditions that must be met for the user story to be deemed complete and ready for deployment.
 \end{itemize}
 
-
-\subsection{User Stories Specification}
-\begin{longtable}{|>{\raggedright\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{10cm}|}
-    \caption{User Stories Specification} \label{tab:user_stories_specification} \\
+\begin{longtable}{ | p{0.2\textwidth} | p{0.75\textwidth} | }
+    \caption{User Stories Specification} \\
     \hline
     \rowcolor{primary} \textbf{Epic} & \textbf{User Story} \\
     \hline
     \endfirsthead
-    \multicolumn{2}{c}{{\tablename\ \thetable{} -- continued from previous page}} \\
     \hline
     \rowcolor{primary} \textbf{Epic} & \textbf{User Story} \\
     \hline
     \endhead
     \hline
-    \multicolumn{2}{r}{{Continued on next page}} \\
     \endfoot
-    \hline
     \endlastfoot
-    
-    Secure Reward System Integration with Keycloak Authentication &
-    \textbf{Preconditions:} \newline A reward system is already in place but lacks secure user authentication. Keycloak is chosen as the authentication solution, ready for setup. \newline
-    \textbf{Business Rules:} \newline Access to the reward system is strictly limited to verified users. Users must log in through Keycloak, ensuring their identity is securely confirmed. Each user's access rights are determined based on their role. \newline
-    \textbf{Technical Specifications:} \newline Implement a secure login system using Keycloak. Customize login settings to fit our specific needs, including how users are verified and the level of access they have. Use special security checks to continuously verify that user interactions are safe and authorized. \newline
-    \textbf{Acceptance Criteria:} \newline Users cannot access the reward system without logging in through Keycloak. After logging in, the system identifies the user's role and grants access accordingly. The reward system logs and monitors each user's actions. The integration passes all security tests. \\
+    \textbf{Achievements Management} & \textbf{View all possible achievements in the application.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize} 
+        \item User is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Users should be able to view a list of all possible achievements.
+    \end{itemize} 
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should fetch and display a list of achievements from the database.
+    \end{itemize} 
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Users can view a list of all possible achievements.
+    \end{itemize} 
     \hline
-    
-    Token and XP Management &
-    \textbf{Preconditions:} \newline A functional admin dashboard exists. Users and subcompany (worker) accounts are distinguishable within the system. \newline
-    \textbf{Business Rules:} \newline Only authorized administrators can view and adjust tokens and XP. Token and XP adjustments must be logged for transparency and auditing. The relationship between token acquisition and XP gains is predefined. \newline
-    \textbf{Technical Specifications:} \newline Enhance the admin dashboard with features to add and adjust tokens/XP through user-friendly dialogs. Update the admin user overview to include token and XP columns. Allow tokens and XP to be allocated to subcompany users. Enable admins to manually adjust tokens and XP. \newline
-    \textbf{Acceptance Criteria:} \newline Admins can manage tokens and XP effectively. Adjustments to tokens and XP are accurately logged. Subcompany users receive tokens and XP as allocated by admins. The automatic XP gain feature activates upon token acquisition. \\
+    \multirow{5}{=}{\textbf{Token and XP Management}} & \textbf{View users and their XP and tokens count.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to view a list of users along with their XP and token counts.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should fetch and display the XP and token counts for each user from the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can view a list of users with their respective XP and token counts.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{Add and remove tokens from a specific user.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to add or remove tokens from a specific user.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should allow admins to update the token count for a specific user in the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can successfully add or remove tokens for a specific user.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{Add XP to a specific user.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to add XP to a specific user.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should allow admins to update the XP count for a specific user in the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can successfully add XP to a specific user.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{Ban/unban a specific user from gaining tokens.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to ban or unban a user from gaining tokens.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should allow admins to update the ban status for a user in the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can successfully ban or unban a user from gaining tokens.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{Gain the same amount of XP as tokens when tokens are earned.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item User is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Users should gain the same amount of XP as tokens when they earn tokens.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should automatically add XP equivalent to the tokens earned by the user.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Users gain XP equal to the tokens earned.
+    \end{itemize} \\
     \hline
-    
-    Achievements and Rewards Management &
-    \textbf{Preconditions:} \newline A system for tracking user activities and achievements is in place. Subcompany and user profiles are established within the system. \newline
-    \textbf{Business Rules:} \newline Developers can create and define achievements. Achievements must be visible and accessible to users. Administrators can restrict users from earning tokens. Token rewards are aligned with specific user actions. \newline
-    \textbf{Technical Specifications:} \newline Implement functionality for developers to create achievements. Develop an achievements page accessible from the subcompany user profile. Introduce user restrictions for token earning. Establish a mechanism that awards tokens to users upon completing tasks. \newline
-    \textbf{Acceptance Criteria:} \newline Developers can create new achievements without issues. Achievements are properly tracked and awarded. Administrators can apply restrictions to users' ability to earn tokens. Users receive tokens upon completing work packets. \\
+    \textbf{Token and XP Restrictions} & \textbf{Prevent banned users from gaining any tokens.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item User is banned from gaining tokens.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Banned users should not gain any tokens.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should prevent token increments for banned users.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Banned users do not receive tokens.
+    \end{itemize} \\
     \hline
-
+    \multirow{2}{=}{\textbf{Transaction Management}} & \textbf{View all transactions for a specific subcontractor.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to view all transactions for a specific subcontractor.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should fetch and display all transactions for the specified subcontractor from the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can view all transactions for a specific subcontractor.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{Gain 100 tokens when a subcontractor closes a packet.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Subcontractor is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Subcontractors should gain 100 tokens upon closing a packet.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should automatically add 100 tokens to the subcontractor's account when a packet is closed.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Subcontractors gain 100 tokens upon closing a packet.
+    \end{itemize} \\
+    \hline
+    \multirow{2}{=}{\textbf{User Rank Management}} & \textbf{View ranks, levels, and next rank for each user.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item Admin is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Admins should be able to view the ranks, levels, and next rank for each user.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should fetch and display the rank, level, and next rank information for each user from the database.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Admins can view the ranks, levels, and next rank for each user.
+    \end{itemize} \\
+    \cline{2-2}
+    & \textbf{View the FAQ and Shop pages.} \newline
+    \textbf{Preconditions:} \newline
+    \begin{itemize}
+        \item User is authenticated and has a valid account.
+    \end{itemize}
+    \textbf{Operational Guidelines:} \newline
+    \begin{itemize}
+        \item Users should be able to view the FAQ and Shop pages.
+    \end{itemize}
+    \textbf{Implementation Details:} \newline
+    \begin{itemize}
+        \item The system should display the FAQ and Shop pages to the user.
+    \end{itemize}
+    \textbf{Completion Criteria:} \newline
+    \begin{itemize}
+        \item Users can view the FAQ and Shop pages.
+    \end{itemize} \\
+    \hline
 \end{longtable}
-
 
 
 \section{Initial Planning and Conceptualization Phase}
@@ -126,14 +295,6 @@ These objectives align with our overarching mission to create a dynamic and enga
 
 \subsection{High-Level System Overview}
 This section offers a conceptual snapshot of our reward system, outlining its key components and their anticipated interactions. Below, we delve into the global use cases, illustrating the system's functionality in greater detail.
- \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{src/assets/chapters/raward-sysetm-usecase.drawio.png}
-    \caption{Aermax Global Use Case Diagram}
-    \label{fig:globa_usecase_diagram}
-\end{figure}
-
-\subsection{Initial System Architecture Sketch}
 In this section, we present the Initial System Architecture Sketch, which offers a visual representation of the foundational structure of our reward system. This diagram serves as a high-level blueprint, illustrating the primary components and their interactions within the system. It is designed to clarify the modular approach we have adopted, ensuring scalability, maintainability, and robustness.
 
 The architecture is segmented into distinct modules, each responsible for a core aspect of the system's functionality:
