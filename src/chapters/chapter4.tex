@@ -1,13 +1,11 @@
-\chapter{Design and Implementation of the Reward System}
+\chapter{Sprint 2: Reward System}
 \minitoc
 \newpage
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 % ----------------------- Introduction ----------------------- %
 \section{Introduction}
-
-In this chapter, we unveil the inaugural release of the reward system, a strategic enhancement by Aermax Company aimed at motivating subcontractors (workers). Integral to the Aermax project, this system reflects our comprehensive design considerations, agile planning, and meticulous implementation efforts. Through this initiative, we underscore our commitment to fostering a motivated and engaged workforce.
-
+Throughout this chapter, we will delve into the planning, design considerations, and implementation of our reward system, from conception and development to deployment.
 \section{Sprints Backlog}
 During the Sprint Planning meeting, the effort for each task in the first and second sprint backlogs was assessed based on the total working hours required. The prioritization of these backlog items is depicted through their sequence in the table, with items placed at the top representing higher urgency. Additionally, the accompanying image showcases the board that serves as our operational platform at Incedo.
 
@@ -18,43 +16,43 @@ During the Sprint Planning meeting, the effort for each task in the first and se
 %     \label{fig:sprint_backlog_and_issue_board}
 % \end{figure}
 
-\begin{table}[H]
-    \centering
-    \renewcommand{\arraystretch}{1.5} % Padding
-    \caption{Sprint Planning}
-    \label{tab:sprint_planning}
-    \begin{tabularx}{\textwidth} {
-            | >{\hsize=0.3\hsize\linewidth=\hsize\raggedright\arraybackslash}X
-            | >{\hsize=1.2\hsize\linewidth=\hsize\raggedright\arraybackslash}X
-            | >{\hsize=1.2\hsize\linewidth=\hsize\raggedright\arraybackslash}X
-            | >{\hsize=0.3\hsize\linewidth=\hsize\raggedright\arraybackslash}X |}
-        \hline
-        \rowcolor{primary} \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Time} \\
-        \hline
-        2 & Secure Reward System Integration with Keycloak Authentication & Reward Access Security & 9h \\
-        \hline
-        2 & Token and XP Management & Add tokens/XP adjustment dialogs & 8h \\
-        \hline
-        2 & Token and XP Management & Add token and XP columns for the admin user overview & 10h \\
-        \hline
-        2 & Token and XP Management & Add token/xp to subcompany users (workers) & 2h \\
-        \hline
-        2 & Token and XP Management & Admins manually adjust xp/tokens & 4h \\
-        \hline
-        2 & Token and XP Management & Gain XP if you gain tokens & 5h \\
-        \hline
-        2 & Achievements and Rewards Management & Create achievement as developers & 6h \\
-        \hline
-        2 & Achievements and Rewards Management & Achievement: Profile 100\% & 6h \\
-        \hline
-        2 & Achievements and Rewards Management & Add achievement page to the subcompany user profile & 5h \\
-        \hline
-        2 & Achievements and Rewards Management & Add checkbox in user overview to ban a user from gaining tokens & 3h \\
-        \hline
-        2 & Achievements and Rewards Management & Gain tokens when a working packet is closed & 13h \\
-        \hline
-    \end{tabularx}
-    \end{table}
+\begin{longtable}{ | m{0.09\textwidth} | m{0.18\textwidth} | m{0.39\textwidth} | c | }
+    \caption{Backlog of Sprint 2} \\
+    \hline
+    \rowcolor{primary} \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation (hours)} \\
+    \hline
+    \endfirsthead
+    \hline
+    \textbf{Sprint} & \textbf{Epic} & \textbf{User Story} & \textbf{Estimation (hours)} \\
+    \hline
+    \endhead
+    \hline
+    \endfoot
+    \endlastfoot
+    2 & Achievements Management & View all possible achievements in the application. & 6h \\
+    \hline
+    \multirow{5}{*}{2} & Token and XP Management & View users and their XP and tokens count. & 8h \\
+    \cline{3-4}
+    & & Add and remove tokens from a specific user. & 10h \\
+    \cline{3-4}
+    & & Add XP to a specific user. & 4h \\
+    \cline{3-4}
+    & & Ban/unban a specific user from gaining tokens. & 3h \\
+    \cline{3-4}
+    & & Gain the same amount of XP as tokens when tokens are earned. & 4h \\
+    \hline
+    2 & Token and XP Restrictions & Prevent banned users from gaining any tokens. & 5h \\
+    \hline
+    \multirow{2}{*}{2} & Transaction Management & View all transactions for a specific subcontractor. & 7h \\
+    \cline{3-4}
+    & & Gain 100 tokens when a subcontractor closes a packet. & 8h \\
+    \hline
+    \multirow{2}{*}{2} & User Rank Management & View ranks, levels, and next rank for each user. & 6h \\
+    \hline
+    \multirow{2}{*}{2} & User Features & View the FAQ and Shop pages. & 5h \\
+    \hline
+\end{longtable}
+
 
 
 \section{Specification}
