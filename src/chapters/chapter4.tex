@@ -175,6 +175,24 @@ In this section, a comprehensive analysis of selected user stories is provided, 
     \hline
 \end{longtable}
 
+\section{Microservices Communication Overview}
+In this diagram, the \textbf{\textcolor[rgb]{0.0,0.5,0.0}{green boxes}} represent the microservices we developed, namely the \textbf{Config-Service}\index{Config-Service} and the \textbf{Reward-System}\index{Reward-System}. These services communicate with other microservices, including the \textbf{\textcolor[rgb]{0.0,0.0,0.5}{User-Service}}\index{User-Service}, \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Operations-Service}}\index{Operations-Service}, \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Storage-Service}}\index{Storage-Service}, and \textbf{\textcolor[rgb]{0.0,0.0,0.5}{AI-Service}}\index{AI-Service}. The other microservices, indicated in blue, are the ones we have also contributed to, ensuring they work harmoniously with our developed services.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{src/assets/diagrams/microservicesComm.png}
+    \caption{Communication Overview of Microservices}
+    \label{fig:microservices}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Config-Service}\index{Config-Service}: The \textbf{Config-Service} stores and manages various configurations required by different microservices, including RabbitMQ configurations, achievement configurations, and translations.
+    
+    \item \textbf{Reward-System}\index{Reward-System}: The \textbf{Reward-System} handles user rewards and incentives, interacting with other microservices to track activities and assign rewards based on predefined rules.
+\end{itemize}
+
+\printindex
+
 \section{Design}
 This phase of the project builds upon our foundational work to refine and expand the architecture of our reward system. We delve into key considerations, decisions, and enhancements introduced in this release, focusing particularly on how our models support the reward functionalities.
 
