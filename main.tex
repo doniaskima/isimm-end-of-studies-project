@@ -1,19 +1,9 @@
-\documentclass[12pt,a4paper]{report}
-\input{./package.tex}
-\input{./src/components/glossary.tex}
+\documentclass[oneside, a4paper, 12pt]{book}
+\input{preamble.tex}
+\input{package.tex}
 
-% ------------- Document content ------------- %
 \begin{document}
-
-% Global config
-\input{./config.tex}
-
-% Include the cover page
-\includepdf[]{src/assets/pdfs/cover-page.pdf}
-
-% Set page numbering to roman for initial pages
-\pagenumbering{roman}
-\setcounter{page}{1}
+\frontmatter
 
 % Dedication and acknowledgments
 % \input{src/components/dedications.tex} % Optional
@@ -33,11 +23,18 @@
 \listoftables \mtcaddchapter % https://tex.stackexchange.com/questions/79869/first-chapter-after-list-of-tables-starts-on-page-2-should-be-1
 \clearpage
 
-% Set page numbering to Arabic for main content
-\pagenumbering{arabic}
 
-% Include the main app
-\input{src/app.tex}
+\tableofcontents
+\listoffigures
+\listoftables
+\printglossaries
+\mainmatter
+\include{src/componentsgeneral-introduction.tex}
+\include{src/chapters/chapter1.tex}
+\include{src/chapters/chapter2.tex}
+\include{src/chapters/chapter3.tex}
+\include{src/chapters/chapter4.tex}
+\include{src/components/general-conclusion.tex}
 
 % Generate a webography, for more styles
 % see - https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles#Table_of_stylename_values
@@ -47,12 +44,7 @@
 \addcontentsline{toc}{chapter}{Webography}
 \clearpage
 
-% % Set page numbering to alphabetic for appendices
-\pagenumbering{alph}
-\setcounter{page}{0}
 
 % Very big diagrams, pictures or schemas go here
 \input{src/components/appendices.tex}
-
 \end{document}
-% ------------- Document content ------------- %

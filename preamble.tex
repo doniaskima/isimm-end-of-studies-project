@@ -1,0 +1,67 @@
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  right=2.5cm,
+  left=2.5cm,
+]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{\small\leftmark}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+
+\usepackage{csquotes}
+\usepackage{graphicx} % Include figure files
+\usepackage{ifluatex}
+\ifluatex
+  \usepackage{pdftexcmds}
+  \makeatletter
+  \let\pdfstrcmp\pdf@strcmp
+  \let\pdffilemoddate\pdf@filemoddate
+  \makeatother
+\fi
+\usepackage{svg}
+\usepackage{emptypage}
+\usepackage{pdflscape} % change page orientation
+
+\usepackage{titlesec}
+\usepackage{hyperref}  % contents hyperlinks setup
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+\renewcommand\arraystretch{1.5}
+
+\usepackage{enumitem}
+\titlespacing*{\section}
+{0pt}{2\baselineskip}{1\baselineskip}
+\titlespacing*{\subsection}
+{0pt}{2\baselineskip}{1\baselineskip}
+\titlespacing*{\subsubsection}
+{0pt}{2\baselineskip}{1\baselineskip}
+
+\usepackage[skip=20pt plus1pt, indent=30pt]{parskip}
+
+\renewcommand\thechapter{\Roman{chapter}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\usepackage{caption}
+
+\newenvironment{dedication}
+{\thispagestyle{empty}% no header and footer
+  \vspace*{\stretch{1}}% some space at the top
+  \itshape             % italics
+  \raggedleft          % flush to the right margin
+}
+{\par % end the paragraph
+  \vspace{\stretch{3}} % space at bottom is three times that at the top
+}
