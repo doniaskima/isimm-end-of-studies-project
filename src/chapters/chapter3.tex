@@ -1,4 +1,4 @@
-\chapter{Elevating Aermax – First Sprint Enhancements and Integrations}
+\chapter{Sprint 1 : Enhancements and Integrations}
 
 \section{Introduction}
 In this chapter, we cover the first sprint of the Aermax project, focusing on the key enhancements and features we implemented to improve the platform.
@@ -73,7 +73,7 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
     \hline
     \end{longtable}
     \subsection{Dynamic Equipment List}
-    \subsubsection{Previous Implementation}
+    \subsubsection{Dynamic Equipment List issues}
     The Dynamic Equipment List feature was previously implemented as a static list. This static list required manual updates and did not reflect real-time changes to the equipment database. The key characteristics of the static implementation included:
     \begin{itemize}
         \item Manual updates to the equipment list.
@@ -118,7 +118,7 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
         \caption{Planned Dynamic Equipment List - Subcompany View}
         \label{fig:dynamic_equipment_list_subcompany}
     \end{figure}
-    \subsubsection{Conception of New Feature}
+    \subsubsection{Dynamic Equipment Design}
 To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture. The following sections provide a detailed overview of the class structure and interactions.
 
 \paragraph{Class Diagram}
@@ -131,45 +131,6 @@ The class diagram below illustrates the key components and relationships involve
     \label{fig:class_diagram}
 \end{figure}
  
-
-\paragraph{Sequence Diagram for Admin}
-The sequence diagram below shows the interactions between components when an admin updates the equipment list.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/diagrams/adminEquipementList.png}
-    \caption{Sequence Diagram for Admin Equipment List}
-    \label{fig:sequence_diagram_admin}
-\end{figure}
-
-\paragraph{Sequence Diagram for Subcompany}
-The sequence diagram below illustrates the interactions between components when a subcompany views the dynamic equipment list.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/diagrams/SubcompanyEquipement.png}
-    \caption{Sequence Diagram for Subcompany Viewing Equipment List}
-    \label{fig:sequence_diagram_subcompany}
-\end{figure}
-\subsubsection{Realization After Implementation}
-After the implementation of the dynamic equipment list, the system demonstrated significant improvements in various areas. Below are some key enhancements and their impact:
-
-\paragraph{Admin Interface}
-The images below show the admin interface after the implementation of the dynamic equipment list, highlighting the ease of managing equipment.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/images/admin1.png}
-    \caption{Admin Interface - Managing Equipment Groups}
-    \label{fig:admin_interface_1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/images/admin2.png}
-    \caption{Admin Interface - Editing Equipment Details}
-    \label{fig:admin_interface_2}
-\end{figure}
 
 \paragraph{Subcompany Interface}
 The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users.

@@ -344,20 +344,15 @@ This sequence diagram illustrates the process by which an admin increments a use
 
 \noindent The figure \ref{fig:admin-xp-increment-process} illustrates the sequence diagram for the admin XP increment process.
 
-\subsubsection{Sequence diagram for Admin XP Increment Process}
+\subsubsection{Sequence diagram for closing a packet}
 
-This sequence diagram illustrates the process by which an admin increments a user's XP in the system. The diagram showcases the interactions and communication patterns between the front-end components, various backend services, and the database. It details the steps involved, from the admin's action to the final update in the user rewards and the corresponding log entries, highlighting error handling for scenarios like user not found, invalid user ID or amount, and access forbidden. The diagram emphasizes the flow of information, the order of operations, and the coordination between different system elements to achieve the desired outcome.
+To close a packet, a subcontractor selects and confirms the action from the front-end interface. The front end sends a request to the backend to update the packet status.
 
-\noindent The figure \ref{fig:admin-xp-increment-process} illustrates the sequence diagram for the admin XP increment process.
+The backend controller processes and validates the request, then interacts with the service layer to update the packet status and save changes to the database. Upon successful update, a completion notification is published, triggering updates to the subcontractor's achievements and reward points, which are logged accordingly.
 
-\begin{landscape}
-    \begin{figure}[H]
-        \centering
-        \makebox[\textwidth]{\includegraphics[width=24cm , height=15cm]{src/assets/diagrams/AdminIncreaseXp.png}}
-        \caption{Admin XP Increment Process}
-        \label{fig:admin-xp-increment-process}
-    \end{figure}
-\end{landscape}
+The controller then sends a response back to the front end, confirming the packet has been closed. The front end updates the interface to display the new packet status and reward information.
+
+\noindent The figure \ref{seq-close-packet} illustrates the sequence diagram for closing a packet.
 
 \begin{landscape}
     \begin{figure}[H]
@@ -368,8 +363,17 @@ This sequence diagram illustrates the process by which an admin increments a use
     \end{figure}
 \end{landscape}
 
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \makebox[\textwidth]{\includegraphics[width=24cm , height=15cm]{src/assets/diagrams/ClosePacketSequ.png}}
+        \caption{}
+        \label{fig:admin-xp-increment-process}
+    \end{figure}
+\end{landscape}
 
-\subsection{Detailed design}
+
+\section{Detailed design}
 
 
 
