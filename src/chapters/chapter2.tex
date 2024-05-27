@@ -105,14 +105,27 @@ This section details the latest upgrades and additions made to our system. These
 
 \subsection{Reward System}
 As mentioned in Chapter 1, Section I.5.3, we provided an overview of the reward system designed to enhance user engagement and motivation. In this chapter, we will delve deeper into the specifics of the reward system, which is fundamentally based on Experience Points (XP), Tokens, and Levels/Ranks.
-\begin{itemize}
-    \item \textbf{Points Accumulation:} Users earn points based on their activities and achievements within the application. The system must track and update points in real-time.
-    \item \textbf{Points Redemption:} Users can redeem their accumulated points for various rewards. The system handles the redemption process, ensuring points are correctly deducted and rewards are delivered.
-    \item \textbf{Reward Catalog:} A dynamic catalog of available rewards must be maintained, allowing users to browse and select rewards. The catalog should reflect current availability.
-    \item \textbf{User Notifications:} The system should notify users about their points balance, reward availability, and updates related to the reward system.
-\end{itemize}
 
+The image below illustrates the core components of our reward system. On the left side, the climber symbolizes user progression through the ranks, carrying a sack of tokens that represents the accumulated rewards. On the right, the various rank logos are displayed, indicating the different levels users can achieve as they gain XP and move up in the hierarchy.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{src/assets/images/AermaxClimberPng.png}
+    \caption{User Progression}
+    \label{fig:user_progression}
+\end{figure}
 
+\textbf{Tokens:} Tokens are a form of currency earned through specific activities and can be redeemed for rewards.
+
+\textbf{XP (Experience Points):} XP is earned by users as they complete tasks and participate in activities, reflecting their progress and engagement.
+
+To support this system, we need to develop comprehensive algorithms that can calculate rewards and progress behind the scenes. To ensure these algorithms are effective and accurate, we created a simulator that helps visualize and clarify the reward system before actual development begins.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth, , height=10cm]{src/assets/images/simulator.png}
+    \caption{Reward System simulator}
+    \label{fig:reward_system_simulator}
+\end{figure}
 
 \section{Technical Requirements}
 Technical requirements specify the underlying technical aspects and constraints necessary for the system to function correctly. This section outlines the technical requirements that support the functional requirements.
