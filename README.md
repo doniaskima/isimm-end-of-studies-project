@@ -26,6 +26,9 @@ aspects are yet to be completed or fixed:
 7. **Glossary Page**:
    - The Glossary page is not added.
 
+8. **Abstract Page**:
+   - The Abstract page is not added.
+
 This is a starter TeX template with a [development container](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) that can be run directly inside Docker.
 
 That way, you don't have to deal with the dependency hell of configuring and compiling TeX, nor use third party tools that make you leave your editor.
