@@ -42,285 +42,441 @@ The DevOps lifecycle comprises automated processes of development within an iter
   \item \textbf{Build:} During this phase, developers complete their task and  commit the code to the shared repository using build tools like Maven and Gradle.
   \item \textbf{Test:} Once the build is completed, it is deployed to the test environment for various types of testing such as user acceptance testing, security testing, integration testing, and performance testing using tools like JUnit and Selenium.
   \item \textbf{Release:} The build is then prepared for deployment to the production environment. Once it has passed all the tests, the operations team schedules or deploys multiple releases into production as needed.
+  \item \textbf{Deploy:} In this stage, Infrastructure-as-Code is used to build the production environment and then deploy the build using various tools.
+  \item \textbf{Operate:} The release is now live for customers to use. At this stage, the operations team takes care of server configuration and provisioning using tools like Chef.
+  \item \textbf{Monitor:} In this stage, the DevOps pipeline is monitored based on data collected from customer behavior and application performance. Monitoring the entire environment helps teams find bottlenecks that impact productivity.
+  
 
 \end{itemize}
 
 
-% ----------------------- Company overview ----------------------- %
-\section{Company overview}
-This section introduces the host company {\bf Incedo Services GmbH} as well as the services it offers.
-\subsection{About Incedo}
-"We are a young software development and consulting firm located in Stuttgart.
-We help our clients to develop exciting digital products and solutions and we also love to bring our own ideas into life from time to time." \cite{logo-of-incedo}
-\begin{figure}[H]
-    \centering
-    \makebox[\textwidth]{\includegraphics[width=12cm]{src/assets/images/incedo-logo_bg-trans-white_rgb.png}}
-    \caption{Logo of Incedo Services GmbH}
-    \label{fig:logo-of-incedo}
-\end{figure}
+\subsection{Container management}
+The use of containers has become one of the cornerstones of DevOps practice in recent times due to the efficiency and reliability that they add to the processes. But what are containers, and how do you manage them?
 
-% ----------------------- Stating the problem ----------------------- %
-\section{About Aermax}
+\textbf{What is a container ?}
+\paragraph*{}
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. They provide a lightweight virtualization which allows multiple containers to share the same machine but not the user space as an isolated one. 
+In order to make the application portable.
 
-The company Aermax, created by Max Wörner, is located in Stuttgart Germany, and is associated with industrial alpinism. They offer professionals working with high-altitude or deep-location works by use of industrial alpinism techniques. An industrial alpine climber is a specialist trained in work at great heights or depths. During operations, the work of industrial climbers is carried out using a methodology known as a rope access technique. This technique enables the craftsmen to execute their works in a very difficult location without using scaffolding or lifts.
+\textbf{What is container management ?}
+\paragraph*{}
+Container management is the process for orchestrating and managing the containers whole lifecycle form creation, deployment to scaling and maintaining as well. As a result, tools such as Docker and  Podman are important which help with packing your applications into containers for deployment/management and keeping the manual workings of system administrators to an absolute minimum when it comes to applying updates/maintenance.
+
+\subsection{CI/CD pipelines}
+A CI/CD pipeline is a sequence of actions that need to be carried out to release a new version of software. The main aim of CI/CD pipelines is to enhance software delivery throughout the software development process through automation.
 
 
-\subsection*{Key Advantages of Industrial Climbers}
-\begin{itemize}
-  \item Capacity to work on any height or depth
-  \item With the use of ropes, a flexible way of deployment
-  \item Execution of work without scaffolding and lifts
-  \item Cost-effective and efficient
-  \item Operational without interrupting business or production processes
-  \item Less preparation time
-  \item Capability of short-notice emergency deployment
-\end{itemize}
+\section{Comparative Analysis}
+To initiate our project, we require an extensive set of tools for managing version control, coordinating between containers, and deploy the application. Consequently, we conducted a comparative analysis of various tools available in the market.
 
-With these advantages, Aermax secures that their services are effective, adaptive, and flexible with any surrounding environment, which is quite challenging, while maintaining a higher level of safety and efficiency.
-
-\begin{figure}[H]
-    \centering
-    \makebox[\textwidth]{\includegraphics[width=12cm]{src/assets/images/aermax.PNG}}
-    \caption{Aermax’s website}
-    \label{fig:aermax-website}
-\end{figure}
-
-The client wanted to develop a platform to manage all their work, especially between employees-and-subcontractors, better known as externs.
-
-\section{Competitor Benchmarking}
-This section will discuss the analysis of the Aermax platform: review of the features, capabilities, and performance. The goal is to see the strong and weak sides of this service and compare it to industry standards. This analysis can act as a guideline on how to improve our platform to effectively manage high-altitude projects.
-\subsection{Competitors Selection}
-In the current solutions study, we have evaluated various platforms and chosen two which most closely fit our needs. We will give an overview of the chosen solutions and the main features and functionalities thereof.
-
-\subsection{Blauarbeit}
-Blauarbeit is an online marketplace where German citizens can look for experts to help them with hard and sometimes dangerous tasks.
-It's like a big directory filled with experts who are good at fixing effects like broken pipes, or erecting new structures.
-That way, a person can easily find the right fit for the job instead of searching everywhere. Moreover, Blauarbeit assures that workers are reliable and secure whether it is fixing a dense roof or cleaning at a high altitude and dangerous place.
+\subsection{Version Control: Git vs SVN}
+The most used tools for version control are Git and SVN. Here is a table
+comparing both tools.
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{src/assets/chapters/Blaurabeit.PNG}
-    \caption{Blaurabeit Homepage}
-    \label{fig:blaurabeit_image}
-\end{figure}
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between Git and SVN}
+  \label{tab: comparative_study_between_Git_and_SVN}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{Git} & \textbf{SVN} \\
+      \hline
+       Distributed version
+control system & Centralized version
+control system \\
+      \hline
+      Can work locally, offline & Must be connected to commit \\
+      \hline
+      Each user has a copy of the full repository & Each user only has a copy of the trunk  \\
+      \hline
+      Easy to fork, branch, and merge & Branching and merging is time-consuming  \\
+      \hline
+      Used by 90\% of developers & Used by 10\% of developers  \\
+      \hline
+  \end{tabularx}
+\end{table}
+Both choices are excellent in the final analysis.Nevertheless, we have decided to utilize Git since the company already operates a self-hosted GitLab instance that inherently supports Git.
 
 
-\subsection{MyHammer}
-MyHammer is a German online portal that offers homeowners and businesses the option to find local craftsmen and service providers for a wide variety of construction,and repair work.
-MyHammer offers a set of features such as a huge variety of services provided, transparent bidding, and a mobile-friendly interface.
+\subsection{Container management: Docker vs Podman}
+Even though Docker enjoys widespread popularity, Podman is also making its mark in the market, particularly on Red Hat systems.
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{src/assets/chapters/myHammer.PNG}
-    \caption{MyHammer Homepage}
-    \label{fig:myhammer_image}
-\end{figure}
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between Docker and Podman}
+  \label{tab: comparative_study_between_Docker_and_Podman}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{Docker} & \textbf{Podman} \\
+      \hline
+      Uses client-server architecture & Does not require a deamon to run, operates as a single command-line tool. \\
+      \hline
+      Docker daemon can run as non-root user & Podman uses a rootless mode by default, meaning that containers are run as regular users no with root privileges \\
+      \hline
+      Docker uses centralized image registry. Pull/push image to remote registry and load image from a local archive. & Podman uses a local image registry, which makes it easier to menage images locally.  \\
+      \hline
+      Docker uses a custom networking system. & podman relies on the standard Linus networking stack(more compatible with existing tools and systems).  \\
+      \hline
+  \end{tabularx}
+\end{table}
+The similarities between the two are apparent, and theoretically, the choice between Docker and Podman should be immaterial because both are interchangeable.
 
 
-
-\subsection{Aermax}
-Aermax is a company that specializes in the provision of services at altitudes. It specializes in works that require preciseness and safety and expertise. One of the aspects of the works involves the provision of services that make buildings last and remain viable for a long time. 
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{src/assets/images/aermax.PNG}
-    \caption{Aermax Homepage}
-    \label{fig:aermax_image}
-\end{figure}
-
-\subsection{Competitors Selection}
-We are conducting a thorough assessment of project management platforms for industrial climbers to improve user experience and streamline operational processes. We will evaluate their functionalities, strengths, and weaknesses against 7 key criteria tailored to our project's needs and select the platform that best fits our requirements.
-
-\begin{itemize}
-    \item \textbf{C1: User Interface:} How the platform is designed regarding the interface and navigation of the platform to create a good experience for both technicians and project managers.
-
-    \item \textbf{C2: Task Management:} How efficient is the platform in managing projects, including task assignment, progress tracking, and deadline setting.
-
-    \item \textbf{C3: Document Management:} How the platform manages project documents, user files, the daily reports and performance’s reports.
-    \item \textbf{C4: Communication Tools:} How far the platform supports communication between project managers, worker, and customers including real-time messaging, notifications.
-
-    \item \textbf{C5: Safety Compliance:} How the platform can ensure compliance with safety regulations and standards that pertain to industrial climbing projects, tracking certifications, training records, and safety procedures.
-    \item \textbf{C6: Equipment Management:} How the platform manege equipment used for industrial climbing projects.
-    \item \textbf{C7: Project Planning and Scheduling:} How efficient the platform is in project planning and scheduling features, and timeline management.
-\end{itemize}
-
-\begin{longtable}{|p{2cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
-    % Table header information for the first part
-    \caption{Comparison of Project Management Platforms for Industrial Climbers} \\
-    \hline
-    \textbf{Criteria} & \textbf{MyHammer} & \textbf{Blauarbeit} & \textbf{Aermax}  \\
-    \hline
-    \endfirsthead
-    
-    % Table continuation header information
-    \hline
-    \textbf{Criteria} & \textbf{MyHammer} & \textbf{Blauarbeit} & \textbf{Aermax}  \\
-    \hline
-    \endhead
-    
-    % Footer at the end of each page (if needed)
-    \hline
-     
-    
-    % Footer at the end of the table (if needed)
-    \hline
-    \endlastfoot
-    
-    % Table content for Part 1
-    C1: User Interface &  User-friendly interface for homeowners and service providers to connect for  projects.& Straightforward interface for customers and service providers to post and bid on household service tasks. & Easy-to-use design for admins, workers, and customers. The UI lacks a lot of refinments. \\ 
-    \hline
-    C2: Task Management & Lack of a dedicated task management features for organizing and tracking project progress. &  Lack of a dedicated task management features.Blauarbeit  does not offer tools specifically for task management within projects. & Essential task management features for project organizing and tracking progress is what Aermax provides. \\
-    \hline
-    C3: Document Management & Lack of a dedicated document management features. & Lack of a dedicated document management features. & Aermax provide a whole separe service to document management
-    \\
-    \hline
-    
-    % Table content for Part 2, continues in the same longtable environment
-    C4: Communication Tools & A basic communication tool for homeowners and service providers to discuss project details and negotiate terms. & A standard communication tool for customers and service providers to negotiate job requirements and arrangements. & A standard chat channel for admins and workers, to discuss project progress and details. \\
-    \hline
-    C5: Safety Compliance & No specific safety compliance features for home improvement projects. & No dedicated safety compliance features for household services. & Lack of safety compliance features for construction and climbing services. \\
-    \hline
-    C6: Equipment Management & A fully integrated equipment management tool, to automate tracking and  management of equipment assets that can be used to complete projects efficiently. & An automated equipment management feature, providing scalable solutions for tracking and managing equipment assets across projects. & A simple and standard equipment management feature which isn’t maintainable and extensible.\\
-    \hline
-    C7: Project Planning and Scheduling & Lack of specific project planning or scheduling tools. & Lack of specific project planning or scheduling tools. & An efficient tool for managing and planning projects. \\
-    \hline
-\end{longtable}
-
-% ----------------------- Assessment of the case ----------------------- %
-\section{Assessment of the case}
-This chapter shall evaluate the current state of the project, its strengths and weaknesses, propose solutions for its issues, and outline its implementation steps. The systematic approach is aimed at enhancing the performance of the project and user satisfaction.
-
-\subsection{Describing the work procedure}
-The work on any project, first of all, needs to be preceded by the profound study of the existing ones, undermining the strengths and weaknesses of the current system, and business decisions which should be taken into account during the conception and realization.
-
-\subsection{Criticizing the current state}
-After studying the existing, we can determine its limitations:
-
-\subsubsection{Functional Issues}
-\begin{itemize}
-    \item Functionalities are not working as expected.
-    \item New features are yet to be developed.
-    \item Parts of the application need complete overhauling to meet the client's requirements.
-\end{itemize}
+\subsection{Database: MongoDB vs PostgreSQL}
+All old Aermax microservice are using a MongoDB database, but we did a comparative study between MongoDB and PostgreSQL to see if we should switch to PostgreSQL.
 
 
-\subsubsection{Technical Issues}
-\begin{itemize}
-    \item Since cron jobs are running for the whole day, bugs are hard to respond to fast enough because we can only deploy once at the end of the day.
-    \item Many bugs remain unfixed.
-    \item The code needs refactoring due to some bad practices that make the app take more time to execute.
-\end{itemize}
-
-\subsection{Proposed solution}
-With the problems identified, we make the following proposals for the way forward.
-
-\begin{itemize}
-    \item First, existing features will be enhanced to ensure that they work as they should. This will entail a keen review and subsequent test of the features to identify and fix any bugs.
-    \item In addition, new features will be developed based on priority to ensure that the application meets all of the client's requirements.
-    \item There will also be thorough refactoring of the codebase to remove bad practices and optimize performance.
-    \item The UI/UX is also recommended to be enhanced for a better user experience. The proposed solutions should be aimed at greatly enhancing the general performance of the application, reliability, and user satisfaction.
-    \item Build a new feature: Reward System to make Aermax's users more engaged and motivated.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{src/assets/diagrams/rewardexplain.png}
-    \caption{Reward System Overall View}
-    \label{fig:Reward_System_explain_image}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{src/assets/diagrams/rewardexplain2.png}
-    \caption{Reward System Detailed Scenario}
-    \label{fig:Reward_System_detailed_explain_image}
-\end{figure}
-   
-
-\subsection{Work to Be Done}
-\begin{itemize}
-    \item Develop the major feature: the reward system.
-    \item  Deploy the reward system into staging and then production.
-    \item Enhance existing features to ensure they work as expected.
-    \item Conduct a thorough review and testing of functionalities to identify and fix any bugs.
-    \item Develop new features to meet the client's requirements.
-    \item Refactor the codebase to eliminate bad practices and improve performance.
-    \item Improve the UI/UX design to enhance user experience and satisfaction.
-\end{itemize}
-
-% ----------------------- Development Methodology ----------------------- %
-\section{Development Methodology}
-\subsection{Agile methodology}
-Agile is a structured and iterative approach to project management and product development.
-It recognizes the volatility of product development, and provides a methodology for self-organizing teams to respond to change without going off the rails.
-
-\subsection{Scrum methodology}
-The Scrum team commits to the completion of an increment of work, which is potentially shippable, through set periods of time called sprints.
-They strive to build a learning loop in order to quickly collect and integrate customer feedback.
-Scrum teams embrace specific roles, create special artifacts, and hold regular ceremonies to keep things moving.
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between MongDB and PostgreSQL}
+  \label{tab: comparative_study_between_MongoDB_and_PostgreSQL}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{MongoDB} & \textbf{PostgreSQL} \\
+      \hline
+      mongoDB saves data as documents in the bson format & Rows and columns are used to store data in a tabular form. \\
+      \hline
+      Doesn't use schemas. Documents can be stored without defining their structure. & Uses schema \\
+      \hline
+      Uses Javascript to query a database. & Uses SQL to query a database.  \\
+      \hline
+      Supports horizontal scaling. & Supports vertical scaling.  \\
+      \hline
+  \end{tabularx}
+\end{table}
+Since the old architecture uses MongoDB, we will be sticking to that in the
+new architecture as well for an easier migration.
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{src/assets/chapters/blog-scrum-process-opt.jpg}
-    \caption{The Scrum Framework}
-    \label{fig:Scrum_Framework_image}
-\end{figure}
+\subsection{Database: GraphQL vs REST}
+We have a decision to make regarding the data exchange in our application. We are considering the comparison between GraphQL and REST.
 
 
-\subsection{Kanban methodology}
-Kanban is all about visualizing your work, limiting work in progress, and maximizing efficiency (or flow).
-Kanban teams focus on reducing the time a project takes from start by using a Kanban board to continuously improve their flow of work.
-To explain more in details, Kanban is based on a continuous workflow structure that keeps teams nimble and ready to adapt to changing priorities.
-Work items —represented by cards— are organized on the board where they flow from one stage of the workflow or column to the next.
-Common workflow stages are To Do, In Progress, In Review, and Done.
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between REST and GraphQL }
+  \label{tab: comparative_study_between_REST_and_GraphQL}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{REST} & \textbf{GraphQL} \\
+      \hline
+      Architectural style. & Query language. \\
+      \hline
+      Might require more than one endpoint. & Requires a signle endpoint. \\
+      \hline
+      Client can only ask for an entire resource. & Client can ask for a specific field of a resource.  \\
+      \hline
+      No typing.& Strongly typed.  \\
+      \hline
+      Cacheability. & No built-in caching.  \\
+      \hline
+       Updates might require new API versioning. & No API versioning.  \\
+      \hline
+        Non standard response(often XML or JSON) & Standard JSON response.  \\
+      \hline
+  \end{tabularx}
+\end{table}
+We decided to utilize REST due to limited time and implementing a new approach in a deliverable app won't be a good choice.
 
-\subsection{Scrumban methodology}
-ScrumBan is a hybrid Agile methodology that combines elements of Scrum and Kanban. Here are some important points about Scrumban:
 
-\begin{itemize}
-    \item Hybrid Methodology: ScrumBan merges the flexibility of Kanban with the structure of Scrum to optimize workflow.
-    \item Continuous Improvement: Similar to Kanban, Scrumban focuses on continuous improvement with the visualization of workflow and by limiting Work in Progress (WIP).
-    \item Iterative Approach: Scrumban retains the iterative approach of Scrum—allowing periodic review and adaptation of processes.
-    \item Adaptive Planning: A team can plan in a way that it can change the priorities and resources, if so required, as per the changing requirements while using Scrumban.
-    \item Lean Principles: Scrumban adopts the principles of Lean—like waste elimination and maximization of value delivery—to streamline processes.
-\end{itemize}
+\subsection{Deployment: Kubernetes vs Docker Swarm}
+Most deployments rely on Docker Compose, but it's not ideal for production, especially for systems that need to scale. After researching, we are considering using either Docker Swarm or Kubernetes.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{src/assets/chapters/Scrumban.png}
-    \caption{The Scrumban board}
-    \label{fig:Scrumban_image}
-\end{figure}
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between Kubernetes and Docker Swarm }
+  \label{tab: comparative_study_between_kubernetes_and_Docker_swarm}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{Kubernetes} & \textbf{Docker Swarm} \\
+      \hline
+      Installation is complicated, but once setup, the cluster is very strong. & Installation is very simple, but cluster is not very strong. \\
+      \hline
+      GUI is the Kubernetes Dashboard & There is no GUI \\
+      \hline
+      Highly scalable and scales fast. & Highly scalable and scales 5x faster than Kubernetes.  \\
+      \hline
+      Kubernetes can do auto-scaling. & Docker Swarm can't do auto-scaling.  \\
+      \hline
+      Can deploy Rolling updates and does automatic Rollbacks. & Can deploy Rolling updates but not automatic Rollbacks.   \\
+      \hline
+      In-build tools for logging and monitoring. & 3rd party tools like ELK should be used for logging and monitoring.  \\
+      \hline
+      Can share storage volumes only with other containers in same Pod. & Can share storage volumes with any other containers.  \\
+      \hline
+  \end{tabularx}
+\end{table}
+Hence, we plan to implement our application stack on Kubernetes due to its significant potential, especially when compared to the outdated Docker Swarm.
 
 \newpage
-\subsection{The choice for AERMAX}
-Scrumban has been chosen as the preferred development methodology for the following reasons:
+\subsection{Deployment management: Kubectl vs Helm}
+Given that we are utilizing Kubernetes, we have the choice to deploy our microservices using either Kubectl or Helm.
+
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{Comparative study between Helm and Kubectl}
+  \label{tab:comparative_study_between_helm_and_kubectl}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{Helm} & \textbf{Kubectl} \\
+      \hline
+      Helm serves as the package manager for Kubernetes, in essence. & The official Kubernetes command-line tool is Kubectl, which permits the execution of commands against Kubernetes clusters. \\
+      \hline
+      Simplifies deployment of complex applications. & Requires detailed configuration for each resource.  \\
+      \hline
+      Uses templates for Kubernetes manifests, supports variables and conditionals. & Directly applies Kubernetes YAML files without templating.  \\
+      \hline
+      Manages application versions and rollbacks easily. & Version control and rollbacks must be handled manually.  \\
+      \hline
+      Uses Helm charts to package applications, making reuse and sharing easy. & Does not have a native concept of charts; relies on YAML files.   \\
+      \hline
+  \end{tabularx}
+\end{table}
+After carefully analyzing our use case, we decided to develop a consistent Helm package for deploying our microservices.
+Additionally, we found it important to establish standard configurations that we can easily apply using Kubectl, including Ingress rules, for convenience and due to time constraints.
+
+\subsection{Conclusion}
+In this section, we explored the key principles related to our project, including web scraping, automation, and DevOps. Next, we delved into various available tools and deliberated on our selections.
+
+
+\section{Main Setup}
+\subsection{Introduction}
+In this section, we will address the much-anticipated realization. This phase involves putting into action all the groundwork laid in the preceding sections. DevOps will be a major focus in this part, as our main goal has been to deploy the reward system to a scalable architecture using contemporary DevOps practices. We will commence with the hardware and software configuration of the new architecture, followed by an exploration of how to oversee the entire application stack.
+
+\subsection{Hardware setup}
+Given that we have decided to move forward with the self-managed Kubernetes deployment, we will need to establish our own cluster nodes or virtual machines. These nodes can be categorized into core nodes, which are established once, and scalable nodes, which can be generated as needed for scaling purposes.
+\subsubsection{Cloud provider}
+dadada
+\subsubsection{Kubernetes Cluster}
+Using the cloudpanel dashboard, now is the moment to establish our cluster. The following tables display the virtual machines required to begin.
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.5} 
+  \caption{ Core cluster nodes}
+  \label{tab: core_cluster_nodes}
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+      \hline
+      \rowcolor{blue!20} 
+      \textbf{Name} & \textbf{Services Swarm} & \textbf{Size} \\
+      \hline
+      kube-controller & The main Kubernetes cluster controller  & XL \\
+      \hline
+      prod-node & Elastic-stack, Ngnix Ingress, Keyclock, RabbitMq, all other Aermax services  & L \\
+      \hline
+      staging-node & Elastic-stack, Ngnix Ingress, Keyclock, RabbitMq, all other Aermax services  & L \\
+      \hline
+  \end{tabularx}
+\end{table}
+
+
+\subsection{Software setup}
+After our hardware resources are set up, we have raw Linux virtual machines with no configuration. To move forward, we must create and handle our own Kubernetes instance using MicroK8s. Before doing that, we also need to establish some basic configurations.
+
+\subsubsection{Manual configuration}
+For a single virtual machine, we have to do the following setup:
+
 \begin{itemize}
-    \item \textbf{Flexibility:} ScrumBan is a very flexible approach that brings some structure to Scrum while maintaining a high level of adaptability, similar to Kanban, which includes fast responses to changing priorities while maintaining a framing order for work.
-    \item \textbf{Continuous Improvement:} Scrumban encourages continuous improvement, and teams can evolve their process over time.
-    \item \textbf{Reduced Waste:} Scrumban introduces the principle of just-in-time delivery of user stories and WIP limits to ensure minimization of wastes.
-    \item \textbf{Improved Visibility:} Visual boards improve the visibility of work, enabling transparency and encouraging collaboration.
-    \item \textbf{Optimized Flow:} Scrumban is a way of optimizing flow by balancing Kanban flexibility with structured Scrum, enabling teams to build value consistently and predictably.
+  \item Set up a user with elevated privileges
+  \item Download and set up the essential packages for our use
+  \item Modify the hosts file to enable the virtual machine to identify other virtual machines by their hostnames
+  \item Deploy MicroK8s to establish a single-node cluster on the virtual machine
+  \item Connect the virtual machine to the master node to form a multi-node cluster.
 \end{itemize}
 
+\subsection{Deployment process}
+We will now describe the strategy we have implemented for continuously integrating, deploying, and delivering our application, in line with the DevOps best practices. At present, the deployment is backed by two distinct environments: the staging environment for validating the proper functioning of our application, and the production environment.
+
+\subsubsection{Adopted strategy}
+Given that we have multiple microservices, it's not practical to interact with our Kubernetes cluster from each one every time we make a change. As a result, we follow these steps to deploy our application:
+
+\begin{itemize}
+  \item When we have updates in any of our microservices, we generate a new Docker image and upload it to a dedicated container registry.
+  \item After the build process finishes, we trigger a multi-project pipeline leading to a central repository named "aermax-controller."
+  \item This central repository then communicates with our Kubernetes cluster to deploy the application to the correct environment, using a custom Helm package that we developed. Additional information is available in the subsequent sections.
+
+\end{itemize}
+
+\paragraph{}
+This is further explained in detail in the following sub sections.
+
+\subsubsection{Linking the cluster to GitLab}
+We plan to connect our Kubernetes cluster with GitLab using the GitLab Kubernetes Agent, also known as KAS.
+
+
 \begin{figure}[H]
-    \centering
-    \makebox[\textwidth]{\includegraphics[width=14cm]{src/assets/chapters/aermax-board.png}}
-    \caption{Aermax Board}
-    \label{fig:armax-board}
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/linkingrepowithkuber.png}
+  \caption{GitLab Kubernetes Agent}
+  \label{fig:gitlab-kuber}
 \end{figure}
- 
-\newpage
-\subsection{Unified Modeling Language}
-The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering that is intended to provide a standard way to visualize the design of a system. In our case, we used UML to design the top level view of the systems therefore we only used the Use Case and Sequence diagrams.
 
 
+\subsubsection{Continuous Integration}
+Every time a developer makes changes in the main branch of a microservice, automatic tests are run. Assuming that everything passed, a Docker image with the changes will be uploaded to the container registry, and our deployment process will start. Finally, the new code will be put into place, marking the.
 
-\setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
-% ----------------------- Conclusion ----------------------- %
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/ci.png}
+  \caption{Extract from the CI pipeline}
+  \label{fig:ci-pipeline}
+\end{figure}
+
+
+\subsubsection{Continuous Deployment}
+The aermax-controller repository, which configures the agent, selects the appropriate microservice for deployment based on the trigger input. It proceeds to configure the required environment variables and deploys it using a customized Helm package designed for this purpose.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/cd.png}
+  \caption{Extract from the deployment Makefile}
+  \label{fig:cd-pipeline}
+\end{figure}
+
+
+\subsubsection{Custom Helm Package}
+After deciding to utilize Helm, we have developed our own package - or, in Helm terms, a chart - to handle the resources of the Kubernetes cluster.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/customhelm.png}
+  \caption{Extract from the custom Helm Chart}
+  \label{fig:custom-helm}
+\end{figure}
+
+The Helm Charts are customized for the CI/CD pipelines of the project to enable easy installation and upgrading of the project's application(s) without the need for a manual configuration management.
+
+\textbf{Keep in mind:}
+\begin{itemize}
+  \item These charts are particularly beneficial for microservices, as they generally have a similar structure. As a result, we utilize the \textbf{main-app}  chart for all of them. However, it can still be used for a single monolithic application.
+  \item You have the option to create additional charts as required using \textbf{helm create}, but it's unlikely that you'll need to do so.
+  \item this chart does not contain any ingress rules. You will still need to apply those manually from the common manifest in the controller. This approach simplifies the process of identifying exposed domains without the need to redeploy all releases separately.
+
+\end{itemize}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/helmpipeline.png}
+  \caption{Extract from the custom Helm package’s pipeline}
+  \label{fig:custom-helm-pipeline}
+\end{figure}
+
+\subsubsection{Deployment result}
+And if we trigger the CI/CD pipeline for all our microservices (refer to Appendix C), we will be able to observe the deployment of the application dashboard! As a matter of fact, we currently have two active environments that are accessible to the public:
+
+\begin{itemize}
+  \item \textbf{Staging} https://staging.app.aermax.de/
+  \item \textbf{Production} https://app.aermax.de/
+
+\end{itemize}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/login.png}
+  \caption{Aermax Login Page}
+  \label{fig:login}
+\end{figure}
+
+When we login as admin, the dashboard with the list of projects, users, working pakets is the first thing
+we notice. We can see how many in progress projects we have and
+also some other useful information for admins.
+We will focus just on the rewars system features.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/adminOverview.png}
+  \caption{Aermax Admin Overview}
+  \label{fig:admin-overview}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/adminAchievements.png}
+  \caption{Aermax Admin Achievements Overview}
+  \label{fig:admin-achievements-overview}
+\end{figure}
+
+We additionally have the option to manage our achievements(Missions).
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/adminUsers.png}
+  \caption{Aermax Admin Users Overview}
+  \label{fig:admin-users-overview}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/adminuserswithrankdetails.png}
+  \caption{Aermax Admin Users Rank Details}
+  \label{fig:admin-users-ranks}
+\end{figure}
+
+Admins have the option have an detailed informations about each subcompany users with navigating specifically to that user.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/adminmenageranktoken.png}
+  \caption{Aermax Admin Tokens Xp and Transactions Management}
+  \label{fig:admin-users-tokens}
+\end{figure}
+
+Admins have the option have an detailed informations about each token and xp Transaction, with the opportunity to manage them(add/remove).
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/subcompanyoverview.png}
+  \caption{Aermax Subcompany User Overview}
+  \label{fig:sub-login}
+\end{figure}
+
+When we login as subcompany users, we notice the same dashboard as the admin has yet with limited informations.
+We will focus just on the Reward System Features.
+
+
+\subsection{Monitoring}
+\subsubsection{Introduction}
+Improvement in visibility is certainly achieved through the use of dashboards. As a result, we have implemented monitoring solutions for our entire cluster. The elements we keep track are the logs of our microservices. Our initial step involves exposing the Kubernetes dashboard using manifest resources and kubectl.
+
+\subsubsection{Monitoring the logs}
+
+In order to adequately oversee the logs of our diverse microservices and other applications operating on the cluster, we should:
+
+\begin{itemize}
+  \item Gather the logs from the various Pods in the cluster
+  \item Transform and analyze the logs into a standardized format, typically JSON
+  \item Transmit the logs to a search engine for effortless retrieval
+  \item Optionally produce dashboards for our logs
+
+\end{itemize}
+
+The most effective method for this task is to utilize the EFK Stack, which comprises Elasticsearch, Fluentd, and Kibana.
+
+
 \section{Conclusion}
-This chapter introduces the host organization, assesses identified problems and associated challenges, evaluates the competitive landscape, and the adoption of an agile methodology by the team. It also speaks to the next chapter, which is going to deal with the setting of objectives and laying out the roadmap for the remaining sprints under Sprint 0.
+
+For a project to be successful, it is essential to establish a well-structured development environment and an efficient production environment with robust monitoring solutions. We spent a considerable amount of time configuring the infrastructure in a scalable and contemporary manner using different tools and scripts that follow DevOps best practices.
