@@ -1,5 +1,34 @@
 # Final Year Project - Template
 
+## Current Status
+
+aspects are yet to be completed or fixed:
+
+1. **DevOps Section**:
+   - The DevOps part is not included as stated in Chapter 5 by the professor.
+   - It is actually a continuation of Chapter 4, which is still pending.
+
+2. **Detailed Design**:
+   - The detailed design  part is not yet added..
+
+3. **Implementation**:
+   - The implementation part is not yet added.
+
+4. **Chapter 3 Fixes**:
+   - Chapter 3 is still not fixed and requires further work.
+
+5. **SVG Integration**:
+   - SVG has not been implemented.
+
+6. **References and Indexes**:
+   - The References and Indexes sections are not yet included.
+
+7. **Glossary Page**:
+   - The Glossary page is not added.
+
+8. **Abstract Page**:
+   - The Abstract page is not added.
+
 This is a starter TeX template with a [development container](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) that can be run directly inside Docker.
 
 That way, you don't have to deal with the dependency hell of configuring and compiling TeX, nor use third party tools that make you leave your editor.
