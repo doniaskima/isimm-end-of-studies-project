@@ -262,9 +262,92 @@ In this section, we will address the much-anticipated realization. This phase in
 \subsection{Hardware setup}
 Given that we have decided to move forward with the self-managed Kubernetes deployment, we will need to establish our own cluster nodes or virtual machines. These nodes can be categorized into core nodes, which are established once, and scalable nodes, which can be generated as needed for scaling purposes.
 \subsubsection{Cloud provider}
-dadada
+We plan to utilize the Hetzner Cloud provider to allocate the necessary hardware resources for the deployment.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{src/assets/chapters/hetzner.png}
+  \caption{Logo of Hetzner}
+  \label{fig:cloud-provider}
+\end{figure}
+
+
+
+Hetzner Cloud, utilizing its Hetzner CloudPanel service, provides a platform that is easy for users to create and oversee virtual machines, configure firewall rules, set up private networks, and manage other essential infrastructure components.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/cloudproject.png}
+  \caption{Hetzner Cloud Project Overview}
+  \label{fig:cloud-project-overview}
+\end{figure}
+
+The Hetzner Cloudpanel dashboard provides the following deployment options:
+
+\begin{itemize}
+  \item \textbf{Servers:} This section allows users to create and manage virtual machines.
+  \item \textbf{Volumes:} This section allows users to create and manage volumes(A Volume is a highly-available, scalable, and SSD-based block storage for Servers.).
+  \item \textbf{Networks:} Networks is a private networks feature. These Networks are optional and they coexist with the public network that every Server has by default.
+
+  \item \textbf{Firewalls:} This section allows users to create and manage firewall rules(Firewalls can limit the network access to or from your resources).
+\end{itemize}
+
+
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/servers.png}
+  \caption{Hetzner Cloud Servers Overview}
+  \label{fig:cloud-project-servers-overview}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/serversoverview.png}
+  \caption{Hetzner Cloud Server Details}
+  \label{fig:cloud-project-server-details}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/volumes.png}
+  \caption{Hetzner Cloud Volumes}
+  \label{fig:cloud-project-volumes}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/networks.png}
+  \caption{Hetzner Cloud Networks}
+  \label{fig:cloud-project-networks}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/firewall.png}
+  \caption{Hetzner Cloud Firewalls}
+  \label{fig:cloud-project-fw}
+\end{figure}
+
+
 \subsubsection{Kubernetes Cluster}
 Using the cloudpanel dashboard, now is the moment to establish our cluster. The following tables display the virtual machines required to begin.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/kubernodes.png}
+  \caption{Kubernetes Dashboard Core Nodes}
+  \label{fig:kubernodes}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/kubernamespaces.png}
+  \caption{Kubernetes Dashboard Namespaces}
+  \label{fig:kubernamespaces}
+\end{figure}
 
 \begin{table}[h!]
   \centering
@@ -474,7 +557,48 @@ In order to adequately oversee the logs of our diverse microservices and other a
 
 \end{itemize}
 
+\paragraph{}
 The most effective method for this task is to utilize the EFK Stack, which comprises Elasticsearch, Fluentd, and Kibana.
+
+\textbf{Elasticsearch:}
+
+Elasticsearch has many uses, such as being a search engine, an analytics engine, or even a database. It can handle large amounts of logs using minimal resources, which makes it the optimal choice for our cluster.
+
+
+Kibana, a data visualization dashboard, is specifically designed to work with Elasticsearch and is commonly utilized in conjunction with an Elasticsearch instance.
+
+
+Utilizing the open-source \textbf{Elastic Stack Kubernetes Helm Charts} allows us to establish our Elasticsearch and Kibana configuration within the cluster.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/elastic.png}
+  \caption{Kibana dashboard}
+  \label{fig:kibana-dash}
+\end{figure}
+
+
+\textbf{Fluentd:}
+
+
+Fluentd, however, serves as a data aggregator. Its main function is to operate in the background and ensure that our applications' logs are delivered to any specified service in a consistent manner. We set it up to retrieve logs from our Pods' standard output, convert them to JSON, and then transmit them to Elasticsearch.
+
+After the deployment, we have the option to leverage advanced Elasticsearch features like filtering and sorting our logs directly from the Kibana dashboard.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/kibanalogs1.png}
+  \caption{Kibana Dashboard Logs(1)}
+  \label{fig:kibana-dash-logs-1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{src/assets/chapters/kibanalogs2.png}
+  \caption{Kibana Dashboard Logs(2)}
+  \label{fig:kibana-dash-logs-2}
+\end{figure}
+
 
 
 \section{Conclusion}
