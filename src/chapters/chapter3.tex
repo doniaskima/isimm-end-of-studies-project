@@ -96,14 +96,15 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
         \label{fig:static_equipment_list}
     \end{figure}
     
-    \subsubsection{Planned Dynamic Implementation}
+    \subsubsection{Dynamic Equipment List Solution}
     To address these issues, we are transitioning to a dynamic equipment list. The dynamic implementation will automatically update the list based on changes in the equipment database, ensuring real-time accuracy and reducing maintenance overhead. Key features of the dynamic implementation include:
     \begin{itemize}
         \item \textbf{Real-time Updates:} The list will automatically reflect changes made to the equipment database.
         \item \textbf{Improved Scalability:} The system can handle an increased number of equipment items without additional maintenance.
-        \item \textbf{Enhanced User Experience:} Users will have access to up-to-date information, improving their ability to make decisions.
+        \item \textbf{Request System:} Subcontractors can request new equipment, and the admin can approve or reject these requests.
         \item \textbf{Reduced Maintenance:} Eliminates the need for manual updates, reducing the time and effort required to maintain the list.
     \end{itemize}
+    
     
     \begin{figure}[H]
         \centering
@@ -126,7 +127,7 @@ The class diagram below illustrates the key components and relationships involve
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/diagrams/ClassDiagramEquipmentList.png}
+    \includegraphics[width=1\textwidth , height=11cm]{src/assets/diagrams/DynamiEquipementListPng.png}
     \caption{Class Diagram for Dynamic Equipment List}
     \label{fig:class_diagram}
 \end{figure}
@@ -140,14 +141,6 @@ The images below show the subcompany interface after the implementation of the d
     \caption{Subcompany Interface - Viewing Assigned Equipment}
     \label{fig:subcompany_interface_1}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/images/Interface2.png}
-    \caption{Subcompany Interface - Filtering Equipment List}
-    \label{fig:subcompany_interface_2}
-\end{figure}
-
 
 \subsection{Overhaul of the Project Status}
 
