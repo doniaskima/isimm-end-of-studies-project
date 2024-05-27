@@ -15,7 +15,30 @@ The Aermax project is a comprehensive initiative aimed at developing a robust an
 
 \subsection{Aermax Architecture}
 
-The architecture diagram of Aermax shows the integration of existing and newly developed microservices within a unified virtual network environment.
+The following table provides a comprehensive overview of all the application's microservices, detailing their functionalities and scalability.
+
+\textbf{Table 9: All the Application’s Microservices}
+\begin{longtable}{|p{3cm}|p{7cm}|p{2cm}|}
+    \hline
+    \textbf{Name} & \textbf{Description} & \textbf{Scalable} \\
+    \hline
+    \endhead
+    ai-service & Manages AI operations, including data processing and ML algorithms. & Yes \\
+    \hline
+    user-service & Handles user data, security, and support functions. & Yes \\
+    \hline
+    operations-service & Coordinates project management and operational workflows. & Yes \\
+    \hline
+    storage-service & Oversees data storage and database management. & Yes \\
+    \hline
+    client & Provides the user interface and input processing. & Yes \\
+    \hline
+    reward-service & Manages the reward system, including points accumulation, redemption, and catalog maintenance. & Yes \\
+    \hline
+    config-service & Stores and retrieves configuration settings for various services. & Yes \\
+    \hline
+\end{longtable}
+
 \begin{itemize}
     \item \textbf{Existing Microservices}:
     \begin{itemize}
@@ -31,11 +54,11 @@ The architecture diagram of Aermax shows the integration of existing and newly d
     \end{itemize}
 \end{itemize}
 
-This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak.
+This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak. The diagram below (Figure \ref{fig:aermax_architecture}) illustrates the integration of existing and newly developed microservices within a unified virtual network environment.
 
 \begin{minipage}{\linewidth}
     \centering
-    \includegraphics[width=15.5cm]{src/assets/chapters/AermaxArchitecture.png}
+    \includegraphics[width=15cm , height=25cm]{src/assets/chapters/AermaxArchitecture.png}
     \captionof{figure}{Aermax Architecture}
 \end{minipage}
 
@@ -190,31 +213,6 @@ Therefore, this part will list all of the technologies that we've used and also 
               \captionof{figure}{Logo of Langchain}
           \end{minipage}
 \end{itemize}
-
-\section{The Application’s Microservices}
-\textbf{Table 9: All the Application’s Microservices}
-\begin{longtable}{|p{3cm}|p{7cm}|p{2cm}|}
-    \hline
-    \textbf{Name} & \textbf{Description} & \textbf{Scalable} \\
-    \hline
-    \endhead
-    ai-service & Manages AI operations, including data processing and ML algorithms. & Yes \\
-    \hline
-    user-service & Handles user data, security, and support functions. & Yes \\
-    \hline
-    operations-service & Coordinates project management and operational workflows. & Yes \\
-    \hline
-    storage-service & Oversees data storage and database management. & Yes \\
-    \hline
-    client & Provides the user interface and input processing. & Yes \\
-    \hline
-    reward-service & Manages the reward system, including points accumulation, redemption, and catalog maintenance. & Yes \\
-    \hline
-    config-service & Stores and retrieves configuration settings for various services. & Yes \\
-    \hline
-    topix-service & Manages SOAP-based communications and topics. & Yes \\
-    \hline
-\end{longtable}
 
 \section{Conclusion}
 Defining and implementing these functional and technical requirements is crucial for developing a robust, reliable, and user-friendly Aermax application that meets the needs of our users and stakeholders, ensuring scalability, security, and comprehensive functionality.
