@@ -147,78 +147,97 @@ The images below show the subcompany interface after the implementation of the d
 \end{figure}
 
 \subsection{Adjust Feedback Notification}
+To enhance the feedback feature, we plan to implement a system that allows administrators to send feedback notifications directly to Microsoft Teams. This feature aims to streamline communication and ensure that feedback is promptly addressed. The following sections outline the implementation strategy for this feature.
 
+The feedback system will consist of several key components:
 
+\begin{itemize}
+    \item \textbf{Feedback Form:} The user interface where administrators can submit feedback. The form will include options for categorizing the feedback (Error, Incomprehensible, Unwanted Behavior, Miscellaneous) and a text area for detailed descriptions.
+    \item \textbf{Feedback Database:} A storage system to save feedback entries. Each entry will include the feedback category, description, and a timestamp.
+    \item \textbf{Notification Service:} A backend service that processes feedback entries and sends notifications to Microsoft Teams. This service will be designed to be extendable, allowing for future integration with other communication channels such as Slack or email.
+\end{itemize}
+
+\paragraph{Implementation Steps}
+\begin{enumerate}
+    \item \textbf{Feedback Form UI:} Enhance the existing feedback form (Figure \ref{fig:feedback_form}) to include the necessary fields and submission button. Ensure the form captures the feedback category and description.
+    \item \textbf{Database Integration:} Create or update the database schema to store feedback entries. Each entry should capture the feedback category, description, and a timestamp.
+    \item \textbf{Notification Service:} Develop a backend service that listens for new feedback entries in the database. Upon detecting a new entry, the service will format the feedback and send it as a notification to a designated Microsoft Teams channel.
+    \item \textbf{Microsoft Teams Integration:} Use the Microsoft Teams API to send notifications. Ensure the notifications include all relevant feedback details and are formatted for readability.
+\end{enumerate}
+
+The following image (Figure \ref{fig:feedback_form}) illustrates the user interface for submitting feedback.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{src/assets/images/TeamsNotification.png}
+    \caption{Feedback Form and Notification}
+    \label{fig:feedback_form}
+\end{figure}
 
 \subsection{Overhaul of the Role System}
-Before the Sprint 1 overhaul, the Aermax platform's role system was less delineated, with certain roles having either too broad or too narrow a range of permissions. This occasionally led to confusion, inefficiencies, and security concerns. For instance, Team Leaders had the same project creation rights as Administrators, and Workers had visibility into project overviews that were not relevant to their tasks.
-
-After the Sprint 1 overhaul, we introduced a more refined role system, ensuring that permissions are tightly aligned with the responsibilities intrinsic to each role. The system was restructured to provide a balance between usability and security, reducing the cognitive load on users by limiting their interfaces to the features and information they need for their specific roles.
+The Aermax platform's role system was overhauled during Sprint 1 to improve clarity and security. Previously, roles had overlapping permissions, causing confusion and security issues. Now, each role has specific permissions aligned with its responsibilities.
 
 \subsubsection{Detailed Role Permissions Before \& After}
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{3cm}|}
-\caption{A before-and-after comparison of the detailed role permissions on the Aermax platform.} \label{tab:role_permissions_comparison} \\
+\begin{longtable}{|p{3cm}|p{5cm}|p{5cm}|}
+\caption{Comparison of role permissions before and after the overhaul.} \label{tab:role_permissions_comparison} \\
 \hline
-\textbf{Role} & \textbf{View Packets Before} & \textbf{View Packets After} & \textbf{Create Projects Before} & \textbf{Create Projects After} & \textbf{Overview Feature Before} & \textbf{Overview Feature After} & \textbf{Additional Notes (After)} \\ \hline
+\textbf{Role} & \textbf{Permissions Before Overhaul} & \textbf{Permissions After Overhaul} \\ \hline
 \endfirsthead
 
-\multicolumn{8}{c}%
+\multicolumn{3}{c}%
 {{\bfseries Table \thetable\ Continued from previous page}} \\
 \hline
-\textbf{Role} & \textbf{View Packets Before} & \textbf{View Packets After} & \textbf{Create Projects Before} & \textbf{Create Projects After} & \textbf{Overview Feature Before} & \textbf{Overview Feature After} & \textbf{Additional Notes (After)} \\ \hline
+\textbf{Role} & \textbf{Permissions Before Overhaul} & \textbf{Permissions After Overhaul} \\ \hline
 \endhead
 
-\hline
-\multicolumn{8}{|r|}{{Continued on next page}} \\ \hline
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
 \endfoot
 
 \hline
 \endlastfoot
 
-Administrator & All & All & Yes & Yes & Yes & Yes & Full system access \\ \hline
-Employee & All & All & Yes & Yes & Yes & Yes & Administrative access \\ \hline
-Project Manager & All & Specific & Yes & Yes (Start/Stop) & Yes & Yes & Administrative access; manage tasks, discussions, files \\ \hline
-Worker & All & Own Only & Yes & No & Yes & No & Confined to personal scope of work \\ \hline
-Team Leader & All & Phase Specific & Yes & No & Yes & No & Can view own packets and others within their phase; no project creation \\ \hline
+Administrator & 
+- Limited access to projects managed by non-admin Project Managers &
+- Full access to all projects \\ \hline
+
+Worker & 
+- Could see all project packets &
+- Can only see their own projects and packets \\ \hline
+
+
+Team Leader & 
+- Could see only their own packets &
+- Can see packets of other workers within their phase   \\ \hline
 
 \end{longtable}
 
-
-% The following text can continue after the table in your LaTeX document.
 \textbf{Scenario Demonstrations After Overhaul:}
 \begin{itemize}
     \item \textbf{Administrator Scenario:} An Administrator maintains complete control, capable of managing all aspects of the project lifecycle.
-    \item \textbf{Employee Scenario:} Employees continue to have similar administrative rights, including full packet visibility and project management capabilities.
     \item \textbf{Project Manager Scenario:} Project Managers are now provided with tailored access, capable of managing specific project packets and workflows.
     \item \textbf{Worker Scenario:} Workers are limited to their own packets, focusing their dashboard on personal tasks without additional project creation or overview privileges.
     \item \textbf{Team Leader Scenario:} Team Leaders have targeted oversight, managing only the packets within their project phase, without the distraction of other project overviews or creation capabilities.
 \end{itemize}
-
 This targeted approach in the role system refines the user experience on the Aermax platform, ensuring each role has the access needed to perform effectively, securely, and efficiently.
 
 \subsection{Enhance Working Packets UI \& UX}
-In our continuous efforts to elevate the user experience on the Aermax platform, a significant upgrade was made to the Working Packets UI \& UX, particularly focusing on the administrative interface. 
+In our continuous efforts to elevate the user experience on the Aermax platform, a significant upgrade was made to the Working Packets UI \& UX, particularly focusing on the administrative interface. Key improvements include:
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.1\textwidth]{src/assets/chapters/ui_ux-enhancement.png}
-    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
-    \label{fig:ui_ux_enhancements}
-\end{figure}
+\begin{itemize}
+    \item Alleviating the difficulties the admin faced in managing packets.
+    \item Addressing the need to duplicate each packet individually when 30 packets needed duplication in one day.
+    \item Developing a new interface presented as a table.
+    \item Allowing the admin to duplicate multiple packets simultaneously.
+    \item Offering more filtering functionalities.
+    \item Providing an improved, user-friendly view.
+\end{itemize}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/newTable1.png}
-    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
-    \label{fig:ui_ux_enhancements}
-\end{figure}
-
+See the implemented feature in Figure \ref{fig:ui_ux_enhancements}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{src/assets/chapters/newTable2.png}
-    \caption{Sketch of Planned UI/UX Enhancements for Working Packets }
+    \caption{Sketch of Planned UI/UX Enhancements for Working Packets}
     \label{fig:ui_ux_enhancements}
 \end{figure}
 
@@ -255,65 +274,4 @@ Password Management & Keycloak & Developed a secure and user-friendly password m
 \label{tab:keycloak_features}
 \end{table}
 
-\subsection{Backend Enhancements and Data Integrity}
-\textbf{Eliminating Duplicate Users and Improving Data Handling}
-Our backend team undertook the critical task of enhancing the database and data processing layers of our system. The focus was on refining our data model to eliminate the occurrence of duplicate user entries—a problem that stemmed from a legacy design.
- 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/core-conccept.png}
-    \caption{Core Concepts of Keycloak's Architecture}
-    \label{fig:core_concepts_keycloak}
-\end{figure}
-
-This image will give an overview of Keycloak’s core concepts, such as realms, roles, and identity providers. It visually communicates the architecture that supports the functionality we harnessed to solve our data integrity challenges.
-
-
-\subsection{UI/UX Design Improvements}
-\addcontentsline{toc}{subsection}{UI/UX Design Improvements}
-With user experience at the forefront of our digital solution, the Aermax platform underwent a significant UI/UX redesign to enhance cleanliness, intuitiveness, and functionality. Using Figma, our design team was able to collaborate on and iterate high-fidelity mockups and prototypes, which provided a visual roadmap for the platform's evolution.
-
-\textbf{Objective:} To revamp the Aermax platform's design for a more streamlined, user-friendly interface that aligns with modern standards and enhances user engagement.
-
-\textbf{Outcome:} The design overhaul has resulted in a cleaner and more intuitive interface that simplifies user interactions and reduces cognitive load. With a focus on ease of use, the new design has improved the overall user experience, leading to increased user satisfaction and platform adoption.
-
-\textbf{Visual Demonstration:} The following images compare the original and the new Figma-enhanced UI/UX designs, showcasing the transformation and the design team's dedication to creating a user-centred interface.
-
- 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/OverviewPage.png}
-    \caption{Original Aermax platform Overview page UI design.}
-    \label{fig:overview_page_design}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ProjectPage.png}
-    \caption{Original Aermax platform Project page UI design.}
-    \label{fig:project_page_design}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui-ux-dashboard.png}
-    \caption{Enhanced Aermax platform Overview page UI design in dark mode.}
-    \label{fig:enhanced_overview_dark}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui--ux-dashboard.png}
-    \caption{Enhanced Aermax platform Overview page UI design in light mode.}
-    \label{fig:enhanced_overview_light}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/ui-ux--peoject.png}
-    \caption{Enhanced Aermax platform Project page UI design.}
-    \label{fig:enhanced_project_page}
-\end{figure}
 
