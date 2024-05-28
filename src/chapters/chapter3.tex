@@ -1,207 +1,152 @@
 \chapter{Sprint 1 : Enhancements and Integrations}
+\setcounter{secnumdepth}{0}
 
 \section{Introduction}
 In this chapter, we cover the first sprint of the Aermax project, focusing on the key enhancements and features we implemented to improve the platform.
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{2} 
 \section{Major Features and Enhancements}
-
+This section details the major features and enhancements introduced during the first sprint of the Aermax project. Each item listed in the sprint backlog was carefully selected to address critical needs and provide significant improvements to the platform's functionality and user experience.
 \subsection{Sprint Backlog Detail}
-Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements,} and new features in Sprint 1. Below, we're going to share some of them.
-
-% Set up the longtable environment to break across pages
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.75cm}|p{1.75cm}|p{1.75cm}|p{1.25cm}|}
-
-    % Table header information
+Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements,and new features }in Sprint 1. Below, we're going to share some of them. The biggest changes that we can discuss are highlighted below the blue colored line in the table.
+\begin{longtable}{ | m{0.15\textwidth} | m{0.2\textwidth} | m{0.25\textwidth} | m{0.1\textwidth} | m{0.16\textwidth} | }
     \caption{Detailed Sprint Backlog} \\
     \hline
-    \textbf{Type} & \textbf{Title} & \textbf{Description} & \textbf{Priority} & \textbf{Assignee} & \textbf{Status} \\
+    \textbf{Type} & \textbf{Title} & \textbf{Description} & \textbf{Priority} & \textbf{Estimation} \\
     \hline
     \endfirsthead
-    
-    % Table continuation header information
-    \multicolumn{6}{c}%
-    {{\bfseries Table \thetable\ Continued from previous page}} \\
     \hline
-    \textbf{Type} & \textbf{Title} & \textbf{Description} & \textbf{Priority} & \textbf{Assignee} & \textbf{Status} \\
+    \textbf{Type} & \textbf{Title} & \textbf{Description} & \textbf{Priority} & \textbf{Estimation} \\
     \hline
     \endhead
-    
-    % Footer at the end of each page (if needed)
     \hline
-    \multicolumn{6}{|r|}{{Continued on next page}} \\ \hline
     \endfoot
-    
-    % Footer at the end of the table (if needed)
-    \hline
     \endlastfoot
-    
-    % Table content
-    Feature & Implement Self-Registration & Allow subcontractors to self-register on the platform. & High & Donia Skima & Done \\    \hline
-    Enhancement & Adjust Feedback Notification & Update feedback functionality to include notifications in teams. & Medium & Ramez Taher & Done \\
+    \rowcolor{blue!20} 
+    Feature & Dynamic Equipment List & The ticket describes an issue with a dynamic equipment list system where equipment items are grouped and managed. & High & 40h \\
     \hline
-    Enhancement & Set Dynamic Project Status & Dynamically set project status based on packet statuses. & High & Donia Skima & Done \\
+    Feature & Implement User Authentication System & Allow subcontractors to self-register on the platform. & High & 12h \\
     \hline
-    Enhancement & Add Field to User Edit & Include additional fields in the user edit form. & Medium & Donia Skima & Done \\
+    \rowcolor{blue!20} 
+    Enhancement & Adjust Feedback Notification & Update feedback functionality to include notifications in teams. & Medium & 8h \\
     \hline
-    Feature & Set Default Calendar View & Remember last selection for default calendar view using localStorage. & Medium & Ramez Taher & Done \\
+    Enhancement & Set Dynamic Project Status & Dynamically set project status based on packet statuses. & High & 2h \\
     \hline
-    Enhancement & Restrict Project Creation & Prevent subcontractors from creating new projects. & High & Ramez Taher & Done \\
+    Enhancement & Add Field to User Edit & Include additional fields in the user edit form. & Medium & 1h \\
     \hline
-    Enhancement & Remove Team Types & Remove unnecessary team types from the app to streamline functionality. & Low & Donia Skima & Done \\
+    Feature & Set Default Calendar View & Remember last selection for default calendar view using localStorage. & Medium & 1h \\
     \hline
-    Feature & Calendar View with New Filters & Implement new filters for the calendar view for better UX. & High & Ramez Taher & Done \\
+    Enhancement & Restrict Project Creation & Prevent subcontractors from creating new projects. & High & 1h \\
     \hline
-    Feature & Implement Google Maps URL Generation & Generate Google Maps URLs for address visualization in subcompany user view. & Medium & Donia Skima & Done \\
+    Enhancement & Remove Team Types & Remove unnecessary team types from the app to streamline functionality. & Low & 1h \\
     \hline
-    Bug & Overhaul User Access Restrictions & Fix critical access restrictions and bugs for subcompany users. & High & Donia Skima & Done \\
+    Feature & Calendar View with New Filters & Implement new filters for the calendar view for better UX. & High & 40h \\
     \hline
-    Feature & Overhaul the Role System & Revise the role system to clarify permissions and responsibilities. & High & Donia Skima & Done \\
+    Feature & Implement Google Maps URL Generation & Generate Google Maps URLs for address visualization in subcompany user view. & Medium & 4h \\
     \hline
-    Feature & Automate Username Generation & Auto-generate usernames during self-registration. & Medium & Donia Skima & Done \\
+    Bug & Overhaul User Access Restrictions & Fix critical access restrictions and bugs for subcompany users. & High & 1h \\
     \hline
-    Feature & Remember Date Filters for Calendar & Implement a feature to remember date filters for the calendar. & Low & Ramez Taher & Done \\
+    \rowcolor{blue!20} 
+    Feature & Overhaul the Role System & Revise the role system to clarify permissions and responsibilities. & High & 1h \\
     \hline
-    Feature & Overhaul the Project Status & Update project status features and adjust status enums and filters. & High & Ramez Taher & Done \\
+    Feature & Automate Username Generation & Auto-generate usernames during self-registration. & Medium & 1h \\
     \hline
-    Bug & Fix Read-Only State of User Edit Form & Correct the issue with the user edit form being read-only for admins. & Medium & Donia Skima & Done \\
+    Feature & Remember Date Filters for Calendar & Implement a feature to remember date filters for the calendar. & Low & 1h \\
     \hline
-    Bug & Remove Duplicate Aggregated Phases & Remove any duplicate instances of aggregated phases in the system. & High & Donia Skima & Done \\
+    Feature & Overhaul the Project Status & Update project status features and adjust status enums and filters. & High & 1h \\
     \hline
-    Enhancement & Enhance Working Packets UI \& UX & Improve the UI and UX for working packets. & Medium & Ramez Taher & Done \\
+    Bug & Fix Read-Only State of User Edit Form & Correct the issue with the user edit form being read-only for admins. & Medium & 1h \\
     \hline
-    Feature & Dynamic Equipment List & The ticket describes an issue with a dynamic equipment list system where equipment items are grouped and managed. & High & Donia Skima & Done \\
+    Bug & Remove Duplicate Aggregated Phases & Remove any duplicate instances of aggregated phases in the system. & High & 1h \\
     \hline
-    \end{longtable}
-    \subsection{Dynamic Equipment List}
-    \subsubsection{Dynamic Equipment List issues}
-    The Dynamic Equipment List feature was previously implemented as a static list. This static list required manual updates and did not reflect real-time changes to the equipment database. The key characteristics of the static implementation included:
-    \begin{itemize}
-        \item Manual updates to the equipment list.
-        \item Limited flexibility and responsiveness to changes.
-        \item High maintenance overhead due to frequent updates.
-    \end{itemize}
-    
-    \subsubsection{Issues with Static Implementation}
-    The static implementation had several drawbacks:
-    \begin{itemize}
-        \item \textbf{Scalability:} As the number of equipment items grew, maintaining the static list became increasingly cumbersome.
-        \item \textbf{Real-time Updates:} Any changes to the equipment database were not immediately reflected in the list, leading to potential inconsistencies.
-        \item \textbf{User Experience:} Users could not rely on the list for up-to-date information, which impacted their ability to make informed decisions.
-    \end{itemize}
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{src/assets/chapters/StaticDynamicEquipementList.png}
-        \caption{Previous Static Equipment List}
-        \label{fig:static_equipment_list}
-    \end{figure}
-    
-    \subsubsection{Dynamic Equipment List Solution}
-    To address these issues, we are transitioning to a dynamic equipment list. The dynamic implementation will automatically update the list based on changes in the equipment database, ensuring real-time accuracy and reducing maintenance overhead. Key features of the dynamic implementation include:
-    \begin{itemize}
-        \item \textbf{Real-time Updates:} The list will automatically reflect changes made to the equipment database.
-        \item \textbf{Improved Scalability:} The system can handle an increased number of equipment items without additional maintenance.
-        \item \textbf{Request System:} Subcontractors can request new equipment, and the admin can approve or reject these requests.
-        \item \textbf{Reduced Maintenance:} Eliminates the need for manual updates, reducing the time and effort required to maintain the list.
-    \end{itemize}
-    
-    The diagram below illustrates the planned dynamic equipment list from the admin's perspective (see Fig. \ref{fig:dynamic_equipment_list_admin}).
+    \rowcolor{blue!20} Enhancement & Enhance Working Packets UI \& UX & Improve the UI and UX for working packets. & Medium & 16h \\
+    \hline
+\end{longtable}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{src/assets/chapters/DynamicEquipementAdmin.PNG}
-        \caption{Planned Dynamic Equipment List - Admin View}
-        \label{fig:dynamic_equipment_list_admin}
-    \end{figure}
-    
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{src/assets/chapters/DynamicEquipementSubcompany.PNG}
-        \caption{Planned Dynamic Equipment List - Subcompany View}
-        \label{fig:dynamic_equipment_list_subcompany}
-    \end{figure}
-    \subsubsection{Dynamic Equipment Design}
+\subsection{Dynamic Equipment Design}
 To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture. The following sections provide a detailed overview of the class structure and interactions.
+\subsubsection{Dynamic Equipment List issues}
+The Dynamic Equipment List feature was previously implemented as a static list. This static list required manual updates and did not reflect real-time changes to the equipment database. The key characteristics of the static implementation included:
+\begin{itemize}
+    \item Manual updates to the equipment list.
+    \item Limited flexibility and responsiveness to changes.
+    \item High maintenance overhead due to frequent updates.
+\end{itemize}
 
+\subsubsection{Issues with Static Implementation}
+The static implementation had several drawbacks:
+\begin{itemize}
+    \item \textbf{Scalability:} As the number of equipment items grew, maintaining the static list became increasingly cumbersome.
+    \item \textbf{Real-time Updates:} Any changes to the equipment database were not immediately reflected in the list, leading to potential inconsistencies.
+    \item \textbf{User Experience:} Users could not rely on the list for up-to-date information, which impacted their ability to make informed decisions.
+\end{itemize}
+
+As illustrated in Figure \ref{fig:static_equipment_list}, subcontractors were limited to only checking the checkboxes for the available equipment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{src/assets/chapters/StaticDynamicEquipementList.png}
+    \caption{Previous Static Equipment List}
+    \label{fig:static_equipment_list}
+\end{figure}
+
+\subsubsection{Dynamic Equipment List}
+To address these issues, we are transitioning to a dynamic equipment list. The dynamic implementation will automatically update the list based on changes in the equipment database, ensuring real-time accuracy and reducing maintenance overhead. Key features of the dynamic implementation include:
+\begin{itemize}
+    \item \textbf{Real-time Updates:} The list will automatically reflect changes made to the equipment database.
+    \item \textbf{Improved Scalability:} The system can handle an increased number of equipment items without additional maintenance.
+    \item \textbf{Enhanced User Experience:} Users will have access to up-to-date information, improving their ability to make decisions.
+    \item \textbf{Reduced Maintenance:} Eliminates the need for manual updates, reducing the time and effort required to maintain the list.
+    \item \textbf{Request System:} Subcontractors can request new equipment items directly through the system, allowing admins to approve, reject, and assign these items to appropriate groups.
+\end{itemize}
+
+The planned dynamic equipment list will also include comprehensive admin and subcompany views. As shown in Figure \ref{fig:dynamic_equipment_list_admin}, admins will have the capability to create groups, assign equipment, move equipment, and approve or reject equipment requests. Subcontractors, as illustrated in Figure \ref{fig:dynamic_equipment_list_subcompany}, will be able to write and request new equipment items, ensuring they have the necessary tools for their projects.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{src/assets/chapters/DynamicEquipementAdmin.PNG}
+    \caption{Planned Dynamic Equipment List - Admin View}
+    \label{fig:dynamic_equipment_list_admin}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{src/assets/chapters/DynamicEquipementSubcompany.PNG}
+    \caption{Planned Dynamic Equipment List - Subcompany View}
+    \label{fig:dynamic_equipment_list_subcompany}
+\end{figure}
+\subsubsection{Dynamic Equipment Design}
+To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture. The dynamic system will facilitate real-time updates, scalability, and a user-friendly experience. The following sections provide a detailed overview of the class structure and interactions essential for implementing this dynamic equipment list.
+
+The dynamic equipment list system will consist of several key components:
+
+\begin{itemize}
+    \item \textbf{Equipment Class:} This class will represent individual equipment items, including attributes such as name, group, status (requested, approved, rejected), and other relevant details.
+    \item \textbf{Group Class:} This class will manage groups of equipment, allowing the creation, duplication, and deletion of groups. It will also handle the assignment and movement of equipment items between groups.
+    \item \textbf{Request Class:} This class will handle equipment requests submitted by subcontractors. It will track the status of requests (pending, approved, rejected) and include details such as the equipment name and requested group.
+    \item \textbf{User Class:} This class will manage user information, differentiating between admin and subcontractor roles, and providing appropriate permissions and functionalities for each role.
+    \item \textbf{Notification System:} This component will handle real-time and email notifications to keep users informed about important actions like equipment requests, approvals, and rejections.
+\end{itemize}
 \paragraph{Class Diagram}
-The class diagram below illustrates the key components and relationships involved in the dynamic equipment list feature (see Fig. \ref{fig:class_diagram}).
+The class diagram below illustrates the key components and relationships involved in the dynamic equipment list feature.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth , height=17cm]{src/assets/diagrams/DynamiEquipementListPng.png}
-    \caption{Class Diagram for Dynamic Equipment List}
-    \label{fig:class_diagram}
+\centering
+\includegraphics[width=1\textwidth]{src/assets/diagrams/DynamiEquipementListPng.png}
+\caption{Class Diagram for Dynamic Equipment List}
+\label{fig:class_diagram}
 \end{figure}
- 
+
 \paragraph{Subcompany Interface}
-The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users (see Fig. \ref{fig:subcompany_interface_1}).
+The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/images/Interface1.png}
-    \caption{Subcompany Interface - Viewing Assigned Equipment}
-    \label{fig:subcompany_interface_1}
+\centering
+\includegraphics[width=0.9\textwidth]{src/assets/images/Interface1.png}
+\caption{Subcompany Interface - Viewing Assigned Equipment}
+\label{fig:subcompany_interface_1}
 \end{figure}
 
-\subsection{Overhaul of the Project Status}
-
-The Aermax platform has undergone a strategic overhaul of the project status functionality to streamline project lifecycle management and improve visibility for all stakeholders. This enhancement was designed to introduce a more dynamic, intuitive, and color-coded status system that aligns with the operational needs and facilitates better decision-making processes.
-
-\subsubsection{Before the Overhaul:}
-\begin{itemize}
-    \item The status indicators were limited, lacking the granularity required for nuanced project management.
-    \item There was no clear distinction between the various stages of a project, from contemplation to completion.
-    \item Subcontractors had limited visibility, which sometimes led to inefficiencies and a lack of coordination.
-\end{itemize}
-
-\subsubsection{After the Overhaul:}
-\begin{itemize}
-    \item We've implemented a comprehensive status system, which includes new states such as 'In Progress', 'Closed', 'Re-activated', and 'Cancelled', each represented by distinct color codes.
-    \item The status 'In Progress' (green) is particularly significant as it is the only type of project visible to subcontractors, ensuring they have access to relevant, actionable projects.
-    \item 'Closed/Finished' projects are denoted with a dark blue color, signifying completion, while 'Re-activated' projects can revert from 'Closed' status when a customer requires additional work or services.
-    \item Projects that are no longer active are labeled as 'Cancelled' and are represented in red, providing immediate visual cues for the current state of a project.
-    \item A migration process has been instituted to update all existing projects to conform to the new status system, which includes modifying the projectStatus enum to the updated states.
-\end{itemize}
-
-
-
-\subsubsection*{Technical Enhancements:}
-\begin{itemize}
-    \item The AggregatedPhase class now includes an attribute that reflects the phase status based on the progress of the included working packets.
-    \item The rules for phase status determination are as follows:
-        \begin{itemize}
-            \item 'Open' by default or when all included packets are open.
-            \item 'Completed' if all packets within the phase are completed.
-            \item 'Cancelled' if all packets are canceled.
-            \item 'In Progress' if there is any packet currently active.
-        \end{itemize}
-    \item The calendar interface has been upgraded to hide/show project phases and working packets based on their completion or cancellation status, allowing for a cleaner and more focused view.
-    \item Events in the calendar have been color-coded to correlate with the status of the project phase or working packet, enhancing the visual experience and making it easier for users to digest the project's progress at a glance.
-\end{itemize}
-
-\subsubsection{Visual Enhancement:}
-This figure illustrates the enhanced project filter interface, showcasing intuitive filtering options for project number, project status, and state, complete with color-coded status indicators.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/enhanced-project-filter-interface.png}
-    \caption{ Enhanced Project Filter Interface}
-    \label{fig:enhanced_project_filter_interface}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/calendar1.png}
-    \caption{Calendar View with Color-Coded Project Phases}
-    \label{fig:calendar_view_color_coded}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/calendar2.png}
-    \caption{Detailed Calendar View of Working Packets with Status Indicators}
-    \label{fig:detailed_calendar_view}
-\end{figure}
+\subsection{Adjust Feedback Notification}
 
 
 
