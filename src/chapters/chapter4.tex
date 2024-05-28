@@ -420,5 +420,52 @@ As shown in Figure \ref{fig:class-reward-system}, the diagram provides a detaile
 
 \section{Message Broker: RabbitMQ}
 
+In our project, we require a robust mechanism for managing communication between different microservices. This is where a message broker comes into play. A message broker helps in decoupling applications and enables them to communicate asynchronously. By using a message broker, we can ensure reliable delivery of messages, handle large volumes of messages, and improve the scalability and fault-tolerance of our system.
+
+We chose RabbitMQ as our message broker due to its lightweight nature, ease of use, and strong support for various messaging patterns. RabbitMQ is an open-source message broker that implements the Advanced Message Queuing Protocol (AMQP). It supports multiple messaging protocols, has excellent documentation, and a large community.
+
+\begin{itemize}
+    \item \textbf{Decoupling}: It allows different parts of our system to communicate without being tightly coupled, which improves modularity and flexibility.
+    \item \textbf{Scalability}: Helps in handling increased load by distributing messages across multiple consumers.
+    \item \textbf{Reliability}: Ensures that messages are delivered even in the case of service failures.
+    \item \textbf{Asynchronous Communication}: Enables services to process messages at their own pace without waiting for each other.
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{|l|X|X|X|}
+        \hline
+        \textbf{Feature} & \textbf{RabbitMQ} & \textbf{Apache Kafka} & \textbf{ActiveMQ} \\ \hline
+        Protocol Support & AMQP, MQTT, STOMP & Kafka Protocol & OpenWire, AMQP, STOMP, MQTT \\ \hline
+        Message Persistence & Yes & Yes & Yes \\ \hline
+        Throughput & Moderate & High & Moderate \\ \hline
+        Latency & Low & Low & Low \\ \hline
+        Use Case Suitability & General-purpose & High-throughput, event streaming & General-purpose \\ \hline
+        Community Support & Large & Large & Medium \\ \hline
+        Ease of Setup & Easy & Moderate & Moderate \\ \hline
+        Documentation & Excellent & Excellent & Good \\ \hline
+    \end{tabularx}
+    \caption{Comparison of RabbitMQ with Other Message Brokers}
+    \label{tab:message-broker-comparison}
+\end{table}
+We selected RabbitMQ because it provides a balanced mix of ease of use, reliability, and community support. It is suitable for general-purpose messaging and supports multiple protocols, which gives us flexibility. RabbitMQ's ease of setup and extensive documentation make it an excellent choice for our project, ensuring that we can implement and maintain it with minimal overhead.
+
+As shown in Figure \ref{fig:rabbitmq-diagram}, the diagram provides an overview of how RabbitMQ is used in our system. The subcontractor closes a packet, which the `operations-service` produces as a message. This message is then published to an exchange in RabbitMQ, which routes it to the appropriate queue. The `reward-service` consumes the message from the queue to process the increment of tokens and XP.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{src/assets/diagrams/RabbitMqExplanation.png}
+    \caption{Message flow using RabbitMQ in our system}
+    \label{fig:rabbitmq-diagram}
+\end{figure}
+
+
+\section{Conclusion}
+In this chapter, we have explored the planning, design considerations, and implementation details of our reward system. We discussed the sprint backlog, specifications for various user stories, and the communication overview of our microservices. Detailed designs, including static and dynamic modeling, were provided to illustrate the interactions and relationships between the different components of the reward system. 
+
+Furthermore, we introduced RabbitMQ as our chosen message broker, explaining its benefits, comparison with other message brokers, and its role in our system architecture.
+
+In the next chapter, we will delve into the deployment and implementation aspects of the reward system, covering the steps and processes involved in bringing our designed solution into a live production environment.
+
 
  
