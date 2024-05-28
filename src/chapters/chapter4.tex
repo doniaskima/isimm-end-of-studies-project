@@ -225,28 +225,35 @@ We have structured our reward system around four primary classes: RewardLog, Use
     Rank                     & This class models the various ranks users can achieve. Each rank includes a label , the levels required to reach the rank, and a description that highlights the significance of the rank. This class helps track user progression and assigns appropriate ranks based on their XP levels. \\
     \hline
 \end{longtable}
+The following figure illustrates the class diagram of our reward system, which is a crucial part of our application. This diagram visually represents the structure of the reward system, detailing the various classes, their attributes, and the relationships between them:
 
-\noindent In the figure \ref{r2-class} we illustrate the extention of our class diagram, we highlighted
-newly added classes among others for a better readability.
+\begin{itemize}
+    \item \texttt{User}: Linked to \texttt{UserRewards} and \texttt{Packet}, representing multiple rewards and packets.
+    \item \texttt{Achievement}: Contains information about achievements, such as ID, name, reward, and description.
+    \item \texttt{RewardLog}: Records reward transactions, linking users to achievements and packets.
+    \item \texttt{UserAchievementSubdocument}: Subdocument within a user, detailing progress on each achievement.
+    \item \texttt{SubCompany}: Shows the connection with \texttt{User}, indicating hierarchical structure.
+    \item \texttt{Rank}: Defines ranks within the system with unique IDs and descriptions.
+    \item \texttt{UserRewards}: Aggregates a user's rewards, including XP, tokens, and ban status.
+\end{itemize}
+
+This class diagram provides a comprehensive overview of the reward system's architecture, enabling a clear understanding of the interactions between different components.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=16cm, height=19cm, keepaspectratio]{src/assets/diagrams/rewardclass.png}}
+    \caption{Reward system class diagram}
+    \label{fig:reward_system-class}
+\end{figure}
 
 \subsubsection{Data dictionary}
-In the table \ref{tab-r2dd}, we provide a comprehensive overview of the essential data elements
+In the table \ref{database-architecture}, we provide a comprehensive overview of the essential data elements
 that will define our entities and relationships for the second release.
-
-
-% \begin{landscape}
-%     \begin{figure}[hbt!]
-%         \centering
-%         \includesvg[width=1.55\textwidth]{src/assets/diagrams/rewardsystemclassdiagram.svg}
-%         \caption{Class diagram of the first release}
-%         \label{r2-class}
-%     \end{figure}
-% \end{landscape}
 
 
 \begin{landscape}
     \begin{longtable}{ | m{0.225\textwidth} | m{0.28\textwidth} | m{0.55\textwidth} | m{0.15\textwidth} | m{0.2\textwidth} | }
-        \caption{Data Dictionary of User Rewards Management System}   \label{tab-r2dd}                                                                                                                                                                  \\
+        \caption{Data Dictionary of User Rewards Management System}   \label{database-architecture}                                                                                                                                                                  \\
         \hline
         \textbf{Entity}                                                  & \textbf{Field}                            & \textbf{Description}                                                 & \textbf{Type} & \textbf{Constraints}          \\
         \hline
