@@ -24,7 +24,7 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
     \rowcolor{blue!20} 
     Feature & Dynamic Equipment List & The ticket describes an issue with a dynamic equipment list system where equipment items are grouped and managed. & High & 40h \\
     \hline
-    Feature & Implement User Authentication System & Allow subcontractors to self-register on the platform. & High & 12h \\
+    \rowcolor{blue!20} Feature & Implement User Authentication System & Allow subcontractors to self-register on the platform. & High & 12h \\
     \hline
     \rowcolor{blue!20} 
     Enhancement & Adjust Feedback Notification & Update feedback functionality to include notifications in teams. & Medium & 8h \\
@@ -241,22 +241,8 @@ See the implemented feature in Figure \ref{fig:ui_ux_enhancements}.
     \label{fig:ui_ux_enhancements}
 \end{figure}
 
-\subsection{Self Registration}
-
-We have implemented a self-registration feature that streamlines the process of user registration, allowing new users to create accounts autonomously.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/keycloak-diagram.png}
-    \caption{Authentication Flow Using Keycloak: A visual guide to the user authentication process with Keycloak.}
-    \label{fig:authentication_flow_keycloak}
-\end{figure}
-
-Figure \ref{fig:authentication_flow_keycloak} illustrates the authentication flow using Keycloak. The figure will show the step-by-step authentication flow, demonstrating how users interact with Keycloak during the login process. It provides a visual explanation of the authentication steps from the user initiating a login request to receiving a token from Keycloak.
-
-As part of this overhaul, we encountered the challenge of duplicate user entries due to previous system design limitations. By leveraging Keycloak’s versatile user federation and identity provider features, we were able to consolidate user accounts and eliminate redundancies, thereby solving the issue of duplicate entries. 
-
-Keycloakify complemented this integration by allowing us to customize the authentication pages to align with our platform's aesthetics and usability standards.
+\subsection{User Authentication System}
+We implemented an authentication system using Keycloak. As part of this overhaul, we encountered the challenge of duplicate user entries due to previous system design limitations. By leveraging Keycloak’s versatile user federation and identity provider features, we were able to consolidate user accounts and eliminate redundancies, thereby solving the issue of duplicate entries. Keycloakify complemented this integration by allowing us to customize the authentication pages to align with our platform's aesthetics and usability standards.
 
 \subsubsection{Feature Implementation Table:}
 \begin{table}[H]
@@ -275,3 +261,5 @@ Password Management & Keycloak & Developed a secure and user-friendly password m
 \end{table}
 
 
+\section{Conclusion}
+Sprint 1 marked a significant milestone in the Aermax project, bringing about crucial enhancements and integrations aimed at improving the platform's overall functionality and user experience. We successfully addressed various challenges, including user authentication with Keycloak, dynamic equipment list management, and enhancing the working packets UI and UX. Additionally, we streamlined feedback notifications and overhauled the role system to ensure clarity and security. These improvements have laid a strong foundation for subsequent development sprints, positioning the platform for continued growth and efficiency.
