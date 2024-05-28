@@ -18,7 +18,7 @@
     # Verify git and needed tools are installed
     RUN apt-get install --no-install-recommends -y git procps
     
-    # Install Tex Live and Inkscape
+    # Install Tex Live
     RUN apt-get update && apt-get -y upgrade \
         && apt-get -y install --no-install-recommends \
         texlive-latex-base \
@@ -26,8 +26,7 @@
         texlive-latex-extra \
         biber chktex latexmk make python3-pygments \
         texlive-lang-chinese \
-        texlive-lang-japanese \
-        inkscape
+        texlive-lang-japanese
     
     # latexindent modules
     RUN curl -L http://cpanmin.us | perl - App::cpanminus \
@@ -43,7 +42,3 @@
     ENV DEBIAN_FRONTEND=dialog \
         LANG=C.UTF-8 \
         LC_ALL=C.UTF-8
-    
-    # Set the entry point for LaTeX compilation with shell-escape
-    ENTRYPOINT ["pdflatex", "-shell-escape"]
-    
