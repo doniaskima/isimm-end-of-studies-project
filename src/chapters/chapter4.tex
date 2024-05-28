@@ -382,9 +382,43 @@ The controller then sends a response back to the front end, confirming the packe
 \end{landscape}
 
 
-\section{Detailed design}
+\section{Detailed Design}
+To provide a comprehensive understanding of feature implementations, we will illustrate the classes that are directly tied to the reward system. This focused diagram serves as an extension of our system architecture, detailing the interactions and relationships between the various components involved in managing user rewards, achievements, and related data. 
+
+The diagram encompasses several key areas:
+
+\begin{itemize}
+    \item \textbf{Domain Entities}: Represent specific concepts within the reward system, such as logs, ranks, user rewards, and achievements.
+    
+    \item \textbf{Data Transfer Objects (DTOs)}: Facilitate data transfer between different application layers, encapsulating data required for specific operations.
+    
+    \item \textbf{Repositories}: Define methods for interacting with the database to retrieve and store data related to rewards, ranks, logs, and user rewards.
+    
+    \item \textbf{Services}: Implement business logic, using repositories to perform operations like creating achievements and updating user rewards.
+    
+    \item \textbf{Controllers}: Define API endpoints for interacting with the reward system, handling incoming requests, and returning responses.
+    
+    \item \textbf{Mappers}: Convert data between entities and DTOs, ensuring correct data formatting between the database and application layers.
+    
+    \item \textbf{Validators}: Ensure input data meets required criteria before processing, maintaining data integrity and preventing errors.
+    
+    \item \textbf{Exceptions}: Handle specific error cases and provide meaningful error messages.
+\end{itemize}
+
+This detailed design provides a clear overview of how the reward system components interact and work together to manage user rewards effectively. By illustrating these classes and their relationships, we aim to give a thorough understanding of the reward system's implementation. The implementation is done using the NestJS framework, which allows for efficient and scalable development of server-side applications.
+
+As shown in Figure \ref{fig:class-reward-system}, the diagram provides a detailed view of the classes involved in the reward system and their interactions.
+
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=26cm, height=15cm]{src/assets/diagrams/nestclass.png}
+        \caption{Class diagram for the reward system components}
+        \label{fig:class-reward-system}
+    \end{figure}
+\end{landscape}
+
+\section{Message Broker: RabbitMQ}
 
 
-
-
-
+ 
