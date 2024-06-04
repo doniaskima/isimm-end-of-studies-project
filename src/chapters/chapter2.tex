@@ -1,4 +1,4 @@
-\chapter{Project Initialization}
+\chapter{ Sprint 0: Project Initialization}
 \phantomsection
 
 
@@ -54,13 +54,14 @@ The following table provides a comprehensive overview of all the application's m
     \end{itemize}
 \end{itemize}
 
-This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak. The diagram below (Figure \ref{fig:aermax_architecture}) illustrates the integration of existing and newly developed microservices within a unified virtual network environment.
+This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak. The diagram below (Figure \ref{fig:aermax-architecture}) illustrates the integration of existing and newly developed microservices within a unified virtual network environment.
 
-\begin{minipage}{\linewidth}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=15cm , height=25cm]{src/assets/chapters/AermaxArchitecture.png}
-    \captionof{figure}{Aermax Architecture}
-\end{minipage}
+    \includegraphics[width=1\textwidth]{src/assets/chapters/AermaxArchitecture.png}
+    \caption{Aermax Architecture}
+    \label{fig:aermax-architecture}
+\end{figure}
 
 \subsection{Stakeholders}
 The Aermax project involves various stakeholders who play crucial roles in its operation and success. The key stakeholders and their roles are summarized in the table below (Table \ref{tab:stakeholders_roles}). The grey-highlighted rows represent external stakeholders, while the non-highlighted rows represent internal stakeholders.
@@ -109,7 +110,7 @@ As mentioned in Chapter 1, Section I.5.3, we provided an overview of the reward 
 The image below illustrates the core components of our reward system. On the left side, the climber symbolizes user progression through the ranks, carrying a sack of tokens that represents the accumulated rewards. On the right, the various rank logos are displayed, indicating the different levels users can achieve as they gain XP and move up in the hierarchy.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{src/assets/images/AermaxClimberPng.png}
+    \includegraphics[width=1\textwidth]{src/assets/images/AermaxClimberPng.png}
     \caption{User Progression}
     \label{fig:user_progression}
 \end{figure}
@@ -118,14 +119,17 @@ The image below illustrates the core components of our reward system. On the lef
 
 \textbf{XP (Experience Points):} XP is earned by users as they complete tasks and participate in activities, reflecting their progress and engagement.
 
-To support this system, we need to develop comprehensive algorithms that can calculate rewards and progress behind the scenes. To ensure these algorithms are effective and accurate, we created a simulator that helps visualize and clarify the reward system before actual development begins.
+To support this system, comprehensive algorithms must be developed to calculate rewards and progress behind the scenes. To ensure the effectiveness and accuracy of these algorithms, a simulator was used to visualize and clarify the reward system before actual development began. Each rank in the system has multiple levels, and progressing through these levels requires accumulating a specific amount of XP (Experience Points). This approach leverages gamification principles to keep users engaged and motivated by offering continuous challenges and rewards (see Figure \ref{fig:reward_system_simulator}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth, , height=10cm]{src/assets/images/simulator.png}
+    \includegraphics[width=1\textwidth]{src/assets/images/simulator.png}
     \caption{Reward System simulator}
     \label{fig:reward_system_simulator}
 \end{figure}
+
+This simulator helps in understanding how users will interact with the reward system, ensuring that the designed algorithms for XP and level progression are effective and engaging.
+ 
 
 \section{Technical Requirements}
 Technical requirements specify the underlying technical aspects and constraints necessary for the system to function correctly. This section outlines the technical requirements that support the functional requirements.
@@ -137,7 +141,6 @@ Proper data management is essential for the application's integrity and reliabil
     \item \textbf{Database Integration:} The application should interact with multiple databases, such as 'reward-service-db' and 'config-service-db,' to store and retrieve data efficiently.
     \item \textbf{Data Synchronization:} Ensure data consistency and synchronization across different services and databases. Handle operations that span multiple microservices.
     \item \textbf{Data Security:} Implement robust security measures to protect sensitive user data, including encryption, access control, and regular security audits.
-    \item \textbf{Backup and Recovery:} Support regular data backups and provide mechanisms for data recovery in case of failures or data loss.
 \end{itemize}
 
 \subsection{System Integration}
@@ -168,7 +171,7 @@ Therefore, this part will list all of the technologies that we've used and also 
 \medskip
 
 \begin{itemize}
-    \item \textbf{Kubernetes:} \newline The most powerful tool for managing containerized workloads in the cloud. \newline
+    \item \textbf{Kubernetes:} \newline \cite{Kubernetes} The most powerful tool for managing containerized workloads in the cloud. \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=3cm]{src/assets/logos/kubernetes_512x512.png}
@@ -180,7 +183,7 @@ Therefore, this part will list all of the technologies that we've used and also 
               \includegraphics[width=3cm]{src/assets/logos/latex_200x200.png}
               \captionof{figure}{Logo of The LaTeX Project}
           \end{minipage}
-    \item \textbf{Spring Boot:} \newline A powerful framework for building Java-based enterprise applications
+    \item \textbf{Spring Boot:} \newline \cite{SpringBoot} A powerful framework for building Java-based enterprise applications
 
 . \newline \newline
           \begin{minipage}{\linewidth}
@@ -188,37 +191,37 @@ Therefore, this part will list all of the technologies that we've used and also 
               \includegraphics[width=6.5cm]{src/assets/logos/Springboot.png}
               \captionof{figure}{Logo of Spring Boot}
           \end{minipage}
-    \item \textbf{ReactJS:} \newline A JavaScript library for building user interfaces. \newline \newline
+    \item \textbf{ReactJS:} \newline  \cite{ReactJS} A JavaScript library for building user interfaces. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=3.5cm]{src/assets/logos/reactjs.png}
               \captionof{figure}{Logo of ReactJS}
           \end{minipage}
-    \item \textbf{Keycloak:} \newline An open-source identity and access management solution. \newline \newline
+    \item \textbf{Keycloak:} \newline  \cite{Keycloak} An open-source identity and access management solution. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/Keycloak-logo.png}
               \captionof{figure}{Logo of Keycloak}
           \end{minipage}
-    \item \textbf{Python:} \newline A versatile programming language used for various types of software development. \newline \newline
+    \item \textbf{Python:} \newline  \cite{Python} A versatile programming language used for various types of software development. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/python.png}
               \captionof{figure}{Logo of Python}
           \end{minipage}
-    \item \textbf{NestJS:} \newline A framework for building efficient, reliable, and scalable server-side applications. \newline \newline
+    \item \textbf{NestJS:} \newline \cite{NestJS}  A framework for building efficient, reliable, and scalable server-side applications. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/nestjs_logo_icon.png}
               \captionof{figure}{Logo of NestJS}
           \end{minipage}
-    \item \textbf{React Query:} \newline A library for fetching, caching, and synchronizing server state in React applications. \newline \newline
+    \item \textbf{React Query:} \newline \cite{ReactQuery}  A library for fetching, caching, and synchronizing server state in React applications. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=5.5cm]{src/assets/logos/react-query.png}
               \captionof{figure}{Logo of React Query}
           \end{minipage}
-    \item \textbf{Langchain:} \newline A framework for developing applications powered by language models. \newline \newline
+    \item \textbf{Langchain:} \newline \cite{Langchain}  A framework for developing applications powered by language models. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/langchain.png}
@@ -226,5 +229,6 @@ Therefore, this part will list all of the technologies that we've used and also 
           \end{minipage}
 \end{itemize}
 
+\setcounter{secnumdepth}{0}
 \section{Conclusion}
 Defining and implementing these functional and technical requirements is crucial for developing a robust, reliable, and user-friendly Aermax application that meets the needs of our users and stakeholders, ensuring scalability, security, and comprehensive functionality.
