@@ -175,7 +175,7 @@ In this section, a comprehensive analysis of selected user stories is provided, 
 \end{longtable}
 
 \section{Microservices Communication Overview}
-In this diagram, the \textbf{\textcolor[rgb]{0.0,0.5,0.0}{green boxes}} represent the microservices we developed, namely the \textbf{Config-Service}\index{Config-Service} and the \textbf{Reward-System}\index{Reward-System}. These services communicate with other microservices, including the \textbf{\textcolor[rgb]{0.0,0.0,0.5}{User-Service}}\index{User-Service}, \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Operations-Service}}\index{Operations-Service}, \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Storage-Service}}\index{Storage-Service}, and \textbf{\textcolor[rgb]{0.0,0.0,0.5}{AI-Service}}\index{AI-Service}. The other microservices, indicated in blue, are the ones we have also contributed to, ensuring they work harmoniously with our developed services.
+In this diagram, the \textbf{\textcolor[rgb]{0.0,0.5,0.0}{green boxes}} represent the microservices we developed, namely the \textbf{Config-Service}\index{Config-Service} and the \textbf{Reward-System}\index{Reward-System}. These services communicate with other microservices, including the \textbf{\textcolor[rgb]{0.0,0.0,0.5}{User-Service}}\index{User-Service}, \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Operations-Service}}\index{Operations-Service}, and \textbf{\textcolor[rgb]{0.0,0.0,0.5}{Storage-Service}}\index{Storage-Service}.
 
 \begin{figure}[h]
     \centering
@@ -360,7 +360,7 @@ The backend controller processes and validates the request, then interacts with 
 
 The controller then sends a response back to the front end, confirming the packet has been closed. The front end updates the interface to display the new packet status and reward information.
 
-\noindent The figure \ref{seq-close-packet} illustrates the sequence diagram for closing a packet.
+\noindent The figure \ref{fig:seq-close-packet} illustrates the sequence diagram for closing a packet.
 
 \begin{landscape}
     \begin{figure}[H]
