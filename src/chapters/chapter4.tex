@@ -5,6 +5,55 @@
 \section{Introduction}
 Throughout this chapter, we will delve into the planning, design considerations, and implementation of our reward system, from conception and development to deployment.
 \setcounter{secnumdepth}{2} 
+\section{Requirements Gathering}
+By conducting a comprehensive analysis of the requirements, we aim to bridge the gap between the stakeholders’ vision and the actual implementation of the reward system. This analysis helps us define clear and concise specifications that serve as the foundation for the design, development, and testing phases of the project.
+
+\subsection{Identifying End-Users}
+Identifying end-users is a crucial step in requirements analysis as it helps determine the needs, expectations, and constraints of the target audience. In our reward system, we have identified two types of actors:
+
+\begin{itemize}
+    \item \textbf{Administrator:} Responsible for overseeing user accounts, configuring, and maintaining the reward system to ensure smooth operation.
+    \item \textbf{Subcontractor:} Engages with the reward system by earning tokens and XP through various activities and managing their achievements.
+\end{itemize}
+
+\subsection{Functional Requirements}
+Functional requirements define the specific actions, tasks, and behaviors that the reward system must be able to perform to meet the needs of its end-users. These requirements form the foundation of the system’s functionality.The functional requirements captured for each actor are outlined below.
+
+\subsubsection{Authentication and Profile Settings}
+\begin{itemize}
+    \item \textbf{Sign in:} A registered user should be able to access the system by providing valid credentials.
+    \item \textbf{Edit profile settings:} A logged-in user should be able to edit their profile settings.
+\end{itemize}
+
+\subsubsection{Administrator Requirements}
+\begin{itemize}
+    \item \textbf{Manage Achievements:} An administrator should be able to update and list achievements.
+    \item \textbf{Manage Tokens and XP:} An administrator should be able to list tokens and XP, edit tokens and XP, increment and decrement tokens, and ban/unban users from gaining tokens.
+    \item \textbf{Manage Transactions:} An administrator should be able to view all transactions for a specific user.
+    \item \textbf{Manage Ranks:} An administrator should be able to view ranks, levels, and next rank for each user.
+\end{itemize}
+
+\subsubsection{Subcontractor Requirements}
+\begin{itemize}
+    \item \textbf{View Achievements:} A subcontractor should be able to view all possible achievements in the application.
+    \item \textbf{View Tokens and XP:} A subcontractor should be able to view their tokens and XP.
+    \item \textbf{Close Packet:} A subcontractor should be able to gain tokens and XP by closing a packet.
+    \item \textbf{User Features:} An administrator should be able to view the FAQ and Shop pages.
+\end{itemize}
+
+\section{Scrum Implementation Overview}
+This section provides an overview of the Scrum implementation in our project. It includes a global use case diagram, showcasing the system’s high-level functionalities, followed by the presentation of the product backlog and the planning of the sprints.
+
+\subsection{Global Use Case Diagram}
+Using UML use case diagrams provides a clear visual representation of actor-system interactions and concisely specifies expected functionalities and behaviors. The figure \ref{fig:global_use_case} illustrates the global use case diagram we modeled for our reward system.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{src/assets/diagrams/GlobalUseCase.drawio.png}
+    \caption{Global Use Case Diagram for Reward System}
+    \label{fig:global_use_case}
+\end{figure}
+
 \section{Sprint backlog}
 During the Sprint Planning meeting, the effort for each task in the first and second sprint backlogs was assessed based on the total working hours required. The prioritization of these backlog items is depicted through their sequence in the table, with items placed at the top representing higher urgency.  accompanying image showcases the board t
  \\
