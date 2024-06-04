@@ -32,9 +32,7 @@ We help our clients to develop exciting digital products and solutions and we al
 % ----------------------- Stating the problem ----------------------- %
 \section{About Aermax}
 
-The company Aermax, created by Max Wörner, is located in Stuttgart Germany, and is associated with industrial alpinism. They offer professionals working with high-altitude or deep-location works by use of industrial alpinism techniques. An industrial alpine climber is a specialist trained in work at great heights or depths. During operations, the work of industrial climbers is carried out using a methodology known as a rope access technique. This technique enables the craftsmen to execute their works in a very difficult location without using scaffolding or lifts.
-
-
+The company Aermax, located in Stuttgart, Germany, specializes in industrial alpinism. They offer professional services for high-altitude or deep-location work using industrial alpinism techniques. An industrial alpine climber is a specialist trained to work at great heights or depths. During operations, these specialists use a methodology known as rope access technique. This technique allows them to execute their work in challenging locations without the need for scaffolding or lifts.
 \subsection*{Key Advantages of Industrial Climbers}
 \begin{itemize}
   \item Capacity to work on any height or depth
@@ -48,13 +46,6 @@ The company Aermax, created by Max Wörner, is located in Stuttgart Germany, and
 
 With these advantages, Aermax secures that their services are effective, adaptive, and flexible with any surrounding environment, which is quite challenging, while maintaining a higher level of safety and efficiency.
 
-\begin{figure}[H]
-    \centering
-    \makebox[\textwidth]{\includegraphics[width=12cm]{src/assets/images/aermax.PNG}}
-    \caption{Aermax’s website}
-    \label{fig:aermax-website}
-\end{figure}
-
 The client wanted to develop a platform to manage all their work, especially between employees-and-subcontractors, better known as externs.
 
 \section{Competitor Benchmarking}
@@ -62,12 +53,8 @@ This section will discuss the analysis of the Aermax platform: review of the fea
 \subsection{Competitors Selection}
 In the current solutions study, we have evaluated various platforms and chosen two which most closely fit our needs. We will give an overview of the chosen solutions and the main features and functionalities thereof.
 
-\subsection{Blauarbeit}
-Blauarbeit is an online marketplace where German citizens can look for experts to help them with hard and sometimes dangerous tasks.
-It's like a big directory filled with experts who are good at fixing effects like broken pipes, or erecting new structures.
-That way, a person can easily find the right fit for the job instead of searching everywhere. Moreover, Blauarbeit assures that workers are reliable and secure whether it is fixing a dense roof or cleaning at a high altitude and dangerous place.
-
-
+\subsection{Blauarbeit  \cite{Blauarbeit}}
+Blauarbeit is an online marketplace where German citizens can look for experts to help them with hard and sometimes dangerous tasks. It's like a big directory filled with experts who are good at fixing things like broken pipes or erecting new structures. That way, a person can easily find the right fit for the job instead of searching everywhere. Moreover, Blauarbeit assures that workers are reliable and secure, whether it is fixing a dense roof or cleaning at a high altitude and dangerous place. The following figure (Figure \ref{fig:blaurabeit_image}) shows the Blauarbeit homepage, which provides an overview of their services and user-friendly interface.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{src/assets/chapters/Blaurabeit.PNG}
@@ -76,11 +63,8 @@ That way, a person can easily find the right fit for the job instead of searchin
 \end{figure}
 
 
-\subsection{MyHammer}
-MyHammer is a German online portal that offers homeowners and businesses the option to find local craftsmen and service providers for a wide variety of construction,and repair work.
-MyHammer offers a set of features such as a huge variety of services provided, transparent bidding, and a mobile-friendly interface.
-
-
+\subsection{MyHammer  \cite{MyHammer}}
+MyHammer is a German online portal that offers homeowners and businesses the option to find local craftsmen and service providers for a wide variety of construction and repair work. MyHammer offers a set of features such as a huge variety of services provided, transparent bidding, and a mobile-friendly interface. The following figure (Figure \ref{fig:myhammer_image}) shows the MyHammer homepage, highlighting their comprehensive service offerings and user-friendly design.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{src/assets/chapters/myHammer.PNG}
@@ -90,9 +74,8 @@ MyHammer offers a set of features such as a huge variety of services provided, t
 
 
 
-\subsection{Aermax}
-Aermax is a company that specializes in the provision of services at altitudes. It specializes in works that require preciseness and safety and expertise. One of the aspects of the works involves the provision of services that make buildings last and remain viable for a long time. 
-
+\subsection{Aermax  \cite{Aermax}}
+Aermax is a company that specializes in the provision of services at altitudes. It specializes in works that require preciseness, safety, and expertise. One of the aspects of their work involves the provision of services that ensure buildings last and remain viable for a long time. The following figure (Figure \ref{fig:aermax_image}) shows the Aermax homepage, highlighting their specialized services in industrial alpinism and rope access techniques.
 
 \begin{figure}[H]
     \centering
@@ -193,12 +176,16 @@ With the problems identified, we make the following proposals for the way forwar
     \item Build a new feature: Reward System to make Aermax's users more engaged and motivated.
 \end{itemize}
 
+The following figure (Figure \ref{fig:Reward_System_explain_image}) provides an overall view of the proposed Reward System for Aermax. This system is designed to transform the user experience by making tasks more engaging and rewarding.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{src/assets/diagrams/rewardexplain.png}
+    \includegraphics[width=1\textwidth]{src/assets/diagrams/rewardexplain.png}
     \caption{Reward System Overall View}
     \label{fig:Reward_System_explain_image}
 \end{figure}
+
+The next figure (Figure \ref{fig:Reward_System_detailed_explain_image}) illustrates the detailed scenario of how the Reward System works within the Aermax platform. It highlights the process of creating missions, gaining tokens and XP, and using them in the Aermax store.
 
 \begin{figure}[H]
     \centering
@@ -209,19 +196,18 @@ With the problems identified, we make the following proposals for the way forwar
    
 % ----------------------- Development Methodology ----------------------- %
 \section{Development Methodology}
+The development methodology adopted for this project is aimed at ensuring flexibility, efficiency, and responsiveness to changes. This approach is particularly suitable for dynamic environments where requirements can evolve over time, and continuous improvement is crucial.
+
 \subsection{Agile methodology}
 Agile is a structured and iterative approach to project management and product development.
 It recognizes the volatility of product development, and provides a methodology for self-organizing teams to respond to change without going off the rails.
 
 \subsection{Scrum methodology}
-The Scrum team commits to the completion of an increment of work, which is potentially shippable, through set periods of time called sprints.
-They strive to build a learning loop in order to quickly collect and integrate customer feedback.
-Scrum teams embrace specific roles, create special artifacts, and hold regular ceremonies to keep things moving.
-
+The Scrum team commits to the completion of an increment of work, which is potentially shippable, through set periods of time called sprints. They strive to build a learning loop in order to quickly collect and integrate customer feedback. Scrum teams embrace specific roles, create special artifacts, and hold regular ceremonies to keep things moving. The following figure (Figure \ref{fig:Scrum_Framework_image}) illustrates the Scrum framework, showcasing the key components and processes involved.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{src/assets/chapters/blog-scrum-process-opt.jpg}
+    \includegraphics[width=1\textwidth]{src/assets/chapters/blog-scrum-process-opt.jpg}
     \caption{The Scrum Framework}
     \label{fig:Scrum_Framework_image}
 \end{figure}
@@ -244,7 +230,7 @@ ScrumBan is a hybrid Agile methodology that combines elements of Scrum and Kanba
     \item Adaptive Planning: A team can plan in a way that it can change the priorities and resources, if so required, as per the changing requirements while using Scrumban.
     \item Lean Principles: Scrumban adopts the principles of Lean—like waste elimination and maximization of value delivery—to streamline processes.
 \end{itemize}
-
+The following figure (Figure \ref{fig:Scrumban_image}) shows the Scrumban board, illustrating how this hybrid methodology combines the best practices of Scrum and Kanban to optimize workflow and enhance productivity
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{src/assets/chapters/Scrumban.png}
@@ -261,18 +247,15 @@ Scrumban has been chosen as the preferred development methodology for the follow
     \item \textbf{Improved Visibility:} Visual boards improve the visibility of work, enabling transparency and encouraging collaboration.
     \item \textbf{Optimized Flow:} Scrumban is a way of optimizing flow by balancing Kanban flexibility with structured Scrum, enabling teams to build value consistently and predictably.
 \end{itemize}
-
+The following figure (Figure \ref{fig:armax-board}) shows the Aermax Board, illustrating how Scrumban is implemented to manage tasks and workflow effectively within the team.
 \begin{figure}[H]
     \centering
-    \makebox[\textwidth]{\includegraphics[width=14cm]{src/assets/chapters/aermax-board.png}}
+    \includegraphics[width=1\textwidth]{src/assets/chapters/aermax-board.png}
     \caption{Aermax Board}
     \label{fig:armax-board}
 \end{figure}
- 
 \subsection{Unified Modeling Language}
 The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering that is intended to provide a standard way to visualize the design of a system. In our case, we used UML to design the top level view of the systems therefore we only used the Use Case and Sequence diagrams.
-
-
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 % ----------------------- Conclusion ----------------------- %
