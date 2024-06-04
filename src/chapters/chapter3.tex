@@ -1,4 +1,4 @@
-\chapter{Sprint 1 : Enhancements and Integrations}
+\chapter{ Sprint 1 : Enhancements and Integrations}
 \setcounter{secnumdepth}{0}
 
 \section{Introduction}
@@ -7,7 +7,7 @@ In this chapter, we cover the first sprint of the Aermax project, focusing on th
 \section{Major Features and Enhancements}
 This section details the major features and enhancements introduced during the first sprint of the Aermax project. Each item listed in the sprint backlog was carefully selected to address critical needs and provide significant improvements to the platform's functionality and user experience.
 \subsection{Sprint Backlog Detail}
-Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements,and new features }in Sprint 1. Below, we're going to share some of them. The biggest changes that we can discuss are highlighted below the blue colored line in the table.
+Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements and new features }in Sprint 1. Below, we're going to share some of them. The biggest changes that we can discuss are highlighted below the blue colored line in the table.
 \begin{longtable}{ | m{0.15\textwidth} | m{0.2\textwidth} | m{0.25\textwidth} | m{0.1\textwidth} | m{0.16\textwidth} | }
     \caption{Detailed Sprint Backlog} \\
     \hline
@@ -22,12 +22,12 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
     \endfoot
     \endlastfoot
     \rowcolor{blue!20} 
-    Feature & Dynamic Equipment List & The ticket describes an issue with a dynamic equipment list system where equipment items are grouped and managed. & High & 40h \\
+    Feature & Dynamic Equipment List & Develop a dynamic equipment list feature that organizes and manages equipment groups, ensuring each group and equipment item can be created, updated, and assigned to sub-companies and packets as needed. This feature aims to improve flexibility and ease of equipment management within the application. & High & 40h \\
     \hline
-    \rowcolor{blue!20} Feature & Implement User Authentication System & Allow subcontractors to self-register on the platform. & High & 12h \\
+    \rowcolor{blue!20} Feature & Implement User Authentication System & Create a user authentication system enabling subcontractors to self-register, login, and manage passwords securely, allowing independent access to the platform's features. & High & 12h \\
     \hline
     \rowcolor{blue!20} 
-    Enhancement & Adjust Feedback Notification & Update feedback functionality to include notifications in teams. & Medium & 8h \\
+    Enhancement & Adjust Feedback Notification & Enhance the feedback system to include notifications in Microsoft Teams, ensuring real-time updates . & Medium & 8h \\
     \hline
     Enhancement & Set Dynamic Project Status & Dynamically set project status based on packet statuses. & High & 5h \\
     \hline
@@ -62,34 +62,38 @@ Below is a detailed representation of our sprint backlog, showcasing the major t
     \hline
 \end{longtable}
 
-\subsection{Dynamic Equipment Design}
-To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture. The following sections provide a detailed overview of the class structure and interactions.
-\subsubsection{Dynamic Equipment List issues}
-The Dynamic Equipment List feature was previously implemented as a static list. This static list required manual updates and did not reflect real-time changes to the equipment database. The key characteristics of the static implementation included:
+\subsection{Dynamic Equipment List}
+To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture.
+
+\subsubsection{Dynamic Equipment List Issues}
+The Dynamic Equipment List feature was previously implemented as a static list, which required manual updates and did not reflect real-time changes to the equipment database. The key characteristics and drawbacks of the static implementation are outlined below:
+
+\paragraph{Key Characteristics of the Static Implementation}
 \begin{itemize}
-    \item Manual updates to the equipment list.
-    \item Limited flexibility and responsiveness to changes.
-    \item High maintenance overhead due to frequent updates.
+    \item \textbf{Manual Updates:} The equipment list required manual updates.
+    \item \textbf{Limited Flexibility:} The static list lacked flexibility and responsiveness to changes.
+    \item \textbf{High Maintenance Overhead:} Frequent updates resulted in high maintenance overhead.
 \end{itemize}
 
-\subsubsection{Issues with Static Implementation}
-The static implementation had several drawbacks:
+\paragraph{Drawbacks of the Static Implementation}
 \begin{itemize}
     \item \textbf{Scalability:} As the number of equipment items grew, maintaining the static list became increasingly cumbersome.
-    \item \textbf{Real-time Updates:} Any changes to the equipment database were not immediately reflected in the list, leading to potential inconsistencies.
-    \item \textbf{User Experience:} Users could not rely on the list for up-to-date information, which impacted their ability to make informed decisions.
+    \item \textbf{Real-time Updates:} Changes to the equipment database were not immediately reflected in the list, leading to potential inconsistencies.
+    \item \textbf{User Experience:} Users could not rely on the list for up-to-date information, impacting their ability to make informed decisions.
 \end{itemize}
 
 As illustrated in Figure \ref{fig:static_equipment_list}, subcontractors were limited to only checking the checkboxes for the available equipment.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{src/assets/chapters/StaticDynamicEquipementList.png}
+    \resizebox{1\textwidth}{!}{
+        \includegraphics{src/assets/chapters/StaticDynamicEquipementList.png}
+    }
     \caption{Previous Static Equipment List}
     \label{fig:static_equipment_list}
 \end{figure}
 
-\subsubsection{Dynamic Equipment List}
+\subsubsection{Dynamic Equipment List solution}
 To address these issues, we are transitioning to a dynamic equipment list. The dynamic implementation will automatically update the list based on changes in the equipment database, ensuring real-time accuracy and reducing maintenance overhead. Key features of the dynamic implementation include:
 \begin{itemize}
     \item \textbf{Real-time Updates:} The list will automatically reflect changes made to the equipment database.
@@ -103,17 +107,22 @@ The planned dynamic equipment list will also include comprehensive admin and sub
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{src/assets/chapters/DynamicEquipementAdmin.PNG}
+    \resizebox{1\textwidth}{!}{
+        \includegraphics{src/assets/chapters/DynamicEquipementAdmin.PNG}
+    }
     \caption{Planned Dynamic Equipment List - Admin View}
     \label{fig:dynamic_equipment_list_admin}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{src/assets/chapters/DynamicEquipementSubcompany.PNG}
+    \resizebox{1\textwidth}{!}{
+        \includegraphics{src/assets/chapters/DynamicEquipementSubcompany.PNG}
+    }
     \caption{Planned Dynamic Equipment List - Subcompany View}
     \label{fig:dynamic_equipment_list_subcompany}
 \end{figure}
+
 \subsubsection{Dynamic Equipment Design}
 To effectively transition from a static to a dynamic equipment list, we need to carefully design the system architecture. The dynamic system will facilitate real-time updates, scalability, and a user-friendly experience. The following sections provide a detailed overview of the class structure and interactions essential for implementing this dynamic equipment list.
 
@@ -130,11 +139,14 @@ The dynamic equipment list system will consist of several key components:
 The class diagram below illustrates the key components and relationships involved in the dynamic equipment list feature.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{src/assets/diagrams/DynamiEquipementListPng.png}
-\caption{Class Diagram for Dynamic Equipment List}
-\label{fig:class_diagram}
+    \centering
+    \resizebox{1\textwidth}{!}{
+        \includegraphics{src/assets/diagrams/DynamiEquipementListPng.png}
+    }
+    \caption{Class Diagram for Dynamic Equipment List}
+    \label{fig:class_diagram}
 \end{figure}
+
 
 \paragraph{Subcompany Interface}
 The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users.
@@ -260,7 +272,7 @@ Password Management & Keycloak & Developed a secure and user-friendly password m
 \label{tab:keycloak_features}
 \end{table}
 
-
+\setcounter{secnumdepth}{0}
 \section{Conclusion}
 Sprint 1 has laid a strong foundation for the Aermax platform by addressing critical needs and improving overall functionality and user experience. Looking ahead to Sprint 2, we will focus on a major feature: the reward system, which promises to further enhance user engagement and satisfaction.
 
