@@ -1,9 +1,8 @@
-\chapter{Sprint 2 : Reward System}
+\chapter{ Sprint 2 : Reward System}
 
 \setcounter{secnumdepth}{0}
 \phantomsection
 \section{Introduction}
-\addcontentsline{toc}{section}{Introduction}
 Throughout this chapter, we will delve into the planning, design considerations, and implementation of our reward system, from conception and development to deployment.
 \setcounter{secnumdepth}{2} 
 \section{Sprint backlog}
@@ -180,7 +179,7 @@ In this diagram, the \textbf{\textcolor[rgb]{0.0,0.5,0.0}{green boxes}} represen
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{src/assets/diagrams/microservicesComm.png}
+    \includegraphics[width=1\textwidth]{src/assets/diagrams/microservicesComm.png}
     \caption{Communication Overview of Microservices}
     \label{fig:microservices}
 \end{figure}
@@ -237,11 +236,11 @@ The following figure illustrates the class diagram of our reward system, which i
     \item \texttt{UserRewards}: Aggregates a user's rewards, including XP, tokens, and ban status.
 \end{itemize}
 
-This class diagram provides a comprehensive overview of the reward system's architecture, enabling a clear understanding of the interactions between different components.
+This class diagram provides a comprehensive overview of the reward system's architecture, enabling a clear understanding of the interactions between different components (see Figure \ref{fig:reward_system-class}).
 
 \begin{figure}[H]
     \centering
-    \makebox[\textwidth]{\includegraphics[width=16cm, height=19cm, keepaspectratio]{src/assets/diagrams/rewardclass.png}}
+    \makebox[\textwidth]{\includegraphics[width=16cm, height=19cm, keepaspectratio]{src/assets/diagrams/RewardSystemClassDiagram.png}}
     \caption{Reward system class diagram}
     \label{fig:reward_system-class}
 \end{figure}
@@ -459,7 +458,7 @@ As shown in Figure \ref{fig:rabbitmq-diagram}, the diagram provides an overview 
     \label{fig:rabbitmq-diagram}
 \end{figure}
 
-
+\setcounter{secnumdepth}{0}
 \section{Conclusion}
 In this chapter, we have explored the planning, design considerations, and implementation details of our reward system. We discussed the sprint backlog, specifications for various user stories, and the communication overview of our microservices. Detailed designs, including static and dynamic modeling, were provided to illustrate the interactions and relationships between the different components of the reward system. 
 
