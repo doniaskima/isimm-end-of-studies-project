@@ -117,7 +117,8 @@ We are conducting a thorough assessment of project management platforms for indu
     C7: Project Planning and Scheduling & Lack of specific project planning or scheduling tools. & Lack of specific project planning or scheduling tools. & An efficient tool for managing and planning projects. \\
     \hline
 \end{longtable}
-
+This study compares MyHammer, Blauarbeit, and Aermax based on user interface, task management, document management, communication tools, safety compliance, equipment management, and project planning. While MyHammer and Blauarbeit offer user-friendly interfaces, they lack dedicated features for task and document management. Aermax excels in these areas and provides a comprehensive solution tailored to industrial climbers.\\
+To further enhance Aermax, we will refine the user interface, strengthen equipment management tools, and develop new features like a reward system and other enhancements. These improvements will make Aermax the most effective and secure platform for industrial climber projects, significantly boosting user experience and operational efficiency.
 % ----------------------- Assessment of the case ----------------------- %
 \section{Assessment of the case}
 This chapter shall evaluate the current state of the project, its strengths and weaknesses, propose solutions for its issues, and outline its implementation steps. The systematic approach is aimed at enhancing the performance of the project and user satisfaction.
@@ -132,8 +133,6 @@ After studying the existing, we can determine its limitations:
     \item New features are yet to be developed.
     \item Parts of the application need complete overhauling to meet the client's requirements.
 \end{itemize}
-
-
 \subsubsection{Technical Issues}
 \begin{itemize}
     \item Since cron jobs are running for the whole day, bugs are hard to respond to fast enough because we can only deploy once at the end of the day.
@@ -149,19 +148,17 @@ With the problems identified, we make the following proposals for the way forwar
     \item In addition, new features will be developed based on priority to ensure that the application meets all of the client's requirements.
     \item There will also be thorough refactoring of the codebase to remove bad practices and optimize performance.
     \item The UI/UX is also recommended to be enhanced for a better user experience. The proposed solutions should be aimed at greatly enhancing the general performance of the application, reliability, and user satisfaction.
-    \item Build a new feature: Reward System to make Aermax's users more engaged and motivated.
+    \item Develop a new feature: \textbf{Reward System} to enhance user engagement and motivation on the Aermax platform. The system assigns missions and tasks that reward users with \textbf{tokens} and \textbf{experience points (XP)}. XP tracks user progress, advancing their levels and ranks to unlock new features and privileges. Tokens act as in-platform currency for purchasing items and upgrades. Users can earn \textbf{achievements} for milestones and task completion. Administrators manage the system by setting up tasks, defining rewards, and monitoring progress, with the ability to manually adjust tokens and XP. This gamification approach makes the user experience more interactive and enjoyable, boosting overall productivity and satisfaction.
 \end{itemize}
-
-The following figure (Figure \ref{fig:Reward_System_explain_image}) provides an overall view of the proposed Reward System for Aermax. This system is designed to transform the user experience by making tasks more engaging and rewarding.
+The figure \ref{fig:Reward_System_explain_image} provides an overall view of the proposed Reward System for Aermax. This system is designed to transform the user experience by making tasks more engaging and rewarding.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{src/assets/diagrams/rewardexplain.png}
-    \caption{Reward System Overall View}
+    \caption{Reward System idea}
     \label{fig:Reward_System_explain_image}
 \end{figure}
-
-The next figure (Figure \ref{fig:Reward_System_detailed_explain_image}) illustrates the detailed scenario of how the Reward System works within the Aermax platform. It highlights the process of creating missions, gaining tokens and XP, and using them in the Aermax store.
+The next figure \ref{fig:Reward_System_detailed_explain_image} illustrates the detailed scenario of how the Reward System will function within the Aermax platform. It highlights the process of creating missions, gaining tokens and XP, and using them in the Aermax store.
 
 \begin{figure}[H]
     \centering
