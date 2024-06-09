@@ -12,55 +12,6 @@ In this chapter, we delve into the comprehensive specifications and requirements
 \section{Overview of the Project}
 The Aermax project is a comprehensive initiative aimed at developing a robust and scalable system through the integration of existing and newly developed microservices. This section provides an in-depth look at the architecture and key stakeholders involved in the project.
 
-\subsection{Aermax Architecture}
-
-The following table provides a comprehensive overview of all the application's microservices, detailing their functionalities and scalability.
-
-\textbf{Table 9: All the Application’s Microservices}
-\begin{longtable}{|p{3cm}|p{7cm}|p{2cm}|}
-    \hline
-    \textbf{Name} & \textbf{Description} & \textbf{Scalable} \\
-    \hline
-    \endhead
-    ai-service & Manages AI operations, including data processing and ML algorithms. & Yes \\
-    \hline
-    user-service & Handles user data, security, and support functions. & Yes \\
-    \hline
-    operations-service & Coordinates project management and operational workflows. & Yes \\
-    \hline
-    storage-service & Oversees data storage and database management. & Yes \\
-    \hline
-    client & Provides the user interface and input processing. & Yes \\
-    \hline
-    reward-service & Manages the reward system, including points accumulation, redemption, and catalog maintenance. & Yes \\
-    \hline
-    config-service & Stores and retrieves configuration settings for various services. & Yes \\
-    \hline
-\end{longtable}
-
-\begin{itemize}
-    \item \textbf{Existing Microservices}:
-    \begin{itemize}
-        \item \textbf{Operation Service}: Manages operations and interacts with the Operation Database .
-        \item \textbf{User Service}: Handles user-related functionalities and interfaces with the User Database.
-        \item \textbf{Keycloak Service}: Provides authentication and authorization services, connected to the Keycloak Database.
-    \end{itemize}
-    Our contributions to these existing microservices include adding new features, enhancements, and bug fixes.
-    \item \textbf{New Microservices}:
-    \begin{itemize}
-        \item \textbf{Reward Service}: Manages reward-related processes and connects to the Reward Database. This service was developed from scratch.
-        \item \textbf{Config Service}: A centralized microservice that interacts with all other microservices to provide configuration settings for the reward system. This service was also developed from scratch.
-    \end{itemize}
-\end{itemize}
-
-This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak. The diagram below (Figure \ref{fig:aermax-architecture}) illustrates the integration of existing and newly developed microservices within a unified virtual network environment.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{src/assets/chapters/AermaxArchitecture.png}
-    \caption{Aermax Architecture}
-    \label{fig:aermax-architecture}
-\end{figure}
-
 \subsection{Stakeholders}
 The Aermax project involves various stakeholders who play crucial roles in its operation and success. The key stakeholders and their roles are summarized in the table below (Table \ref{tab:stakeholders_roles}). The grey-highlighted rows represent external stakeholders, while the non-highlighted rows represent internal stakeholders.
 
@@ -162,6 +113,57 @@ For Aermax, what we should focus on is:
 	\item \textbf{Documentation:} We should always document each and every step we make extensively so that new developers can onboard on the project in a fast and efficient way, which further emphasizes reliability.
 \end{itemize}
 
+
+\section{Aermax Architecture}
+
+The following table provides a comprehensive overview of all the application's microservices, detailing their functionalities and scalability.
+
+\textbf{Table 9: All the Application’s Microservices}
+\begin{longtable}{|p{3cm}|p{7cm}|p{2cm}|}
+    \hline
+    \textbf{Name} & \textbf{Description} & \textbf{Scalable} \\
+    \hline
+    \endhead
+    ai-service & Manages AI operations, including data processing and ML algorithms. & Yes \\
+    \hline
+    user-service & Handles user data, security, and support functions. & Yes \\
+    \hline
+    operations-service & Coordinates project management and operational workflows. & Yes \\
+    \hline
+    storage-service & Oversees data storage and database management. & Yes \\
+    \hline
+    client & Provides the user interface and input processing. & Yes \\
+    \hline
+    reward-service & Manages the reward system, including points accumulation, redemption, and catalog maintenance. & Yes \\
+    \hline
+    config-service & Stores and retrieves configuration settings for various services. & Yes \\
+    \hline
+\end{longtable}
+
+\begin{itemize}
+    \item \textbf{Existing Microservices}:
+    \begin{itemize}
+        \item \textbf{Operation Service}: Manages operations and interacts with the Operation Database .
+        \item \textbf{User Service}: Handles user-related functionalities and interfaces with the User Database.
+        \item \textbf{Keycloak Service}: Provides authentication and authorization services, connected to the Keycloak Database.
+    \end{itemize}
+    Our contributions to these existing microservices include adding new features, enhancements, and bug fixes.
+    \item \textbf{New Microservices}:
+    \begin{itemize}
+        \item \textbf{Reward Service}: Manages reward-related processes and connects to the Reward Database. This service was developed from scratch.
+        \item \textbf{Config Service}: A centralized microservice that interacts with all other microservices to provide configuration settings for the reward system. This service was also developed from scratch.
+    \end{itemize}
+\end{itemize}
+
+This architecture supports modularity, scalability, and efficient management, ensuring consistent configurations and secure authentication through Keycloak. The diagram below (Figure \ref{fig:aermax-architecture}) illustrates the integration of existing and newly developed microservices within a unified virtual network environment.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{src/assets/chapters/AermaxArchitecture.png}
+    \caption{Aermax Architecture}
+    \label{fig:aermax-architecture}
+\end{figure}
+
+
 \section{Technologies}
 A project can always look simple from the outside, however if we dive deeply into how most software is made, we can see that it's not that simple of a process.
 Therefore, this part will list all of the technologies that we've used and also some of the major technical difficulties we've encountered during the realization of our project.
@@ -169,19 +171,19 @@ Therefore, this part will list all of the technologies that we've used and also 
 \medskip
 
 \begin{itemize}
-    \item \textbf{Kubernetes:} \newline \cite{Kubernetes} The most powerful tool for managing containerized workloads in the cloud. \newline
+    \item \textbf{Kubernetes:} \newline Kubernetes \cite{Kubernetes} is The most powerful tool for managing containerized workloads in the cloud. \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=3cm]{src/assets/logos/kubernetes_512x512.png}
               \captionof{figure}{Logo of Kubernetes}
           \end{minipage}
-    \item \textbf{LaTeX:} \newline \cite{latex-project} A high-quality document preparation and typesetting system for technical grade documents. \newline \newline
+    \item \textbf{LaTeX:} \newline LaTeX \cite{latex-project} is a high-quality document preparation and typesetting system for technical grade documents. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=3cm]{src/assets/logos/latex_200x200.png}
               \captionof{figure}{Logo of The LaTeX Project}
           \end{minipage}
-    \item \textbf{Spring Boot:} \newline \cite{SpringBoot} A powerful framework for building Java-based enterprise applications
+    \item \textbf{Spring Boot:} \newline SpringBoot \cite{SpringBoot} is a powerful framework for building Java-based enterprise applications
 
 . \newline \newline
           \begin{minipage}{\linewidth}
@@ -189,37 +191,37 @@ Therefore, this part will list all of the technologies that we've used and also 
               \includegraphics[width=6.5cm]{src/assets/logos/Springboot.png}
               \captionof{figure}{Logo of Spring Boot}
           \end{minipage}
-    \item \textbf{ReactJS:} \newline  \cite{ReactJS} A JavaScript library for building user interfaces. \newline \newline
+    \item \textbf{ReactJS:} \newline ReactJS \cite{ReactJS} is a JavaScript library for building user interfaces. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=3.5cm]{src/assets/logos/reactjs.png}
               \captionof{figure}{Logo of ReactJS}
           \end{minipage}
-    \item \textbf{Keycloak:} \newline  \cite{Keycloak} An open-source identity and access management solution. \newline \newline
+    \item \textbf{Keycloak:} \newline  Keycloak \cite{Keycloak} is an open-source identity and access management solution. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/Keycloak-logo.png}
               \captionof{figure}{Logo of Keycloak}
           \end{minipage}
-    \item \textbf{Python:} \newline  \cite{Python} A versatile programming language used for various types of software development. \newline \newline
+    \item \textbf{Python:} \newline  Python \cite{Python} is a versatile programming language used for various types of software development. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/python.png}
               \captionof{figure}{Logo of Python}
           \end{minipage}
-    \item \textbf{NestJS:} \newline \cite{NestJS}  A framework for building efficient, reliable, and scalable server-side applications. \newline \newline
+    \item \textbf{NestJS:} \newline NestJS \cite{NestJS} is a framework for building efficient, reliable, and scalable server-side applications. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/nestjs_logo_icon.png}
               \captionof{figure}{Logo of NestJS}
           \end{minipage}
-    \item \textbf{React Query:} \newline \cite{ReactQuery}  A library for fetching, caching, and synchronizing server state in React applications. \newline \newline
+    \item \textbf{React Query:} \newline React Query \cite{ReactQuery} is a library for fetching, caching, and synchronizing server state in React applications. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=5.5cm]{src/assets/logos/react-query.png}
               \captionof{figure}{Logo of React Query}
           \end{minipage}
-    \item \textbf{Langchain:} \newline \cite{Langchain}  A framework for developing applications powered by language models. \newline \newline
+    \item \textbf{Langchain:} \newline Langchain \cite{Langchain} is a framework for developing applications powered by language models. \newline \newline
           \begin{minipage}{\linewidth}
               \centering
               \includegraphics[width=6.5cm]{src/assets/logos/langchain.png}
