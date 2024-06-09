@@ -5,10 +5,7 @@
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 % ----------------------- Introduction ----------------------- %
 \section{Introduction}
-This chapter introduces the general context of this report.
-We start by presenting the frame of the project as well as the host company.
-Then comes the enumeration of the problems which led to the realization of the project.
-We wrap it up by defining the methodology we’ve followed to carry out our work.
+This chapter introduces the general context of this report.We start by presenting the frame of the project as well as the host company.Then comes the enumeration of the problems which led to the realization of the project.We wrap it up by defining the methodology we’ve followed to carry out our work.
 
 \setcounter{secnumdepth}{2} % Resume counting the sections for the toc with a depth of 2 (Sections and sub-sections)
 % ----------------------- General framework of the internship ----------------------- %
@@ -17,11 +14,10 @@ This project was carried out within the frame of obtaining a bachelor’s degree
 The internship took place fully remotely at Incedo Services GmbH for five months starting from the 15th of January 2024 to the 15th of June 2024 with the purpose of further developing an existing software solution of the company as well as working on a new feature, which is the reward system.
 
 % ----------------------- Company overview ----------------------- %
-\section{Company overview}
+\section{Companies overview}
 This section introduces the host company {\bf Incedo Services GmbH} as well as the services it offers.
-\subsection{About Incedo}
-"We are a young software development and consulting firm located in Stuttgart.
-We help our clients to develop exciting digital products and solutions and we also love to bring our own ideas into life from time to time." \cite{about-incedo}
+\subsection{Hosting company}
+Incedo Services GmbH, based in Stuttgart, Germany, is a dynamic startup specializing in digital consulting and software development. Their expertise includes innovative software for lead generation, as well as comprehensive digital transformation solutions such as data analytics, artificial intelligence, cloud services, and decision automation. Incedo supports clients in developing impactful projects and optimizing their outreach campaigns. They also focus on digital engineering services, offering cost-effective AI and speech recognition software solutions using open-source technologies. \cite{about-incedo}
 \begin{figure}[H]
     \centering
     \makebox[\textwidth]{\includegraphics[width=12cm]{src/assets/images/incedo-logo_bg-trans-white_rgb.png}}
@@ -30,41 +26,25 @@ We help our clients to develop exciting digital products and solutions and we al
 \end{figure}
 
 % ----------------------- Stating the problem ----------------------- %
-\section{About Aermax}
-
-The company Aermax, located in Stuttgart, Germany, specializes in industrial alpinism. They offer professional services for high-altitude or deep-location work using industrial alpinism techniques. An industrial alpine climber is a specialist trained to work at great heights or depths. During operations, these specialists use a methodology known as rope access technique. This technique allows them to execute their work in challenging locations without the need for scaffolding or lifts.
-\subsection*{Key Advantages of Industrial Climbers}
-\begin{itemize}
-  \item Capacity to work on any height or depth
-  \item With the use of ropes, a flexible way of deployment
-  \item Execution of work without scaffolding and lifts
-  \item Cost-effective and efficient
-  \item Operational without interrupting business or production processes
-  \item Less preparation time
-  \item Capability of short-notice emergency deployment
-\end{itemize}
-
-With these advantages, Aermax secures that their services are effective, adaptive, and flexible with any surrounding environment, which is quite challenging, while maintaining a higher level of safety and efficiency.
-
-The client wanted to develop a platform to manage all their work, especially between employees-and-subcontractors, better known as externs.
-
+\subsection{About Aermax}
+The company Aermax, located in Stuttgart, Germany, specializes in industrial alpinism. They offer professional services for high-altitude or deep-location work using industrial alpinism techniques. An industrial alpine climber is a specialist trained to work at great heights or depths. During operations, these specialists use a methodology known as the rope access technique.This technique allows them to execute their work in challenging locations without the need for scaffolding or lifts. The work I am currently doing is for the \textbf{client Aermax}.\\
+Aermax's services include the capacity to work at any height or depth, using ropes for a flexible way of deployment. This method enables the execution of work without the need for scaffolding and lifts, making it cost-effective and efficient. Additionally, their operations do not interrupt business or production processes and require less preparation time. Aermax also has the capability for short-notice emergency deployment.\\
+With these advantages, Aermax ensures that their services are effective, adaptive, and flexible with any surrounding environment, which is quite challenging, while maintaining a higher level of safety and efficiency.
 \section{Competitor Benchmarking}
 This section will discuss the analysis of the Aermax platform: review of the features, capabilities, and performance. The goal is to see the strong and weak sides of this service and compare it to industry standards. This analysis can act as a guideline on how to improve our platform to effectively manage high-altitude projects.
 \subsection{Competitors Selection}
 In the current solutions study, we have evaluated various platforms and chosen two which most closely fit our needs. We will give an overview of the chosen solutions and the main features and functionalities thereof.
-
-\subsection{Blauarbeit  \cite{Blauarbeit}}
-Blauarbeit is an online marketplace where German citizens can look for experts to help them with hard and sometimes dangerous tasks. It's like a big directory filled with experts who are good at fixing things like broken pipes or erecting new structures. That way, a person can easily find the right fit for the job instead of searching everywhere. Moreover, Blauarbeit assures that workers are reliable and secure, whether it is fixing a dense roof or cleaning at a high altitude and dangerous place. The following figure (Figure \ref{fig:blaurabeit_image}) shows the Blauarbeit homepage, which provides an overview of their services and user-friendly interface.
+\subsubsection*{Blauarbeit  \cite{Blauarbeit}}
+Blauarbeit is an online marketplace where German citizens can look for experts to help them with hard and sometimes dangerous tasks. It's like a big directory filled with experts who are good at fixing things like broken pipes or erecting new structures. That way, a person can easily find the right fit for the job instead of searching everywhere. Moreover, Blauarbeit assures that workers are reliable and secure, whether it is fixing a dense roof or cleaning at a high altitude and dangerous place.The figure \ref{fig:blaurabeit_image} shows the Blauarbeit homepage, which provides an overview of their services and user-friendly interface.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{src/assets/chapters/Blaurabeit.PNG}
-    \caption{Blaurabeit Homepage}
+    \caption{Blauarbeit Homepage}
     \label{fig:blaurabeit_image}
 \end{figure}
 
-
-\subsection{MyHammer  \cite{MyHammer}}
-MyHammer is a German online portal that offers homeowners and businesses the option to find local craftsmen and service providers for a wide variety of construction and repair work. MyHammer offers a set of features such as a huge variety of services provided, transparent bidding, and a mobile-friendly interface. The following figure (Figure \ref{fig:myhammer_image}) shows the MyHammer homepage, highlighting their comprehensive service offerings and user-friendly design.
+\subsubsection*{MyHammer  \cite{MyHammer}}
+MyHammer is a German online portal that offers homeowners and businesses the option to find local craftsmen and service providers for a wide variety of construction and repair work. MyHammer offers a set of features such as a huge variety of services provided, transparent bidding, and a mobile-friendly interface. The figure \ref{fig:myhammer_image} shows the MyHammer homepage, highlighting their comprehensive service offerings and user-friendly design.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{src/assets/chapters/myHammer.PNG}
@@ -72,19 +52,15 @@ MyHammer is a German online portal that offers homeowners and businesses the opt
     \label{fig:myhammer_image}
 \end{figure}
 
-
-
-\subsection{Aermax  \cite{Aermax}}
-Aermax is a company that specializes in the provision of services at altitudes. It specializes in works that require preciseness, safety, and expertise. One of the aspects of their work involves the provision of services that ensure buildings last and remain viable for a long time. The following figure (Figure \ref{fig:aermax_image}) shows the Aermax homepage, highlighting their specialized services in industrial alpinism and rope access techniques.
-
+\subsubsection*{Aermax : current version \cite{Aermax}}
+Aermax is an online platform offering a comprehensive set of features designed to streamline project management and task organization. It provides a wide range of services, enabling efficient handling of all project-related activities and essential task management features for organizing and tracking progress. Aermax also offers dedicated services for document management and standard equipment management, ensuring that all aspects of project execution are well-managed and easily accessible. The figure \ref{fig:aermax_image} shows the Aermax homepage, highlighting their specialized services in industrial alpinism and rope access techniques.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{src/assets/images/aermax.PNG}
     \caption{Aermax Homepage}
     \label{fig:aermax_image}
 \end{figure}
-
-\subsection{Competitors Selection}
+\subsection{Comparison of existing solutions}
 We are conducting a thorough assessment of project management platforms for industrial climbers to improve user experience and streamline operational processes. We will evaluate their functionalities, strengths, and weaknesses against 7 key criteria tailored to our project's needs and select the platform that best fits our requirements.
 
 \begin{itemize}
@@ -254,8 +230,6 @@ The following figure (Figure \ref{fig:armax-board}) shows the Aermax Board, illu
     \caption{Aermax Board}
     \label{fig:armax-board}
 \end{figure}
-\subsection{Unified Modeling Language}
-The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering that is intended to provide a standard way to visualize the design of a system. In our case, we used UML to design the top level view of the systems therefore we only used the Use Case and Sequence diagrams.
 
 \setcounter{secnumdepth}{0} % Set the section counter to 0 so next section is not counted in toc
 % ----------------------- Conclusion ----------------------- %
