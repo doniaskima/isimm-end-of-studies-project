@@ -9,7 +9,7 @@ In this chapter, we will discuss the core concepts of version control and DevOps
 \newline
 The goal is to give a practical guide on deploying a complex system using modern DevOps methods, setting a scale of efficiency and continuous improvement in the deployment process.
 
-\setcounter{secnumdepth}{2} 
+\setcounter{secnumdepth}{3} 
 \section{DevOps}
 In this section, we will explore the principles, practices, and significance of DevOps in modern software development.
 \subsection{Definition}
@@ -18,7 +18,7 @@ Devops is an approach that integrates both dev and ops team which leads to bette
 \newline
 The methodology is designed to break the silos from traditionally isolated functions and encourage an environment of continuous improvement with shared responsibilities.
 \paragraph*{}
-It’s true! DevOps models, as a concept, fill in the gap of automation across all processes involved in SDLC from development to deployment lifecycle and after. The key practices include Continuous Integration, Continuous Delivery and Infrastructure as Code.
+DevOps models, as a concept, fill in the gap of automation across all processes involved in SDLC from development to deployment lifecycle and after. The key practices include Continuous Integration, Continuous Delivery and Infrastructure as Code.
 
 \begin{itemize}
   \item Continuous Integration
@@ -28,15 +28,8 @@ It’s true! DevOps models, as a concept, fill in the gap of automation across a
 
 
 \subsection{Lifecycle}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{src/assets/chapters/devopslifecycle.png}
-  \caption{Application DevOps Lifecycle}
-  \label{fig:application-devops-lifecycle}
-\end{figure}
 
-The DevOps lifecycle comprises automated processes of development within an iterative development lifecycle. It follows a continuous approach symbolized by an infinity loop, representing collaboration and iteration throughout the application lifecycle.
-
+The DevOps lifecycle comprises automated processes of development within an iterative development lifecycle. It follows a continuous approach symbolized by an infinity loop, representing collaboration and iteration throughout the application lifecycle. The figure below (Figure \ref{fig:application-devops-lifecycle}) illustrates this lifecycle
 \begin{itemize}
   \item \textbf{Plan:} During this phase, teams gather end-user feedback and develop a project plan to optimize the business impact and achieve the intended product delivery.
   \item \textbf{Code:} During this phase, the development teams use some tools like  \textbf{Git} to streamline the development process, this will avoid security flaws and lousy coding practices.
@@ -46,10 +39,14 @@ The DevOps lifecycle comprises automated processes of development within an iter
   \item \textbf{Deploy:} In this stage, Infrastructure-as-Code is used to build the production environment and then deploy the build using various tools.
   \item \textbf{Operate:} The release is now live for customers to use. At this stage, the operations team takes care of server configuration and provisioning using tools like Chef.
   \item \textbf{Monitor:} In this stage, the DevOps pipeline is monitored based on data collected from customer behavior and application performance. Monitoring the entire environment helps teams find bottlenecks that impact productivity.
-  
-
 \end{itemize}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{src/assets/chapters/devopslifecycle.png}
+  \caption{Application DevOps Lifecycle}
+  \label{fig:application-devops-lifecycle}
+\end{figure}
 
 \subsection{Container management}
 The use of containers has become one of the cornerstones of DevOps practice in recent times due to the efficiency and reliability that they add to the processes. But what are containers, and how do you manage them?

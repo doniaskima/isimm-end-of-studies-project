@@ -3,8 +3,7 @@
 \setcounter{secnumdepth}{0}
 \phantomsection
 \section{Introduction}
-Throughout this chapter, we will delve into the planning, design considerations, and implementation of our reward system, from conception and development to deployment.
-\setcounter{secnumdepth}{2} 
+In this chapter, we will delve into the planning, design, and implementation of our reward system. This system aims to enhance user engagement by awarding tokens and XP for specific actions and achievements. We will explore requirements gathering, static and dynamic modeling, microservices communication, and the use of RabbitMQ as our message broker. Through this comprehensive approach, we ensure a robust and scalable reward mechanism that aligns with our project goals.\setcounter{secnumdepth}{3} 
 \section{Requirements Gathering}
 By conducting a comprehensive analysis of the requirements, we aim to bridge the gap between the stakeholders’ vision and the actual implementation of the reward system. This analysis helps us define clear and concise specifications that serve as the foundation for the design, development, and testing phases of the project.
 
@@ -19,13 +18,13 @@ Identifying end-users is a crucial step in requirements analysis as it helps det
 \subsection{Functional Requirements}
 Functional requirements define the specific actions, tasks, and behaviors that the reward system must be able to perform to meet the needs of its end-users. These requirements form the foundation of the system’s functionality.The functional requirements captured for each actor are outlined below.
 
-\subsubsection{Authentication and Profile Settings}
+\subsubsection*{Authentication and Profile Settings}
 \begin{itemize}
     \item \textbf{Sign in:} A registered user should be able to access the system by providing valid credentials.
     \item \textbf{Edit profile settings:} A logged-in user should be able to edit their profile settings.
 \end{itemize}
 
-\subsubsection{Administrator Requirements}
+\subsubsection*{Administrator Requirements}
 \begin{itemize}
     \item \textbf{Manage Achievements:} An administrator should be able to update and list achievements.
     \item \textbf{Manage Tokens and XP:} An administrator should be able to list tokens and XP, edit tokens and XP, increment and decrement tokens, and ban/unban users from gaining tokens.
@@ -33,7 +32,7 @@ Functional requirements define the specific actions, tasks, and behaviors that t
     \item \textbf{Manage Ranks:} An administrator should be able to view ranks, levels, and next rank for each user.
 \end{itemize}
 
-\subsubsection{Subcontractor Requirements}
+\subsubsection*{Subcontractor Requirements}
 \begin{itemize}
     \item \textbf{View Achievements:} A subcontractor should be able to view all possible achievements in the application.
     \item \textbf{View Tokens and XP:} A subcontractor should be able to view their tokens and XP.
@@ -49,7 +48,7 @@ Using UML use case diagrams provides a clear visual representation of actor-syst
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{src/assets/diagrams/GlobalUseCase.drawio.png}
+    \includegraphics[width=0.5\textwidth]{src/assets/diagrams/GlobalUseCaseUC.png}
     \caption{Global Use Case Diagram for Reward System}
     \label{fig:global_use_case}
 \end{figure}
@@ -57,7 +56,6 @@ Using UML use case diagrams provides a clear visual representation of actor-syst
 \section{Sprint backlog}
 During the Sprint Planning meeting, the effort for each task in the first and second sprint backlogs was assessed based on the total working hours required. The prioritization of these backlog items is depicted through their sequence in the table, with items placed at the top representing higher urgency.  accompanying image showcases the board t
  \\
-
 \begin{longtable}{ | m{0.08\textwidth}  | m{0.18\textwidth} | m{0.39\textwidth} | c | }
     \caption{Backlog of Sprint 2}                                                                                                          \\
     \hline
@@ -82,7 +80,9 @@ During the Sprint Planning meeting, the effort for each task in the first and se
                     
 
     \hline
-    \multirow[t]{2}{5em}{2} & \multirow{4}{5em}{Token and XP Management}  & Create  Tokens and XPs            & 48                          \\
+    \multirow[t]{2}{5em}{2} & \multirow{4}{5em}{Token and XP Management}  & Create  Tokens            & 24                          \\
+    \cline{3-4}
+                            &                                                      & Create XPs                & 16                          \\
     \cline{3-4}
                             &                                                      & List Tokens and XPs                & 16                          \\
     \cline{3-4}
@@ -117,6 +117,7 @@ In this section, a comprehensive analysis of selected user stories is provided, 
     \item \textbf{Implementation Details:} Covers the technical requirements, tools, and architectural considerations needed to implement the user story.
     \item \textbf{Completion Criteria:} Defines the specific conditions that must be met for the user story to be deemed complete and ready for deployment.
 \end{itemize}
+
 \begin{longtable}{ | m{0.2\textwidth} | m{0.75\textwidth} | }
     \caption{User stories specification for the first release}                                                                                                                                                                                  \\
     \hline
@@ -239,6 +240,83 @@ In this diagram, the \textbf{\textcolor[rgb]{0.0,0.5,0.0}{green boxes}} represen
     \item \textbf{Reward-System}\index{Reward-System}: The \textbf{Reward-System} handles user rewards and incentives, interacting with other microservices to track activities and assign rewards based on predefined rules.
 \end{itemize}
 
+\section{Software Architecture}
+
+The architecture of our application is designed to promote scalability, maintainability, and efficiency. We utilize a combination of server-side and client-side frameworks to achieve these goals. The primary frameworks used are NestJS for the backend and ReactJS for the frontend.
+
+\subsection{Server-side Technology}
+This section delves into the technology considerations for the backend part of our solution and the employed internal architectural pattern.
+
+\subsubsection*{NestJS Framework}
+NestJS emerged as the backend technology for our project. NestJS is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications. It is built with and fully supports TypeScript while still enabling developers to code in pure JavaScript. NestJS incorporates many modern programming paradigms and practices, such as modularization, dependency injection, and a strong emphasis on testability.
+
+NestJS offers several core capabilities:
+\begin{itemize}
+    \item \textbf{Modular Architecture}: Helps in organizing the application into cohesive blocks of functionality, encapsulating related components such as controllers, services, and providers.
+    \item \textbf{Dependency Injection}: Facilitates the development of loosely coupled modules.
+    \item \textbf{Extensibility}: Supports a wide range of plugins and integrations, enhancing the framework's capabilities.
+\end{itemize}
+
+\subsubsection*{NestJS Flow Architecture}
+NestJS uses a modular architecture where each module is a cohesive block of functionality. The primary components in this architecture are:
+
+\begin{itemize}
+    \item \textbf{Modules}: These are the basic building blocks of a NestJS application. Modules help in organizing the application into cohesive blocks of functionality. Each module encapsulates related components such as controllers, services, and providers.
+    \item \textbf{Controllers}: Controllers handle incoming HTTP requests and return responses to the client. They are responsible for orchestrating the overall flow of the application.
+    \item \textbf{Services}: Services contain the business logic and are responsible for performing operations like data processing and communication with the database.
+    \item \textbf{Providers}: Providers are classes that can be injected as dependencies. They serve as a bridge to encapsulate various operations, services, and logic.
+\end{itemize}
+
+Below \ref{fig:mvc-diagram} is a diagram that illustrates the general architecture of NestJS following the MVC (Model-View-Controller) pattern:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{src/assets/diagrams/mvcDiagram.png}
+    \caption{NestJS MVC Diagram}
+    \label{fig:mvc-diagram}
+\end{figure}
+
+In this diagram:
+\begin{itemize}
+    \item The \textbf{Controller} handles the incoming request from the user, retrieves or manipulates data using the \textbf{Service}, and then sends back the appropriate response.
+    \item The \textbf{Service} interacts with the \textbf{Model} to perform CRUD operations on the database.
+    \item The \textbf{Model} represents the structure of the database and handles data reading and writing.
+\end{itemize}
+
+\subsection{Client-side Technology}
+This section illustrates the chosen technology for the client side of our solution and the adopted internal architectural pattern.
+\subsubsection*{ReactJS Framework}
+For the user-facing part of our solution, we have selected the ReactJS frontend framework. ReactJS, developed and maintained by Facebook, is a JavaScript library for building user interfaces. It promotes a component-based architecture, which enhances reusability and manageability of the codebase \cite{ReactUpAndRunning}.
+
+ReactJS offers several core capabilities:
+\begin{itemize}
+    \item \textbf{Component-Based Architecture}: Allows building encapsulated components that manage their own state, then compose them to make complex UIs.
+    \item \textbf{Declarative Syntax}: Makes it easier to reason about the application and aims to be both efficient and flexible.
+    \item \textbf{Virtual DOM}: Optimizes rendering by only updating components that have changed \cite{ProReact}.
+\end{itemize}
+
+\subsubsection*{ReactJS Architectural Pattern}
+The architecture of a ReactJS application relies on certain fundamental concepts \cite{ReactUpAndRunning}:
+\begin{itemize}
+    \item \textbf{Components}: Define views, which are sets of screen elements that React can choose among and modify according to the program logic and data.
+    \item \textbf{State and Props}: Components use state to manage their data internally and props to receive data from parent components.
+    \item \textbf{Lifecycle Methods}: React provides lifecycle methods that can be used to perform actions at specific points in a component's life.
+    \item \textbf{Event Handling}: React allows handling user inputs and interactions with event handlers.
+\end{itemize}
+\subsection{Database}
+
+Selecting the appropriate database is a pivotal decision in our system design. After careful consideration, we’ve chosen to employ MongoDB. This choice is driven by the following criteria:
+
+\begin{itemize}
+    \item \textbf{Scalability}: MongoDB offers horizontal scalability, making it easier to manage large volumes of data and high-velocity workloads \cite{MongoDBTheDefinitiveGuide}.
+    \item \textbf{Flexibility}: As a NoSQL database, MongoDB allows for a flexible schema design, which is particularly useful for evolving data models and handling unstructured data \cite{LearningNoSQL}.
+    \item \textbf{Performance}: MongoDB provides high performance for read and write operations, which is critical for applications requiring fast data access and real-time analytics \cite{MongoDBAppliedDesignPatterns}.
+    \item \textbf{Ease of Use}: MongoDB's document-oriented storage format aligns well with the JSON format, simplifying data exchange between the backend (NestJS) and frontend (ReactJS) \cite{MongoDBTheDefinitiveGuide}.
+    \item \textbf{Community and Ecosystem}: MongoDB has a robust community and a rich ecosystem of tools and libraries, which support and streamline the development process \cite{LearningNoSQL}.
+\end{itemize}
+
+By leveraging MongoDB, we ensure that our application can efficiently handle current and future data requirements, providing a robust foundation for scalability and performance \cite{MongoDBAppliedDesignPatterns}.
+
 \section{Design}
 This phase of the project builds upon our foundational work to refine and expand the architecture of our reward system. We delve into key considerations, decisions, and enhancements introduced in this release, focusing particularly on how our models support the reward functionalities.
 
@@ -247,7 +325,7 @@ This phase of the project builds upon our foundational work to refine and expand
 The static modeling phase has been pivotal in defining the core structure of our reward system. We have continued to refine our data models and database schema to align with our evolving functional requirements and business rules.
 
 
-\subsubsection{Domain model}
+\subsubsection*{Domain model}
 We have structured our reward system around four primary classes: RewardLog, UserRewards, and Achievement. These classes are designed to seamlessly interact within our system to facilitate efficient reward management and user engagement through achievements.
 \\
 
@@ -289,12 +367,12 @@ This class diagram provides a comprehensive overview of the reward system's arch
 
 \begin{figure}[H]
     \centering
-    \makebox[\textwidth]{\includegraphics[width=16cm, height=19cm, keepaspectratio]{src/assets/diagrams/RewardSystemClassDiagram.png}}
+    \makebox[\textwidth]{\includegraphics[width=16cm, height=19cm, keepaspectratio]{src/assets/diagrams/reward--system-classDiagram.drawio.png}}
     \caption{Reward system class diagram}
     \label{fig:reward_system-class}
 \end{figure}
 
-\subsubsection{Data dictionary}
+\subsubsection*{Data dictionary}
 In the table \ref{database-architecture}, we provide a comprehensive overview of the essential data elements
 that will define our entities and relationships for the second release.
 
@@ -382,14 +460,14 @@ that will define our entities and relationships for the second release.
     \end{longtable}
 \end{landscape}
 
-\subsubsection{Logical data model}
-In this section, I will present the entity-relationship diagrams (ERDs) for our MongoDB database. These diagrams will visually represent our data structures and their relationships. Due to extensive interactions with other microservices, there are fewer direct relationships within the MongoDB entities. This design minimizes internal dependencies, relying on microservice communication to handle complex interactions, thereby enhancing system flexibility and scalability.
+\subsubsection*{data model}
+In this section, I will present the document model for our MongoDB database. These diagrams will visually represent our data structures and their relationships. Due to extensive interactions with other microservices, there are fewer direct relationships within the MongoDB entities. This design minimizes internal dependencies, relying on microservice communication to handle complex interactions, thereby enhancing system flexibility and scalability.
 \noindent The figure \ref{fig:database-architecture} illustrates the entity-relationship diagram.
 
 \begin{figure}[H]
     \centering
-    \makebox[\textwidth]{\includegraphics[width=16cm, height=12cm, keepaspectratio]{src/assets/diagrams/datatabasArchitecture.png}}
-    \caption{Database Architecture}
+    \makebox[\textwidth]{\includegraphics[width=16cm, height=12cm, keepaspectratio]{src/assets/diagrams/RewardSystemC-1.png}}
+    \caption{Document oriented data model}
     \label{fig:database-architecture}
 \end{figure}
 

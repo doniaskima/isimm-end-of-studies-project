@@ -2,13 +2,14 @@
 \setcounter{secnumdepth}{0}
 
 \section{Introduction}
-In this chapter, we explore the first sprint of the Aermax project, emphasizing the crucial enhancements and integrations that have been made to elevate the platform. This sprint was pivotal in addressing essential needs, laying a strong foundation for future advancements, and significantly improving overall functionality and user experience. Through strategic updates and new features, we have fortified the platform to better meet the needs of its users.\setcounter{secnumdepth}{2} 
+In this chapter, we explore the first sprint of the Aermax project, emphasizing the crucial enhancements and integrations that have been made to elevate the platform. This sprint was pivotal in addressing essential needs, laying a strong foundation for future advancements, and significantly improving overall functionality and user experience. Through strategic updates and new features, we have fortified the platform to better meet the needs of its users.\setcounter{secnumdepth}{3} 
 \section{Major Features and Enhancements}
 This section details the major features and enhancements introduced during the first sprint of the Aermax project. Each item listed in the sprint backlog was carefully selected to address critical needs and provide significant improvements to the platform's functionality and user experience.
 \subsection{Sprint Backlog Detail}
-Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements and new features }in Sprint 1. Below, we're going to share some of them. The biggest changes that we can discuss are highlighted below the blue colored line in the table.
+Below is a detailed representation of our sprint backlog, showcasing the major tasks we committed to delivering in Sprint 1. We fixed around \textbf{26+ bugs, feature enhancements, and new features} in Sprint 1. Below, we're going to share some of them. The biggest changes that we can discuss are highlighted below the blue-colored line in Table \ref{tab:sprint-backlog}. The features include both new developments and enhancements to existing functionalities.
 \begin{longtable}{ | m{0.15\textwidth} | m{0.2\textwidth} | m{0.25\textwidth} | m{0.1\textwidth} | m{0.16\textwidth} | }
-    \caption{Detailed Sprint Backlog} \\
+    \caption{Detailed Sprint Backlog}
+    \label{tab:sprint-backlog} \\
     \hline
     \textbf{Type} & \textbf{Title} & \textbf{Description} & \textbf{Priority} & \textbf{Estimation} \\
     \hline
@@ -135,16 +136,15 @@ The dynamic equipment list system will consist of several key components:
     \item \textbf{Notification System:} This component will handle real-time and email notifications to keep users informed about important actions like equipment requests, approvals, and rejections.
 \end{itemize}
 \paragraph{Class Diagram}
-The class diagram below (Figure \ref{fig:class_diagram}) illustrates the key components and relationships involved in the dynamic equipment list feature.
+The class diagram below (Figure \ref{fig:class_diagram}) illustrates the key components and relationships involved in the dynamic equipment list feature. The existing class diagram for the application is included in the appendix, and the \texttt{User} and \texttt{Subcompany} classes are reused in the current diagram.
 \begin{figure}[H]
     \centering
     \resizebox{1\textwidth}{!}{
-        \includegraphics{src/assets/diagrams/DynamiEquipementListPng.png}
+        \includegraphics{src/assets/diagrams/DynamiEquipmentListClassDiagram.drawio.png}
     }
     \caption{Class Diagram for Dynamic Equipment List}
     \label{fig:class_diagram}
 \end{figure}
-
 
 \paragraph{Subcompany Interface}
 The images below show the subcompany interface after the implementation of the dynamic equipment list, illustrating the improved user experience for subcompany users.
@@ -185,9 +185,8 @@ The following image (Figure \ref{fig:feedback_form}) illustrates the user interf
 \end{figure}
 
 \subsection{Overhaul of the Role System}
-The Aermax platform's role system was overhauled during Sprint 1 to improve clarity and security. Previously, roles had overlapping permissions, causing confusion and security issues. Now, each role has specific permissions aligned with its responsibilities.
-
-\subsubsection{Detailed Role Permissions Before \& After}
+The Aermax platform's role system was overhauled during Sprint 1 to improve clarity and security. Previously, roles had overlapping permissions, causing confusion and security issues. Now, each role has specific permissions aligned with its responsibilities.\\
+The comparison of role permissions before and after the overhaul is summarized in the table below (Table \ref{tab:role_permissions_comparison}).
 \begin{longtable}{|p{3cm}|p{5cm}|p{5cm}|}
 \caption{Comparison of role permissions before and after the overhaul.} \label{tab:role_permissions_comparison} \\
 \hline
@@ -207,20 +206,18 @@ The Aermax platform's role system was overhauled during Sprint 1 to improve clar
 \endlastfoot
 
 Administrator & 
-- Limited access to projects managed by non-admin Project Managers &
-- Full access to all projects \\ \hline
+Limited access to projects managed by non-admin Project Managers &
+Full access to all projects \\ \hline
 
 Worker & 
-- Could see all project packets &
-- Can only see their own projects and packets \\ \hline
-
+Could see all project packets &
+Can only see their own projects and packets \\ \hline
 
 Team Leader & 
-- Could see only their own packets &
-- Can see packets of other workers within their phase   \\ \hline
+Could see only their own packets &
+Can see packets of other workers within their phase   \\ \hline
 
 \end{longtable}
-
 \textbf{Scenario Demonstrations After Overhaul:}
 \begin{itemize}
     \item \textbf{Administrator Scenario:} An Administrator maintains complete control, capable of managing all aspects of the project lifecycle.
@@ -252,9 +249,8 @@ The implemented feature is illustrated in Figure \ref{fig:ui_ux_enhancements}.
 \end{figure}
 
 \subsection{User Authentication System}
-We implemented an authentication system using Keycloak. As part of this overhaul, we encountered the challenge of duplicate user entries due to previous system design limitations. By leveraging Keycloak’s versatile user federation and identity provider features, we were able to consolidate user accounts and eliminate redundancies, thereby solving the issue of duplicate entries. Keycloakify complemented this integration by allowing us to customize the authentication pages to align with our platform's aesthetics and usability standards.
+We implemented an authentication system using Keycloak. As part of this overhaul, we encountered the challenge of duplicate user entries due to previous system design limitations. By leveraging Keycloak’s versatile user federation and identity provider features, we were able to consolidate user accounts and eliminate redundancies, thereby solving the issue of duplicate entries. Keycloakify complemented this integration by allowing us to customize the authentication pages to align with our platform's aesthetics and usability standards. The following table (Table \ref{tab:keycloak_features}) presents a summary of the key features implemented as part of the authentication system, along with the technologies used and a brief description of each feature.
 
-\subsubsection{Feature Implementation Table:}
 \begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{|X|X|X|}
@@ -272,5 +268,4 @@ Password Management & Keycloak & Developed a secure and user-friendly password m
 
 \setcounter{secnumdepth}{0}
 \section{Conclusion}
-Sprint 1 has laid a strong foundation for the Aermax platform by addressing critical needs and improving overall functionality and user experience. Looking ahead to Sprint 2, we will focus on a major feature: the reward system, which promises to further enhance user engagement and satisfaction.
-
+Sprint 1 has laid a strong foundation for the Aermax platform by addressing critical needs and improving overall functionality and user experience. The dynamic equipment list and enhanced role system have significantly streamlined operations. Improvements to the feedback notification system and working packets UI/UX have enhanced usability. While there were many other enhancements not mentioned in this report, we have covered the major ones. Looking ahead to Sprint 2, we will focus on developing the reward system to further engage and motivate users.
